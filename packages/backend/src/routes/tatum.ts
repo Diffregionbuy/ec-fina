@@ -39,13 +39,9 @@ const TIER1_CHAINS: ChainDef[] = [
   { key: 'base', name: 'Base', symbol: 'ETH', mainnet: 'base-mainnet', testnet: 'base-sepolia' },
   { key: 'bitcoin', name: 'Bitcoin', symbol: 'BTC', mainnet: 'bitcoin-mainnet', testnet: 'bitcoin-testnet' },
   { key: 'bsc', name: 'Binance Smart Chain', symbol: 'BNB', mainnet: 'bsc-mainnet', testnet: 'bsc-testnet' },
-  { key: 'sui', name: 'Sui', symbol: 'SUI', mainnet: 'sui-mainnet', testnet: 'sui-testnet' },
-  { key: 'near', name: 'NEAR', symbol: 'NEAR', mainnet: 'near-mainnet', testnet: 'near-testnet' },
-  { key: 'bitcoincash', name: 'Bitcoin Cash', symbol: 'BCH', mainnet: 'bitcoincash-mainnet', testnet: 'bitcoincash-testnet' },
   { key: 'cardano', name: 'Cardano', symbol: 'ADA', mainnet: 'cardano-mainnet', testnet: 'cardano-preprod' },
   { key: 'celo', name: 'Celo', symbol: 'CELO', mainnet: 'celo-mainnet', testnet: 'celo-alfajores' },
   { key: 'dogecoin', name: 'Dogecoin', symbol: 'DOGE', mainnet: 'dogecoin-mainnet', testnet: 'dogecoin-testnet' },
-  { key: 'eos', name: 'EOS', symbol: 'EOS', mainnet: 'eos-mainnet', testnet: 'eos-testnet' },
   { key: 'ethereum', name: 'Ethereum', symbol: 'ETH', mainnet: 'ethereum-mainnet', testnet: 'ethereum-sepolia' },
   { key: 'fantom', name: 'Fantom', symbol: 'FTM', mainnet: 'fantom-mainnet', testnet: 'fantom-testnet' },
   { key: 'flare', name: 'Flare', symbol: 'FLR', mainnet: 'flare-mainnet', testnet: 'flare-coston' },
@@ -63,31 +59,29 @@ const byKey = (k: string) => TIER1_CHAINS.find((c) => c.key === k)!;
 
 // Define coin -> supported networks mapping (Tier-1 only)
 const COIN_NETWORKS: Record<string, string[]> = {
-  // native coins
+  // Native coins (verified working with Tatum API)
+  ALGO: ['algorand'], // Added - Algorand blockchain
   BTC: ['bitcoin'],
   ETH: ['ethereum', 'arbitrum', 'base', 'optimism'],
   AVAX: ['avalanche'],
   BNB: ['bsc'],
-  SUI: ['sui'],
-  NEAR: ['near'],
-  BCH: ['bitcoincash'],
   ADA: ['cardano'],
-  CELO: ['celo'],
+  CELO: ['celo'], // Added - confirmed working with proper API key
   DOGE: ['dogecoin'],
-  EOS: ['eos'],
   FTM: ['fantom'],
   FLR: ['flare'],
-  KAI: ['kaia'],
+  KAI: ['kaia'], // Klaytn
   LTC: ['litecoin'],
   MATIC: ['polygon'],
   XRP: ['ripple'],
   SOL: ['solana'],
-  XLM: ['stellar'],
+  XLM: ['stellar'], // Added back - working endpoint found
   TRX: ['tron'],
 
-  // Stablecoins support lists
-  USDT: ['algorand', 'bsc', 'celo', 'eos', 'ethereum', 'polygon', 'solana', 'stellar', 'tron'],
+  // Stablecoins support lists (complete multi-chain support)
+  USDT: ['algorand', 'bsc', 'celo', 'ethereum', 'polygon', 'solana', 'stellar', 'tron'],
   USDC: ['algorand', 'arbitrum', 'avalanche', 'base', 'bsc', 'celo', 'ethereum', 'optimism', 'polygon', 'solana', 'stellar'],
+  PYUSD: ['ethereum', 'solana'], // PayPal USD - Ethereum and Solana
 };
 
 // GET /api/tatum/supported - coins + networks for dropdowns (tatum-based)

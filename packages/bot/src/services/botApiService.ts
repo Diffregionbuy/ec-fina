@@ -379,6 +379,31 @@ export class BotApiService {
     }
   }
 
+  // Manual payment status check
+  public async checkPaymentStatus(orderId: string): Promise<{
+    status: string;
+    expectedAmount: number;
+    receivedAmount: number;
+    address?: string;
+    transactionHash?: string;
+    currency?: string;
+  }> {
+    const startTime = Date.now();
+    try {
+      const response: AxiosResponse<ApiResponse<any>> = await this.axiosInstance.post(
+        `/api/bot-service/payments/${orderId}/check`
+      );
+      logApiCall(`/api/bot-service/payments/${orderId}/check`, 'POST', true, Date.now() - startTime);
+      if (!response.data.success || !response.data.data) {
+        throw new Error(response.data.error || 'Payment check failed');
+      }
+      return response.data.data;
+    } catch (error: any) {
+      logApiCall(`/api/bot-service/payments/${orderId}/check`, 'POST', false, Date.now() - startTime, error);
+      throw error;
+    }
+  }
+
   // Generate Minecraft link code
   public async generateMinecraftLinkCode(serverId: string, discordUserId: string): Promise<string> {
     const startTime = Date.now();

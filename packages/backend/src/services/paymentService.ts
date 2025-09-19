@@ -145,29 +145,82 @@ export class PaymentService {
       // Set up crypto payment if needed
       if (!paymentMethod) {
         try {
-          const paymentSetup = await tatumService.createPaymentSetup(
-            order.id,
+          // Resolve shop owner for the server
+          const { data: serverDetails, error: serverDetailsError } = await supabase
+            .from('servers')
+            .select('owner_id')
+            .eq('id', internalServerId)
+            .single();
+
+          if (serverDetailsError || !serverDetails?.owner_id) {
+            throw new Error('Failed to resolve server owner');
+          }
+
+          const ownerId = serverDetails.owner_id;
+
+          // Determine target chain from currency
+          const targetChain = this.getTargetChain(cryptoCurrency);
+
+          // Get or create VA deposit address for the owner (unique per invoice)
+          const vaResult = await tatumService.getOrCreateVADepositAddress(
+            ownerId,
+            cryptoCurrency,
+            targetChain,
+            order.id
+          );
+
+          logger.info('[invoice] using VA for payment', {
+            orderId: order.id,
+            accountId: vaResult.accountId,
+            currency: cryptoCurrency,
+            chain: targetChain,
+            ownerId
+          });
+
+          logger.info('[invoice] deposit address assigned', {
+            orderId: order.id,
+            address: vaResult.address,
+            accountId: vaResult.accountId
+          });
+
+          // Generate QR code
+          const qrCode = this.generateQRCode(
+            vaResult.address,
             cryptoCurrency,
             expectedCryptoAmount ? expectedCryptoAmount.toFixed(8) : undefined
           );
 
           cryptoInfo = {
-            address: paymentSetup.address,
+            address: vaResult.address,
             coin: cryptoCurrency,
-            network: 'ethereum',
+            network: targetChain,
             amount: (expectedCryptoAmount ?? expectedFiat).toFixed(8),
-            qrCode: paymentSetup.qrCode,
+            qrCode: qrCode,
             fiat_amount: expectedFiat,
             fiat_currency: product.currency,
             conversion_rate: conversionInfo?.rate,
             conversion_source: conversionInfo?.source,
-            conversion_at: conversionInfo?.at
+            conversion_at: conversionInfo?.at,
+            va_account_id: vaResult.accountId
           };
+
+          // Update order with crypto info (no webhook)
+          const { error: updateError } = await supabase
+            .from('payment_orders')
+            .update({
+              crypto_info: cryptoInfo,
+              updated_at: new Date().toISOString()
+            })
+            .eq('id', order.id);
+
+          if (updateError) {
+            logger.error('Failed to update order with crypto info:', updateError);
+          }
 
           logger.info('Crypto payment setup completed', {
             orderId: order.id,
-            address: paymentSetup.address,
-            webhookId: paymentSetup.webhookId
+            address: vaResult.address,
+            accountId: vaResult.accountId
           });
 
         } catch (error) {
@@ -438,6 +491,123 @@ export class PaymentService {
     } catch (error) {
       logger.error('Failed to get server orders:', error);
       throw error;
+    }
+  }
+
+  /**
+   * Get target chain for a cryptocurrency
+   */
+  private getTargetChain(cryptoCurrency: string): string {
+    const chainMap: Record<string, string> = {
+      'ALGO': 'algorand-testnet',
+      'ALGORAND': 'algorand-testnet',
+      'ETH': 'ethereum-sepolia', // Use testnet for development
+      'ETHEREUM': 'ethereum-sepolia',
+      'BTC': 'bitcoin-testnet',
+      'BITCOIN': 'bitcoin-testnet',
+      'MATIC': 'polygon-amoy',
+      'POLYGON': 'polygon-amoy',
+      'BNB': 'bsc-testnet',
+      'BSC': 'bsc-testnet',
+      'SOL': 'solana-devnet',
+      'SOLANA': 'solana-devnet',
+      'TRX': 'tron-shasta',
+      'TRON': 'tron-shasta',
+      'XRP': 'xrp-testnet',
+      'ADA': 'cardano-preprod',
+      'CARDANO': 'cardano-preprod',
+      'DOGE': 'dogecoin-testnet',
+      'LTC': 'litecoin-testnet',
+      'AVAX': 'avalanche-fuji',
+      'AVALANCHE': 'avalanche-fuji',
+      'FTM': 'fantom-testnet',
+      'FANTOM': 'fantom-testnet',
+      'FLR': 'flare-coston',
+      'FLARE': 'flare-coston',
+      'KAI': 'kaia-baobab',
+      'KAIA': 'kaia-baobab',
+      'KLAY': 'kaia-baobab',
+      'KLAYTN': 'kaia-baobab',
+      'XLM': 'stellar-testnet',
+      'STELLAR': 'stellar-testnet',
+      'CELO': 'celo-alfajores',
+      // Layer 2 and additional EVM chains
+      'ARBITRUM': 'arbitrum-sepolia',
+      'BASE': 'base-sepolia',
+      'OPTIMISM': 'optimism-sepolia',
+      // Stablecoins (default to Ethereum testnet, but can be overridden)
+      'USDT': 'ethereum-sepolia',
+      'USDC': 'ethereum-sepolia',
+      'PYUSD': 'ethereum-sepolia'
+    };
+
+    // In production, use mainnet
+    if (process.env.NODE_ENV === 'production') {
+      const mainnetMap: Record<string, string> = {
+        'ALGO': 'algorand-mainnet',
+        'ALGORAND': 'algorand-mainnet',
+        'ETH': 'ethereum-mainnet',
+        'ETHEREUM': 'ethereum-mainnet',
+        'BTC': 'bitcoin-mainnet',
+        'BITCOIN': 'bitcoin-mainnet',
+        'MATIC': 'polygon-mainnet',
+        'POLYGON': 'polygon-mainnet',
+        'BNB': 'bsc-mainnet',
+        'BSC': 'bsc-mainnet',
+        'SOL': 'solana-mainnet',
+        'SOLANA': 'solana-mainnet',
+        'TRX': 'tron-mainnet',
+        'TRON': 'tron-mainnet',
+        'XRP': 'xrp-mainnet',
+        'ADA': 'cardano-mainnet',
+        'CARDANO': 'cardano-mainnet',
+        'DOGE': 'dogecoin-mainnet',
+        'LTC': 'litecoin-mainnet',
+        'AVAX': 'avalanche-c',
+        'AVALANCHE': 'avalanche-c',
+        'FTM': 'fantom-mainnet',
+        'FANTOM': 'fantom-mainnet',
+        'FLR': 'flare-mainnet',
+        'FLARE': 'flare-mainnet',
+        'KAI': 'kaia-mainnet',
+        'KAIA': 'kaia-mainnet',
+        'KLAY': 'kaia-mainnet',
+        'KLAYTN': 'kaia-mainnet',
+        'XLM': 'stellar-mainnet',
+        'STELLAR': 'stellar-mainnet',
+        'CELO': 'celo-mainnet',
+        // Layer 2 and additional EVM chains
+        'ARBITRUM': 'arbitrum-one',
+        'BASE': 'base-mainnet',
+        'OPTIMISM': 'optimism-mainnet',
+        // Stablecoins (default to Ethereum mainnet, but can be overridden)
+        'USDT': 'ethereum-mainnet',
+        'USDC': 'ethereum-mainnet',
+        'PYUSD': 'ethereum-mainnet'
+      };
+      return mainnetMap[cryptoCurrency.toUpperCase()] || 'ethereum-mainnet';
+    }
+
+    return chainMap[cryptoCurrency.toUpperCase()] || 'ethereum-sepolia';
+  }
+
+  /**
+   * Generate QR code data for payment
+   */
+  private generateQRCode(address: string, currency: string, amount?: string): string {
+    // Generate QR code data based on currency
+    switch (currency.toUpperCase()) {
+      case 'ETH':
+      case 'ETHEREUM':
+        return `ethereum:${address}${amount ? `?value=${amount}` : ''}`;
+      case 'BTC':
+      case 'BITCOIN':
+        return `bitcoin:${address}${amount ? `?amount=${amount}` : ''}`;
+      case 'MATIC':
+      case 'POLYGON':
+        return `ethereum:${address}${amount ? `?value=${amount}` : ''}`;
+      default:
+        return address;
     }
   }
 

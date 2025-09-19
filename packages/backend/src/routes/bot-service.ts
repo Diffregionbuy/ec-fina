@@ -12,6 +12,7 @@ import { AppError } from '../middleware/centralizedErrorHandler';
 import { rateLimiter } from '../middleware/rateLimiter';
 import { supabase } from '../config/database';
 import { paymentService } from '../services/paymentService';
+import { tatumService } from '../services/tatumService';
 
 const router = Router();
 
@@ -860,6 +861,140 @@ router.post('/minecraft/verify-link',
         error: {
           code: 'LINK_VERIFICATION_ERROR',
           message: 'Failed to verify Minecraft account link',
+          timestamp: new Date().toISOString()
+        }
+      });
+    }
+  }
+);
+
+/**
+ * Test TatumService (for debugging)
+ * GET /api/bot-service/test-tatum
+ */
+router.get('/test-tatum',
+  authenticateServiceJWT,
+  async (req: BotServiceRequest, res) => {
+    try {
+      logger.info('Testing TatumService');
+      
+      // Test basic TatumService functionality
+      const healthStatus = tatumService.getHealthStatus();
+      logger.info('TatumService health status', { healthStatus });
+      
+      res.json({
+        success: true,
+        data: {
+          message: 'TatumService test successful',
+          healthStatus
+        },
+        timestamp: new Date().toISOString(),
+      });
+    } catch (error) {
+      logger.error('TatumService test failed:', error);
+      res.status(500).json({
+        success: false,
+        error: {
+          code: 'TATUM_TEST_ERROR',
+          message: error.message || 'TatumService test failed',
+          timestamp: new Date().toISOString()
+        }
+      });
+    }
+  }
+);
+
+/**
+ * Check payment status for an order (for Discord bot)
+ * POST /api/bot-service/payments/:orderId/check
+ */
+router.post('/payments/:orderId/check',
+  authenticateServiceJWT,
+  requireBotPermissions(['read_orders']),
+  async (req: BotServiceRequest, res) => {
+    try {
+      const { orderId } = req.params;
+      
+      if (!orderId) {
+        throw new AppError('Order ID is required', 400, 'MISSING_ORDER_ID');
+      }
+
+      logger.info('Bot service checking payment status', {
+        service: req.botService!.serviceId,
+        orderId
+      });
+
+      logger.info('Starting payment check', { orderId });
+
+      // Get order details
+      const { data: order, error: orderError } = await supabase
+        .from('payment_orders')
+        .select('*')
+        .eq('id', orderId)
+        .single();
+
+      if (orderError || !order) {
+        logger.error('Order not found', { orderId, orderError });
+        throw new AppError('Order not found', 404, 'ORDER_NOT_FOUND');
+      }
+
+      logger.info('Order found', { 
+        orderId, 
+        status: order.status, 
+        hasCryptoInfo: !!order.crypto_info,
+        address: order.crypto_info?.address 
+      });
+
+      // Perform manual payment check using TatumService
+      logger.info('Calling tatumService.checkOrderPaymentStatus');
+      let paymentStatus;
+      try {
+        paymentStatus = await tatumService.checkOrderPaymentStatus(orderId);
+        logger.info('Payment status received', { paymentStatus });
+      } catch (tatumError) {
+        logger.error('TatumService error', { 
+          error: tatumError.message, 
+          stack: tatumError.stack,
+          orderId 
+        });
+        throw tatumError;
+      }
+
+      // Get currency from order crypto_info
+      const currency = order.crypto_info?.coin || 'ETH';
+
+      res.json({
+        success: true,
+        data: {
+          orderId,
+          status: paymentStatus.status,
+          expectedAmount: paymentStatus.expectedAmount,
+          receivedAmount: paymentStatus.receivedAmount,
+          address: paymentStatus.address,
+          transactionHash: paymentStatus.transactionHash,
+          currency: currency,
+          checkedAt: new Date().toISOString()
+        },
+        timestamp: new Date().toISOString(),
+      });
+    } catch (error) {
+      if (error instanceof AppError) {
+        return res.status(error.statusCode).json({
+          success: false,
+          error: {
+            code: error.code,
+            message: error.message,
+            timestamp: new Date().toISOString()
+          }
+        });
+      }
+      
+      logger.error('Failed to check payment status:', error);
+      res.status(500).json({
+        success: false,
+        error: {
+          code: 'PAYMENT_CHECK_ERROR',
+          message: 'Failed to check payment status',
           timestamp: new Date().toISOString()
         }
       });

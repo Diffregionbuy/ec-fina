@@ -179,6 +179,78 @@ router.post('/create', authenticateToken, async (req: Request, res: Response) =>
 });
 
 /**
+ * POST /api/payments/:orderId/check
+ * Manually check payment status for an order
+ */
+router.post('/:orderId/check', authenticateToken, async (req: Request, res: Response) => {
+  try {
+    const { orderId } = req.params;
+    const userId = (req as any).user.id;
+
+    // Import TatumService
+    const { tatumService } = await import('../services/tatumService');
+
+    // Verify user has access to this order
+    const { data: order, error: orderError } = await supabase
+      .from('payment_orders')
+      .select('*, servers!inner(owner_id)')
+      .eq('id', orderId)
+      .single();
+
+    if (orderError || !order) {
+      return res.status(404).json({
+        success: false,
+        error: {
+          code: 'ORDER_NOT_FOUND',
+          message: 'Order not found',
+          timestamp: new Date().toISOString(),
+        },
+      });
+    }
+
+    // Check authorization (user is order creator or server owner)
+    if (order.user_id !== userId && order.servers.owner_id !== userId) {
+      return res.status(403).json({
+        success: false,
+        error: {
+          code: 'UNAUTHORIZED',
+          message: 'Not authorized to check this order',
+          timestamp: new Date().toISOString(),
+        },
+      });
+    }
+
+    // Perform manual payment check
+    const paymentStatus = await tatumService.checkOrderPaymentStatus(orderId);
+
+    res.json({
+      success: true,
+      data: {
+        orderId,
+        status: paymentStatus.status,
+        expectedAmount: paymentStatus.expectedAmount,
+        receivedAmount: paymentStatus.receivedAmount,
+        address: paymentStatus.address,
+        transactionHash: paymentStatus.transactionHash,
+        checkedAt: new Date().toISOString()
+      },
+      timestamp: new Date().toISOString(),
+    });
+
+  } catch (error: any) {
+    logger.error('Manual payment check failed:', error);
+    res.status(500).json({
+      success: false,
+      error: {
+        code: 'PAYMENT_CHECK_FAILED',
+        message: error.message || 'Failed to check payment status',
+        timestamp: new Date().toISOString(),
+      },
+    });
+  }
+});
+
+/**
  * GET /api/payments/:paymentId/status
  * Get payment status
  */

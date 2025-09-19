@@ -1274,13 +1274,28 @@ ${vars.product_description}`);
 
         const coinSelect = new StringSelectMenuBuilder()
           .setCustomId('coin_select').setPlaceholder('Select coin').setMinValues(1).setMaxValues(1)
-          .addOptions(coinTickers.map(t => ({ label: t, value: t, default: t === selectedCoin })));
+          .addOptions(coinTickers.map((t: string) => ({ 
+            label: t, 
+            value: t, 
+            default: t === selectedCoin,
+            description: `Select ${t}` 
+          })));
         const networkSelect = new StringSelectMenuBuilder()
           .setCustomId('network_select').setPlaceholder('Select network').setMinValues(1).setMaxValues(1)
-          .addOptions(nets.map(n => ({ label: n.label, value: n.id, default: n.id === selectedNetworkId })));
+          .addOptions(nets.map((n: any) => ({ 
+            label: n.label, 
+            value: n.id, 
+            default: n.id === selectedNetworkId,
+            description: `Network: ${n.label}`
+          })));
         const quantitySelect = new StringSelectMenuBuilder()
           .setCustomId('qty_select').setPlaceholder('Select quantity').setMinValues(1).setMaxValues(1)
-          .addOptions(Array.from({length:5}, (_, i) => String(i+1)).map(q => ({ label: q, value: q, default: q === String(qty) })));
+          .addOptions(Array.from({length:5}, (_, i) => String(i+1)).map((q: string) => ({ 
+            label: q, 
+            value: q, 
+            default: q === String(qty),
+            description: `Quantity: ${q}`
+          })));
         const buttonsRow = new ActionRowBuilder<ButtonBuilder>().addComponents(
           new ButtonBuilder().setCustomId('confirm_order').setLabel('Confirm').setStyle(ButtonStyle.Success),
           new ButtonBuilder().setCustomId('link_account').setLabel('Link').setStyle(ButtonStyle.Secondary)
@@ -1330,17 +1345,79 @@ ${vars.product_description}`);
             try { await interaction.deferUpdate(); } catch {}
         }
         const msgId = String((interaction as any).message?.id || '');
+        
+        console.log('handleInvoiceButton - Message ID extraction:', {
+            rawMessageId: (interaction as any).message?.id,
+            stringMessageId: msgId,
+            messageExists: !!(interaction as any).message,
+            interactionType: interaction.type,
+            customId: interaction.customId
+        });
+        
         const session: any = msgId ? getBrowseSession(msgId) : null;
         const orderId = session?.orderId;
         const walletAddress = session?.walletAddress;
 
         try {
             if (interaction.customId === 'invoice_check') {
-                if (!orderId) { await interaction.followUp({ content: 'ℹ️ No order to check.', flags: 64 }); return; }
-                const { PaymentService } = await import('../services/paymentService');
-                const ps = PaymentService.getInstance();
-                const order = await ps.getPaymentOrderStatus(orderId, true);
-                await interaction.followUp({ content: `Status: ${ps.getPaymentStatusEmoji(order.status)} ${order.status}`, flags: 64 });
+                // Import listAllSessions for debugging
+                const { listAllSessions } = await import('../utils/browseSessionStore');
+                const allSessions = listAllSessions();
+                
+                // Debug logging
+                console.log('Invoice check debug:', {
+                    msgId,
+                    hasSession: !!session,
+                    sessionKeys: session ? Object.keys(session) : [],
+                    orderId,
+                    sessionOrderId: session?.orderId,
+                    fullSession: session,
+                    allSessions: allSessions
+                });
+                
+                if (!orderId) { 
+                    const debugInfo = `msgId=${msgId}, hasSession=${!!session}, sessionKeys=${session ? Object.keys(session).join(',') : 'none'}, totalSessions=${allSessions.length}`;
+                    await interaction.followUp({ 
+                        content: `ℹ️ No order to check. The session may have expired. Please create a new invoice.\n\nDebug: ${debugInfo}`, 
+                        flags: 64 
+                    }); 
+                    return; 
+                }
+                
+                try {
+                    // Use manual payment checking via API
+                    const apiService = (await import('../services/botApiService')).BotApiService.getInstance();
+                    const checkResult = await apiService.checkPaymentStatus(orderId);
+                    
+                    const { PaymentService } = await import('../services/paymentService');
+                    const ps = PaymentService.getInstance();
+                    
+                    let statusMessage = `Status: ${ps.getPaymentStatusEmoji(checkResult.status)} **${checkResult.status.toUpperCase()}**\n`;
+                    
+                    if (checkResult.status === 'paid') {
+                        statusMessage += `✅ Payment confirmed!\n`;
+                        statusMessage += `💰 Received: ${checkResult.receivedAmount.toFixed(8)} ${checkResult.currency || 'crypto'}\n`;
+                        if (checkResult.transactionHash) {
+                            statusMessage += `🔗 TX: \`${checkResult.transactionHash.slice(0, 16)}...\``;
+                        }
+                    } else if (checkResult.status === 'pending') {
+                        statusMessage += `⏳ Waiting for payment...\n`;
+                        statusMessage += `💰 Expected: ${checkResult.expectedAmount.toFixed(8)} ${checkResult.currency || 'crypto'}\n`;
+                        if (checkResult.receivedAmount > 0) {
+                            statusMessage += `📥 Received: ${checkResult.receivedAmount.toFixed(8)} (partial)`;
+                        }
+                    } else if (checkResult.status === 'expired') {
+                        statusMessage += `⏰ Order has expired. Please create a new invoice.`;
+                    }
+                    
+                    await interaction.followUp({ content: statusMessage, flags: 64 });
+                } catch (error: any) {
+                    console.error('Payment check failed:', error);
+                    await interaction.followUp({ 
+                        content: '❌ Failed to check payment status. Please try again.', 
+                        flags: 64 
+                    });
+                }
                 return;
             }
             if (interaction.customId === 'invoice_copy') {
@@ -1427,7 +1504,7 @@ ${vars.product_description}`);
             // Fetch order status/details if needed
             let order: any = null;
             try {
-                order = created?.orderId ? await api.getPaymentOrderStatus(created.orderId) : null;
+                order = created?.id ? await api.getPaymentOrderStatus(created.id) : null;
             } catch {}
 
             // Prepare invoice variables (prefer backend PaymentOrder fields)
@@ -1512,30 +1589,60 @@ ${vars.product_description}`);
                 new ButtonBuilder().setCustomId('invoice_copy').setLabel('Copy Address').setStyle(ButtonStyle.Secondary)
             );
 
-            // Replace current confirmation page with invoice page
-            try {
-                await interaction.webhook.editMessage(String((interaction as any).message?.id), {
-                    embeds: [embed],
-                    components: [buttonsRow]
-                } as any);
-            } catch (_e) {
-                // Fallback if edit fails
-                try { await interaction.followUp({ embeds: [embed], components: [buttonsRow], flags: 64 } as any); } catch {}
-            }
-
-            // Persist order info into session (for check status)
+            // Persist order info into session BEFORE editing message (for check status)
             try {
                 if (messageId) {
-                    updateBrowseSession(messageId, {
-                        orderId: created?.orderId || order?.id,
+                    const sessionData = {
+                        orderId: created?.id || order?.id,
                         orderNumber: created?.orderNumber || order?.order_number,
                         walletAddress,
                         exactAmount,
                         cryptoCurrency,
                         expiresAt: expiresIso || (new Date(expiresTs * 1000)).toISOString()
-                    } as any);
+                    };
+                    
+                    console.log('Updating session with order data BEFORE message edit:', {
+                        messageId,
+                        sessionData,
+                        createdId: created?.id,
+                        orderId: created?.id || order?.id
+                    });
+                    
+                    updateBrowseSession(messageId, sessionData as any);
+                    
+                    // Verify session was updated
+                    const verifySession = getBrowseSession(messageId);
+                    console.log('Session verification after update:', {
+                        messageId,
+                        hasSession: !!verifySession,
+                        hasOrderId: !!verifySession?.orderId,
+                        orderId: verifySession?.orderId
+                    });
                 }
-            } catch {}
+            } catch (error) {
+                console.error('Failed to update session:', error);
+            }
+
+            // Replace current confirmation page with invoice page
+            const originalMessageId = String((interaction as any).message?.id);
+            console.log('Editing message with invoice:', {
+                originalMessageId,
+                messageIdMatch: originalMessageId === messageId,
+                hasEmbed: !!embed,
+                hasButtons: !!buttonsRow
+            });
+            
+            try {
+                await interaction.webhook.editMessage(originalMessageId, {
+                    embeds: [embed],
+                    components: [buttonsRow]
+                } as any);
+                console.log('✅ Successfully edited message to invoice');
+            } catch (_e) {
+                console.log('❌ Failed to edit message, using followUp:', _e);
+                // Fallback if edit fails
+                try { await interaction.followUp({ embeds: [embed], components: [buttonsRow], flags: 64 } as any); } catch {}
+            }
 
         } catch (e) {
             try { await interaction.followUp({ content: '❌ Failed to create invoice. Please try again.', flags: 64 }); } catch {}

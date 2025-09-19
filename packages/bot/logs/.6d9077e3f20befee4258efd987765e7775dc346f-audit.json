@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 30
+    },
+    "auditLog": "C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\logs\\.6d9077e3f20befee4258efd987765e7775dc346f-audit.json",
+    "files": [
+        {
+            "date": 1758267425916,
+            "name": "C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\logs\\rejections-2025-09-19.log",
+            "hash": "5eb7f402ec7bfeb94e35ae1ce933768187733b2688687f10b896471fb1f60a6c"
+        }
+    ],
+    "hashType": "sha256"
+}
