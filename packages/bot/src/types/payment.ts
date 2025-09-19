@@ -12,6 +12,7 @@ export interface PaymentRequest {
 }
 
 export interface PaymentResponse {
+    id: string;
     orderId: string;
     orderNumber: string;
     paymentAddress?: string;
@@ -20,6 +21,13 @@ export interface PaymentResponse {
     currency: string;
     expiresAt: string;
     status: string;
+    cryptoInfo?: {
+        address: string;
+        coin: string;
+        network: string;
+        amount: string;
+        qrCode: string;
+    };
 }
 
 export interface PaymentStatus {

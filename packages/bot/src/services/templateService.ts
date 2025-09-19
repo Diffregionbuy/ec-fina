@@ -282,17 +282,23 @@ export class TemplateService {
             if (selectData.maxValues) select.setMaxValues(selectData.maxValues);
 
             if (selectData.options && Array.isArray(selectData.options)) {
-                const options = selectData.options.map((option: any) => ({
-                    label: this.replaceVariables(option.label, variables),
-                    value: this.replaceVariables(option.value, variables),
-                    ...(option.description && { 
-                        description: this.replaceVariables(option.description, variables) 
-                    }),
-                    ...(option.emoji && { emoji: option.emoji }),
-                    ...(option.default && { default: option.default })
-                }));
+                const options = selectData.options
+                    .filter((option: any) => option && option.label && option.value)
+                    .slice(0, 25)
+                    .map((option: any) => ({
+                        label: this.replaceVariables(option.label, variables),
+                        value: this.replaceVariables(option.value, variables),
+                        ...(option.description && { 
+                            description: this.replaceVariables(option.description, variables) 
+                        }),
+                        ...(option.emoji && { emoji: option.emoji }),
+                        ...(option.default && { default: option.default })
+                    }))
+                    .filter((opt: any) => opt.label && opt.value);
 
-                select.addOptions(options);
+                if (options.length > 0) {
+                    select.addOptions(options);
+                }
             }
 
             row.addComponents(select);

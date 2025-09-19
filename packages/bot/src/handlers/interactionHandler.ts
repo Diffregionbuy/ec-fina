@@ -642,7 +642,7 @@ export class InteractionHandler {
                 label: String(c?.name ?? 'Unnamed'),
                 value: String(c?.id ?? ''),
                 description: (typeof c?.description === 'string' && c.description.length ? toShort(c.description, 50) : undefined)
-            })).filter(o => o.value && o.label);
+            })).filter((o: any) => o.value && o.label);
             const productOptions = productsArr.slice(0, 25).map((p: any) => {
                 const name = (typeof p?.name === 'string' && p.name.length ? p.name : 'Unnamed');
                 const descRaw = typeof p?.description === 'string' ? p.description : '';
@@ -650,7 +650,7 @@ export class InteractionHandler {
                 const price = fmtPrice(p?.price, p?.currency);
                 const description = [desc, price].filter(Boolean).join(' • ') || undefined;
                 return { label: name.length > 100 ? name.slice(0, 99) + '…' : name, value: String(p?.id ?? ''), description };
-            }).filter(o => o.value && o.label);
+            }).filter((o: any) => o.value && o.label);
 
             const components = [
                 new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(
@@ -1018,10 +1018,8 @@ export class InteractionHandler {
                 const priceNum = Number(selectedProduct?.price ?? 0) || 0;
                 // Live network fee via backend (OKX) for initial render (ETH default network)
                 let networkFeeStr = 'calculating...';
+                const defaultNetId = (NETS?.ETH?.[0]?.id) || 'ethereum-erc20';
                 try {
-                    const { BotApiService } = await import('../services/botApiService');
-                    const botApi = BotApiService.getInstance();
-                    const defaultNetId = (NETS?.ETH?.[0]?.id) || 'ethereum-erc20';
                     const est = await botApi.getFeeEstimate({ coin: 'ETH', network: defaultNetId }, 3200);
                     if (est && typeof est.feeNative === 'number' && est.feeUnit && est.feeNative > 0) {
                         networkFeeStr = `${est.feeNative} ${est.feeUnit}`;
@@ -1107,8 +1105,26 @@ ${vars.product_description}`);
                 const quantitySelect = new StringSelectMenuBuilder()
                   .setCustomId('qty_select')
                   .setPlaceholder('Select quantity')
-                  .setMinValues(1).setMaxValues(1)
-                  .addOptions(qtyOptions.map(q => ({ label: q, value: q, default: q === '1' })));
+                  .setMinValues(1).setMaxValues(1);
+                
+                // Build safe quantity options with sanitization
+                const quantityOptionsLocal = (() => {
+                  try {
+                    const arr: any[] = Array.isArray(qtyOptions) ? qtyOptions : [];
+                    return arr.slice(0, 25).map((q: any) => ({
+                      label: String(q || '1'),
+                      value: String(q || '1'),
+                      default: String(q) === '1',
+                      description: `Quantity: ${String(q || '1')}`
+                    })).filter((opt: any) => opt.value && opt.label);
+                  } catch {
+                    return [{ label: '1', value: '1', default: true, description: 'Quantity: 1' }];
+                  }
+                })();
+                
+                if (quantityOptionsLocal.length > 0) {
+                  quantitySelect.addOptions(quantityOptionsLocal);
+                }
                 const buttonsRow = new ActionRowBuilder<ButtonBuilder>().addComponents(
                   new ButtonBuilder().setCustomId('confirm_order').setLabel('Confirm').setStyle(ButtonStyle.Success),
                   new ButtonBuilder().setCustomId('link_account').setLabel('Link').setStyle(ButtonStyle.Secondary)
@@ -1266,36 +1282,74 @@ ${vars.product_description}`);
         if (tmpl?.thumbnail_url) embed.setThumbnail(tmpl.thumbnail_url);
         if (tmpl?.footer_text || tmpl?.footer_icon_url) embed.setFooter({ text: tmpl.footer_text || '', iconURL: tmpl.footer_icon_url || undefined });
 
-        // Build components with selected defaults
+        // Build components with selected defaults using sanitized options
         const coinTickers = COIN_TICKERS;
         const nets = NETS[selectedCoin] ?? NETS.ETH;
         const prevNet = session?.selectedNetwork;
-        const selectedNetworkId = nets.some(n => n.id === prevNet) ? prevNet : nets[0]?.id;
+        const selectedNetworkId = nets.some((n: any) => n.id === prevNet) ? prevNet : nets[0]?.id;
 
+        // Build safe coin options (filter out undefined/empty) - mirroring initial confirmation render
+        const coinOptions = (() => {
+          try {
+            const arr: any[] = Array.isArray(coinTickers) ? coinTickers as any[] : Array.from(coinTickers as any);
+            return arr.slice(0, 25).map((t: any) => ({
+              label: String(t || 'Unknown'),
+              value: String(t || 'unknown'),
+              default: String(t) === selectedCoin,
+              description: `Select ${String(t || 'Unknown')}`
+            })).filter((opt: any) => opt.value && opt.label && opt.value !== 'unknown');
+          } catch {
+            return [{ label: 'ETH', value: 'ETH', default: selectedCoin === 'ETH', description: 'Select ETH' }];
+          }
+        })();
+
+        // Build safe network options (filter out undefined/empty)
+        const networkOptions = (() => {
+          try {
+            const arr: any[] = Array.isArray(nets) ? nets : [];
+            return arr.slice(0, 25).map((n: any) => ({
+              label: String(n?.label || n?.id || 'Unknown'),
+              value: String(n?.id || 'unknown'),
+              default: String(n?.id) === selectedNetworkId,
+              description: `Network: ${String(n?.label || n?.id || 'Unknown')}`
+            })).filter((opt: any) => opt.value && opt.label && opt.value !== 'unknown');
+          } catch {
+            return [{ label: 'Ethereum', value: 'ethereum-mainnet', default: true, description: 'Network: Ethereum' }];
+          }
+        })();
+
+        // Build safe quantity options
+        const quantityOptions = (() => {
+          try {
+            return Array.from({length: 5}, (_, i) => String(i + 1)).map((q: string) => ({
+              label: q,
+              value: q,
+              default: q === String(qty),
+              description: `Quantity: ${q}`
+            }));
+          } catch {
+            return [{ label: '1', value: '1', default: true, description: 'Quantity: 1' }];
+          }
+        })();
+
+        // Create select menus with sanitized options
         const coinSelect = new StringSelectMenuBuilder()
-          .setCustomId('coin_select').setPlaceholder('Select coin').setMinValues(1).setMaxValues(1)
-          .addOptions(coinTickers.map((t: string) => ({ 
-            label: t, 
-            value: t, 
-            default: t === selectedCoin,
-            description: `Select ${t}` 
-          })));
+          .setCustomId('coin_select').setPlaceholder('Select coin').setMinValues(1).setMaxValues(1);
+        if (coinOptions.length > 0) {
+          coinSelect.addOptions(coinOptions);
+        }
+
         const networkSelect = new StringSelectMenuBuilder()
-          .setCustomId('network_select').setPlaceholder('Select network').setMinValues(1).setMaxValues(1)
-          .addOptions(nets.map((n: any) => ({ 
-            label: n.label, 
-            value: n.id, 
-            default: n.id === selectedNetworkId,
-            description: `Network: ${n.label}`
-          })));
+          .setCustomId('network_select').setPlaceholder('Select network').setMinValues(1).setMaxValues(1);
+        if (networkOptions.length > 0) {
+          networkSelect.addOptions(networkOptions);
+        }
+
         const quantitySelect = new StringSelectMenuBuilder()
-          .setCustomId('qty_select').setPlaceholder('Select quantity').setMinValues(1).setMaxValues(1)
-          .addOptions(Array.from({length:5}, (_, i) => String(i+1)).map((q: string) => ({ 
-            label: q, 
-            value: q, 
-            default: q === String(qty),
-            description: `Quantity: ${q}`
-          })));
+          .setCustomId('qty_select').setPlaceholder('Select quantity').setMinValues(1).setMaxValues(1);
+        if (quantityOptions.length > 0) {
+          quantitySelect.addOptions(quantityOptions);
+        }
         const buttonsRow = new ActionRowBuilder<ButtonBuilder>().addComponents(
           new ButtonBuilder().setCustomId('confirm_order').setLabel('Confirm').setStyle(ButtonStyle.Success),
           new ButtonBuilder().setCustomId('link_account').setLabel('Link').setStyle(ButtonStyle.Secondary)

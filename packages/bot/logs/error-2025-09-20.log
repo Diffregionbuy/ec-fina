@@ -1,0 +1,209 @@
+{
+  component: 'events',
+  service: 'discord-bot',
+  error: "Cannot destructure property 'emoji' of 'selectMenuOption' as it is undefined.",
+  stack: "TypeError: Cannot destructure property 'emoji' of 'selectMenuOption' as it is undefined.\n" +
+    '    at Function.normalizeEmoji (C:\\Users\\pmp\\Desktop\\EC-finaa\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:36:13)\n' +
+    '    at C:\\Users\\pmp\\Desktop\\EC-finaa\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:49:91\n' +
+    '    at Array.map (<anonymous>)\n' +
+    '    at StringSelectMenuBuilder.addOptions (C:\\Users\\pmp\\Desktop\\EC-finaa\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:49:53)\n' +
+    '    at InteractionHandler.handleCoinSelect (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\src\\handlers\\interactionHandler.ts:1277:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async InteractionHandler.handleNetworkSelect (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\src\\handlers\\interactionHandler.ts:1324:9)\n' +
+    '    at async InteractionHandler.handleSelectMenu (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\src\\handlers\\interactionHandler.ts:353:17)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\src\\handlers\\interactionHandler.ts:180:17)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\src\\index.ts:67:13)',
+  interactionType: 3,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'error',
+  message: 'Error handling interaction:',
+  timestamp: '2025-09-20 00:01:24'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  error: "Cannot destructure property 'emoji' of 'selectMenuOption' as it is undefined.",
+  stack: "TypeError: Cannot destructure property 'emoji' of 'selectMenuOption' as it is undefined.\n" +
+    '    at Function.normalizeEmoji (C:\\Users\\pmp\\Desktop\\EC-finaa\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:36:13)\n' +
+    '    at C:\\Users\\pmp\\Desktop\\EC-finaa\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:49:91\n' +
+    '    at Array.map (<anonymous>)\n' +
+    '    at StringSelectMenuBuilder.addOptions (C:\\Users\\pmp\\Desktop\\EC-finaa\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:49:53)\n' +
+    '    at InteractionHandler.handleCoinSelect (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\src\\handlers\\interactionHandler.ts:1277:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async InteractionHandler.handleSelectMenu (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\src\\handlers\\interactionHandler.ts:350:17)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\src\\handlers\\interactionHandler.ts:180:17)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\src\\index.ts:67:13)',
+  interactionType: 3,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'error',
+  message: 'Error handling interaction:',
+  timestamp: '2025-09-20 00:02:19'
+}
+{
+  service: 'discord-bot',
+  level: 'error',
+  message: "Error loading command admin.d.ts: Unexpected token 'const'",
+  stack: "SyntaxError: Unexpected token 'const'\n" +
+    '    at compileSourceTextModule (node:internal/modules/esm/utils:344:16)\n' +
+    '    at ModuleLoader.importSyncForRequire (node:internal/modules/esm/loader:420:18)\n' +
+    '    at loadESMFromCJS (node:internal/modules/cjs/loader:1561:24)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1712:5)\n' +
+    '    at Object..js (node:internal/modules/cjs/loader:1895:10)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1487:12)',
+  timestamp: '2025-09-20 00:15:43'
+}
+{
+  service: 'discord-bot',
+  level: 'error',
+  message: "Error loading command link.d.ts: Unexpected token 'const'",
+  stack: "SyntaxError: Unexpected token 'const'\n" +
+    '    at compileSourceTextModule (node:internal/modules/esm/utils:344:16)\n' +
+    '    at ModuleLoader.importSyncForRequire (node:internal/modules/esm/loader:420:18)\n' +
+    '    at loadESMFromCJS (node:internal/modules/cjs/loader:1561:24)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1712:5)\n' +
+    '    at Object..js (node:internal/modules/cjs/loader:1895:10)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1487:12)',
+  timestamp: '2025-09-20 00:15:43'
+}
+{
+  service: 'discord-bot',
+  level: 'error',
+  message: "Error loading command shop.d.ts: Unexpected token 'const'",
+  stack: "SyntaxError: Unexpected token 'const'\n" +
+    '    at compileSourceTextModule (node:internal/modules/esm/utils:344:16)\n' +
+    '    at ModuleLoader.importSyncForRequire (node:internal/modules/esm/loader:420:18)\n' +
+    '    at loadESMFromCJS (node:internal/modules/cjs/loader:1561:24)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1712:5)\n' +
+    '    at Object..js (node:internal/modules/cjs/loader:1895:10)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1487:12)',
+  timestamp: '2025-09-20 00:15:43'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: false,
+  responseTime: '9ms',
+  error: 'Error',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-20 00:15:44'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: false,
+  responseTime: '1ms',
+  error: 'Error',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-20 00:15:45'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: false,
+  responseTime: '1ms',
+  error: 'Error',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-20 00:15:46'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: false,
+  responseTime: '2ms',
+  error: 'Error',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-20 00:15:48'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: false,
+  responseTime: '2ms',
+  error: 'Error',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-20 00:15:52'
+}
+{
+  service: 'discord-bot',
+  level: 'error',
+  message: 'Failed to authenticate with backend API: Authentication failed after retries: Error',
+  stack: 'Error: Authentication failed after retries: Error\n' +
+    '    at BotApiService.authenticate (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\dist\\services\\botApiService.js:130:15)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async ECBot.onReady (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\dist\\index.js:155:13)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\dist\\index.js:80:13)',
+  timestamp: '2025-09-20 00:15:52'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  error: "Cannot destructure property 'emoji' of 'selectMenuOption' as it is undefined.",
+  stack: "TypeError: Cannot destructure property 'emoji' of 'selectMenuOption' as it is undefined.\n" +
+    '    at Function.normalizeEmoji (C:\\Users\\pmp\\Desktop\\EC-finaa\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:36:13)\n' +
+    '    at C:\\Users\\pmp\\Desktop\\EC-finaa\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:49:91\n' +
+    '    at Array.map (<anonymous>)\n' +
+    '    at StringSelectMenuBuilder.addOptions (C:\\Users\\pmp\\Desktop\\EC-finaa\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:49:53)\n' +
+    '    at InteractionHandler.handleCoinSelect (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\src\\handlers\\interactionHandler.ts:1275:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async InteractionHandler.handleNetworkSelect (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\src\\handlers\\interactionHandler.ts:1322:9)\n' +
+    '    at async InteractionHandler.handleSelectMenu (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\src\\handlers\\interactionHandler.ts:353:17)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\src\\handlers\\interactionHandler.ts:180:17)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\src\\index.ts:67:13)',
+  interactionType: 3,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'error',
+  message: 'Error handling interaction:',
+  timestamp: '2025-09-20 00:17:10'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  error: "Cannot destructure property 'emoji' of 'selectMenuOption' as it is undefined.",
+  stack: "TypeError: Cannot destructure property 'emoji' of 'selectMenuOption' as it is undefined.\n" +
+    '    at Function.normalizeEmoji (C:\\Users\\pmp\\Desktop\\EC-finaa\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:36:13)\n' +
+    '    at C:\\Users\\pmp\\Desktop\\EC-finaa\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:49:91\n' +
+    '    at Array.map (<anonymous>)\n' +
+    '    at StringSelectMenuBuilder.addOptions (C:\\Users\\pmp\\Desktop\\EC-finaa\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:49:53)\n' +
+    '    at InteractionHandler.handleCoinSelect (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\src\\handlers\\interactionHandler.ts:1288:20)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async InteractionHandler.handleNetworkSelect (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\src\\handlers\\interactionHandler.ts:1334:9)\n' +
+    '    at async InteractionHandler.handleSelectMenu (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\src\\handlers\\interactionHandler.ts:353:17)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\src\\handlers\\interactionHandler.ts:180:17)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\src\\index.ts:67:13)',
+  interactionType: 3,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'error',
+  message: 'Error handling interaction:',
+  timestamp: '2025-09-20 00:20:05'
+}
