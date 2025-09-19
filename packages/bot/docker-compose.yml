@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  ec-bot:
+    build: .
+    container_name: ec-discord-bot
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - DISCORD_TOKEN=${DISCORD_TOKEN}
+      - DISCORD_CLIENT_ID=${DISCORD_CLIENT_ID}
+      - DISCORD_CLIENT_SECRET=${DISCORD_CLIENT_SECRET}
+      - DISCORD_BOT_SERVICE_TOKEN=${DISCORD_BOT_SERVICE_TOKEN}
+      - API_BASE_URL=${API_BASE_URL:-http://backend:3001}
+      - BACKEND_URL=${BACKEND_URL:-http://backend:3001}
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+    volumes:
+      - ./logs:/app/logs
+      - /etc/localtime:/etc/localtime:ro
+    depends_on:
+      - backend
+    networks:
+      - ec-network
+    healthcheck:
+      test: ["CMD", "node", "-e", "console.log('Bot is running')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Backend service (if running together)
+  backend:
+    image: ec-backend:latest
+    container_name: ec-backend
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=${DATABASE_URL}
+      - TATUM_API_KEY=${TATUM_API_KEY}
+      - TATUM_WEBHOOK_URL=${TATUM_WEBHOOK_URL}
+      - JWT_SECRET=${JWT_SECRET}
+    networks:
+      - ec-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  ec-network:
+    driver: bridge
+
+volumes:
+  bot-logs:
+    driver: local

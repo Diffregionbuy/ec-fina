@@ -1,0 +1,1120 @@
+{
+  service: 'discord-bot',
+  diagnosticCodes: [ 2552, 2304 ],
+  level: 'error',
+  message: 'Error loading command shop.ts: ⨯ Unable to compile TypeScript:\n' +
+    "\x1B[96msrc/commands/shop.ts\x1B[0m:\x1B[93m186\x1B[0m:\x1B[93m27\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2552: \x1B[0mCannot find name 'categorySlice'. Did you mean 'categories'?\r\n" +
+    '\r\n' +
+    '\x1B[7m186\x1B[0m         for (const cat of categorySlice) {\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                          ~~~~~~~~~~~~~\x1B[0m\r\n' +
+    '\r\n' +
+    '  \x1B[96msrc/commands/shop.ts\x1B[0m:\x1B[93m92\x1B[0m:\x1B[93m26\x1B[0m\r\n' +
+    '    \x1B[7m92\x1B[0m         const [products, categories] = await Promise.all([\r\n' +
+    '    \x1B[7m  \x1B[0m \x1B[96m                         ~~~~~~~~~~\x1B[0m\r\n' +
+    "    'categories' is declared here.\r\n" +
+    "\x1B[96msrc/commands/shop.ts\x1B[0m:\x1B[93m294\x1B[0m:\x1B[93m27\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2304: \x1B[0mCannot find name 'visibleCategories'.\r\n" +
+    '\r\n' +
+    '\x1B[7m294\x1B[0m     const categorySlice = visibleCategories.slice(0, remainingSlots);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                          ~~~~~~~~~~~~~~~~~\x1B[0m\r\n',
+  stack: 'TSError: ⨯ Unable to compile TypeScript:\n' +
+    "\x1B[96msrc/commands/shop.ts\x1B[0m:\x1B[93m186\x1B[0m:\x1B[93m27\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2552: \x1B[0mCannot find name 'categorySlice'. Did you mean 'categories'?\r\n" +
+    '\r\n' +
+    '\x1B[7m186\x1B[0m         for (const cat of categorySlice) {\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                          ~~~~~~~~~~~~~\x1B[0m\r\n' +
+    '\r\n' +
+    '  \x1B[96msrc/commands/shop.ts\x1B[0m:\x1B[93m92\x1B[0m:\x1B[93m26\x1B[0m\r\n' +
+    '    \x1B[7m92\x1B[0m         const [products, categories] = await Promise.all([\r\n' +
+    '    \x1B[7m  \x1B[0m \x1B[96m                         ~~~~~~~~~~\x1B[0m\r\n' +
+    "    'categories' is declared here.\r\n" +
+    "\x1B[96msrc/commands/shop.ts\x1B[0m:\x1B[93m294\x1B[0m:\x1B[93m27\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2304: \x1B[0mCannot find name 'visibleCategories'.\r\n" +
+    '\r\n' +
+    '\x1B[7m294\x1B[0m     const categorySlice = visibleCategories.slice(0, remainingSlots);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                          ~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    '\n' +
+    '    at createTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:859:12)\n' +
+    '    at reportTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:863:19)\n' +
+    '    at getOutput (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1077:36)\n' +
+    '    at Object.compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1433:41)\n' +
+    '    at Module.m._compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1617:30)\n' +
+    '    at node:internal/modules/cjs/loader:1895:10\n' +
+    '    at Object.require.extensions.<computed> [as .ts] (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1621:12)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)',
+  timestamp: '2025-09-06 00:30:11'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: false,
+  responseTime: '17ms',
+  error: AxiosError [AggregateError]
+      at Function.AxiosError.from (C:\Users\pmp\Desktop\EC\node_modules\axios\lib\core\AxiosError.js:92:14)
+      at RedirectableRequest.handleRequestError (C:\Users\pmp\Desktop\EC\node_modules\axios\lib\adapters\http.js:620:25)
+      at RedirectableRequest.emit (node:events:518:28)
+      at RedirectableRequest.emit (node:domain:489:12)
+      at ClientRequest.eventHandlers.<computed> (C:\Users\pmp\Desktop\EC\node_modules\follow-redirects\index.js:49:24)
+      at ClientRequest.emit (node:events:518:28)
+      at ClientRequest.emit (node:domain:489:12)
+      at emitErrorEvent (node:_http_client:104:11)
+      at Socket.socketErrorListener (node:_http_client:518:5)
+      at Socket.emit (node:events:518:28)
+      at Axios.request (C:\Users\pmp\Desktop\EC\node_modules\axios\lib\core\Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async BotApiService.authenticate (C:\Users\pmp\Desktop\EC\packages\bot\src\services\botApiService.ts:168:72)
+      at async ECBot.onReady (C:\Users\pmp\Desktop\EC\packages\bot\src\index.ts:151:13)
+      at async Client.<anonymous> (C:\Users\pmp\Desktop\EC\packages\bot\src\index.ts:57:13) {
+    code: 'ECONNREFUSED',
+    errors: [
+      Error: connect ECONNREFUSED ::1:3001
+          at createConnectionError (node:net:1678:14)
+          at afterConnectMultiple (node:net:1708:16) {
+        errno: -4078,
+        code: 'ECONNREFUSED',
+        syscall: 'connect',
+        address: '::1',
+        port: 3001
+      },
+      Error: connect ECONNREFUSED 127.0.0.1:3001
+          at createConnectionError (node:net:1678:14)
+          at afterConnectMultiple (node:net:1708:16) {
+        errno: -4078,
+        code: 'ECONNREFUSED',
+        syscall: 'connect',
+        address: '127.0.0.1',
+        port: 3001
+      }
+    ],
+    config: {
+      transitional: {
+        silentJSONParsing: true,
+        forcedJSONParsing: true,
+        clarifyTimeoutError: false
+      },
+      adapter: [ 'xhr', 'http', 'fetch' ],
+      transformRequest: [ [Function: transformRequest] ],
+      transformResponse: [ [Function: transformResponse] ],
+      timeout: 0,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: {
+        FormData: [Function: FormData] [FormData] {
+          LINE_BREAK: '\r\n',
+          DEFAULT_CONTENT_TYPE: 'application/octet-stream'
+        },
+        Blob: [class Blob]
+      },
+      validateStatus: [Function: validateStatus],
+      headers: Object [AxiosHeaders] {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+        'X-Bot-Token': 'YQAhsUtaPsOi5b7uj4gwb0G1UKmSGKvwdDfH6Ulf',
+        'User-Agent': 'axios/1.11.0',
+        'Content-Length': '167',
+        'Accept-Encoding': 'gzip, compress, deflate, br'
+      },
+      method: 'post',
+      url: 'http://localhost:3001/api/bot-service/auth',
+      data: '{"service":"discord_bot","permissions":["read_templates","read_products","read_categories","create_payments","webhook_access","read_bot_config","update_order_status"]}',
+      allowAbsoluteUrls: true
+    },
+    request: <ref *2> Writable {
+      _events: {
+        close: undefined,
+        error: [Function: handleRequestError],
+        prefinish: undefined,
+        finish: undefined,
+        drain: undefined,
+        response: [Function: handleResponse],
+        socket: [Function: handleRequestSocket]
+      },
+      _writableState: WritableState {
+        highWaterMark: 16384,
+        length: 0,
+        corked: 0,
+        onwrite: [Function: bound onwrite],
+        writelen: 0,
+        bufferedIndex: 0,
+        pendingcb: 0,
+        [Symbol(kState)]: 17580812,
+        [Symbol(kBufferedValue)]: null
+      },
+      _maxListeners: undefined,
+      _options: {
+        maxRedirects: 21,
+        maxBodyLength: Infinity,
+        protocol: 'http:',
+        path: '/api/bot-service/auth',
+        method: 'POST',
+        headers: [Object: null prototype] {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+          'X-Bot-Token': 'YQAhsUtaPsOi5b7uj4gwb0G1UKmSGKvwdDfH6Ulf',
+          'User-Agent': 'axios/1.11.0',
+          'Content-Length': '167',
+          'Accept-Encoding': 'gzip, compress, deflate, br'
+        },
+        agents: { http: undefined, https: undefined },
+        auth: undefined,
+        family: undefined,
+        beforeRedirect: [Function: dispatchBeforeRedirect],
+        beforeRedirects: { proxy: [Function: beforeRedirect] },
+        hostname: 'localhost',
+        port: '3001',
+        agent: undefined,
+        nativeProtocols: {
+          'http:': {
+            _connectionListener: [Function: connectionListener],
+            METHODS: [
+              'ACL',        'BIND',        'CHECKOUT',
+              'CONNECT',    'COPY',        'DELETE',
+              'GET',        'HEAD',        'LINK',
+              'LOCK',       'M-SEARCH',    'MERGE',
+              'MKACTIVITY', 'MKCALENDAR',  'MKCOL',
+              'MOVE',       'NOTIFY',      'OPTIONS',
+              'PATCH',      'POST',        'PROPFIND',
+              'PROPPATCH',  'PURGE',       'PUT',
+              'QUERY',      'REBIND',      'REPORT',
+              'SEARCH',     'SOURCE',      'SUBSCRIBE',
+              'TRACE',      'UNBIND',      'UNLINK',
+              'UNLOCK',     'UNSUBSCRIBE'
+            ],
+            STATUS_CODES: {
+              '100': 'Continue',
+              '101': 'Switching Protocols',
+              '102': 'Processing',
+              '103': 'Early Hints',
+              '200': 'OK',
+              '201': 'Created',
+              '202': 'Accepted',
+              '203': 'Non-Authoritative Information',
+              '204': 'No Content',
+              '205': 'Reset Content',
+              '206': 'Partial Content',
+              '207': 'Multi-Status',
+              '208': 'Already Reported',
+              '226': 'IM Used',
+              '300': 'Multiple Choices',
+              '301': 'Moved Permanently',
+              '302': 'Found',
+              '303': 'See Other',
+              '304': 'Not Modified',
+              '305': 'Use Proxy',
+              '307': 'Temporary Redirect',
+              '308': 'Permanent Redirect',
+              '400': 'Bad Request',
+              '401': 'Unauthorized',
+              '402': 'Payment Required',
+              '403': 'Forbidden',
+              '404': 'Not Found',
+              '405': 'Method Not Allowed',
+              '406': 'Not Acceptable',
+              '407': 'Proxy Authentication Required',
+              '408': 'Request Timeout',
+              '409': 'Conflict',
+              '410': 'Gone',
+              '411': 'Length Required',
+              '412': 'Precondition Failed',
+              '413': 'Payload Too Large',
+              '414': 'URI Too Long',
+              '415': 'Unsupported Media Type',
+              '416': 'Range Not Satisfiable',
+              '417': 'Expectation Failed',
+              '418': "I'm a Teapot",
+              '421': 'Misdirected Request',
+              '422': 'Unprocessable Entity',
+              '423': 'Locked',
+              '424': 'Failed Dependency',
+              '425': 'Too Early',
+              '426': 'Upgrade Required',
+              '428': 'Precondition Required',
+              '429': 'Too Many Requests',
+              '431': 'Request Header Fields Too Large',
+              '451': 'Unavailable For Legal Reasons',
+              '500': 'Internal Server Error',
+              '501': 'Not Implemented',
+              '502': 'Bad Gateway',
+              '503': 'Service Unavailable',
+              '504': 'Gateway Timeout',
+              '505': 'HTTP Version Not Supported',
+              '506': 'Variant Also Negotiates',
+              '507': 'Insufficient Storage',
+              '508': 'Loop Detected',
+              '509': 'Bandwidth Limit Exceeded',
+              '510': 'Not Extended',
+              '511': 'Network Authentication Required'
+            },
+            Agent: [Function: Agent] { defaultMaxSockets: Infinity },
+            ClientRequest: [Function: ClientRequest],
+            IncomingMessage: [Function: IncomingMessage],
+            OutgoingMessage: [Function: OutgoingMessage],
+            Server: [Function: Server],
+            ServerResponse: [Function: ServerResponse],
+            createServer: [Function: createServer],
+            validateHeaderName: [Function: validateHeaderName] {
+              withoutStackTrace: [Function (anonymous)]
+            },
+            validateHeaderValue: [Function: validateHeaderValue] {
+              withoutStackTrace: [Function (anonymous)]
+            },
+            get: [Function: get],
+            request: [Function: request],
+            setMaxIdleHTTPParsers: [Function: setMaxIdleHTTPParsers],
+            maxHeaderSize: [Getter],
+            globalAgent: [Getter/Setter],
+            WebSocket: [Getter],
+            CloseEvent: [Getter],
+            MessageEvent: [Getter]
+          },
+          'https:': {
+            Agent: [Function: Agent],
+            globalAgent: Agent {
+              _events: [Object: null prototype] {
+                free: [Function (anonymous)],
+                newListener: [Function: maybeEnableKeylog]
+              },
+              _eventsCount: 2,
+              _maxListeners: undefined,
+              defaultPort: 443,
+              protocol: 'https:',
+              options: [Object: null prototype] {
+                keepAlive: true,
+                scheduling: 'lifo',
+                timeout: 5000,
+                noDelay: true,
+                path: null
+              },
+              requests: [Object: null prototype] {},
+              sockets: [Object: null prototype] {},
+              freeSockets: [Object: null prototype] {},
+              keepAliveMsecs: 1000,
+              keepAlive: true,
+              maxSockets: Infinity,
+              maxFreeSockets: 256,
+              scheduling: 'lifo',
+              maxTotalSockets: Infinity,
+              totalSocketCount: 0,
+              maxCachedSessions: 100,
+              _sessionCache: { map: {}, list: [] },
+              [Symbol(shapeMode)]: false,
+              [Symbol(kCapture)]: false
+            },
+            Server: [Function: Server],
+            createServer: [Function: createServer],
+            get: [Function: get],
+            request: [Function: request]
+          }
+        },
+        pathname: '/api/bot-service/auth'
+      },
+      _ended: false,
+      _ending: true,
+      _redirectCount: 0,
+      _redirects: [],
+      _requestBodyLength: 167,
+      _requestBodyBuffers: [
+        {
+          data: <Buffer 7b 22 73 65 72 76 69 63 65 22 3a 22 64 69 73 63 6f 72 64 5f 62 6f 74 22 2c 22 70 65 72 6d 69 73 73 69 6f 6e 73 22 3a 5b 22 72 65 61 64 5f 74 65 6d 70 ... 117 more bytes>,
+          encoding: undefined
+        }
+      ],
+      _eventsCount: 3,
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: <ref *1> ClientRequest {
+        _events: [Object: null prototype] {
+          response: [Function: bound onceWrapper] {
+            listener: [Function (anonymous)]
+          },
+          abort: [Function (anonymous)],
+          aborted: [Function (anonymous)],
+          connect: [Function (anonymous)],
+          error: [Function (anonymous)],
+          socket: [Function (anonymous)],
+          timeout: [Function (anonymous)]
+        },
+        _eventsCount: 7,
+        _maxListeners: undefined,
+        outputData: [],
+        outputSize: 0,
+        writable: true,
+        destroyed: false,
+        _last: false,
+        chunkedEncoding: false,
+        shouldKeepAlive: true,
+        maxRequestsOnConnectionReached: false,
+        _defaultKeepAlive: true,
+        useChunkedEncodingByDefault: true,
+        sendDate: false,
+        _removedConnection: false,
+        _removedContLen: false,
+        _removedTE: false,
+        strictContentLength: false,
+        _contentLength: 167,
+        _hasBody: true,
+        _trailer: '',
+        finished: false,
+        _headerSent: true,
+        _closed: false,
+        _header: 'POST /api/bot-service/auth HTTP/1.1\r\n' +
+          'Accept: application/json, text/plain, */*\r\n' +
+          'Content-Type: application/json\r\n' +
+          'X-Bot-Token: YQAhsUtaPsOi5b7uj4gwb0G1UKmSGKvwdDfH6Ulf\r\n' +
+          'User-Agent: axios/1.11.0\r\n' +
+          'Content-Length: 167\r\n' +
+          'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+          'Host: localhost:3001\r\n' +
+          'Connection: keep-alive\r\n' +
+          '\r\n',
+        _keepAliveTimeout: 0,
+        _onPendingData: [Function: nop],
+        agent: Agent {
+          _events: [Object: null prototype] {
+            free: [Function (anonymous)],
+            newListener: [Function: maybeEnableKeylog]
+          },
+          _eventsCount: 2,
+          _maxListeners: undefined,
+          defaultPort: 80,
+          protocol: 'http:',
+          options: [Object: null prototype] {
+            keepAlive: true,
+            scheduling: 'lifo',
+            timeout: 5000,
+            noDelay: true,
+            path: null
+          },
+          requests: [Object: null prototype] {},
+          sockets: [Object: null prototype] {
+            'localhost:3001:': [
+              Socket {
+                connecting: false,
+                _hadError: true,
+                _parent: null,
+                _host: 'localhost',
+                _closeAfterHandlingError: false,
+                _events: {
+                  close: [
+                    [Function: onClose],
+                    [Function: socketCloseListener],
+                    [Function: bound onceWrapper] {
+                      listener: [Function: onClose]
+                    }
+                  ],
+                  error: [Function: socketErrorListener],
+                  prefinish: undefined,
+                  finish: undefined,
+                  drain: [Function: ondrain],
+                  data: undefined,
+                  end: [Function: onReadableStreamEnd],
+                  readable: undefined,
+                  connect: [
+                    [Function: bound onceWrapper] {
+                      listener: [Function (anonymous)]
+                    },
+                    [Function: bound onceWrapper] {
+                      listener: [Function: connect]
+                    },
+                    [Function: bound onceWrapper] {
+                      listener: [Function (anonymous)]
+                    }
+                  ],
+                  free: [Function: onFree],
+                  timeout: [
+                    [Function: onTimeout],
+                    [Function: bound onceWrapper] {
+                      listener: [Function: emitRequestTimeout]
+                    }
+                  ],
+                  agentRemove: [Function: onRemove]
+                },
+                _readableState: ReadableState {
+                  highWaterMark: 16384,
+                  buffer: [],
+                  bufferIndex: 0,
+                  length: 0,
+                  pipes: [],
+                  awaitDrainWriters: null,
+                  [Symbol(kState)]: 59777526,
+                  [Symbol(kErroredValue)]: AggregateError
+                      at internalConnectMultiple (node:net:1134:18)
+                      at afterConnectMultiple (node:net:1715:7) {
+                    code: 'ECONNREFUSED',
+                    [errors]: [
+                      Error: connect ECONNREFUSED ::1:3001
+                          at createConnectionError (node:net:1678:14)
+                          at afterConnectMultiple (node:net:1708:16) {
+                        errno: -4078,
+                        code: 'ECONNREFUSED',
+                        syscall: 'connect',
+                        address: '::1',
+                        port: 3001
+                      },
+                      Error: connect ECONNREFUSED 127.0.0.1:3001
+                          at createConnectionError (node:net:1678:14)
+                          at afterConnectMultiple (node:net:1708:16) {
+                        errno: -4078,
+                        code: 'ECONNREFUSED',
+                        syscall: 'connect',
+                        address: '127.0.0.1',
+                        port: 3001
+                      }
+                    ]
+                  }
+                },
+                _writableState: WritableState {
+                  highWaterMark: 16384,
+                  length: 475,
+                  corked: 0,
+                  onwrite: [Function: bound onwrite],
+                  writelen: 475,
+                  bufferedIndex: 0,
+                  pendingcb: 1,
+                  [Symbol(kState)]: 118260214,
+                  [Symbol(kBufferedValue)]: null,
+                  [Symbol(kWriteCbValue)]: [Function (anonymous)],
+                  [Symbol(kErroredValue)]: AggregateError
+                      at internalConnectMultiple (node:net:1134:18)
+                      at afterConnectMultiple (node:net:1715:7) {
+                    code: 'ECONNREFUSED',
+                    [errors]: [
+                      Error: connect ECONNREFUSED ::1:3001
+                          at createConnectionError (node:net:1678:14)
+                          at afterConnectMultiple (node:net:1708:16) {
+                        errno: -4078,
+                        code: 'ECONNREFUSED',
+                        syscall: 'connect',
+                        address: '::1',
+                        port: 3001
+                      },
+                      Error: connect ECONNREFUSED 127.0.0.1:3001
+                          at createConnectionError (node:net:1678:14)
+                          at afterConnectMultiple (node:net:1708:16) {
+                        errno: -4078,
+                        code: 'ECONNREFUSED',
+                        syscall: 'connect',
+                        address: '127.0.0.1',
+                        port: 3001
+                      }
+                    ]
+                  }
+                },
+                allowHalfOpen: false,
+                _maxListeners: undefined,
+                _eventsCount: 8,
+                _sockname: null,
+                _pendingData: [
+                  {
+                    chunk: 'POST /api/bot-service/auth HTTP/1.1\r\n' +
+                      'Accept: application/json, text/plain, */*\r\n' +
+                      'Content-Type: application/json\r\n' +
+                      'X-Bot-Token: YQAhsUtaPsOi5b7uj4gwb0G1UKmSGKvwdDfH6Ulf\r\n' +
+                      'User-Agent: axios/1.11.0\r\n' +
+                      'Content-Length: 167\r\n' +
+                      'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+                      'Host: localhost:3001\r\n' +
+                      'Connection: keep-alive\r\n' +
+                      '\r\n',
+                    encoding: 'latin1',
+                    callback: [Function: nop]
+                  },
+                  {
+                    chunk: <Buffer 7b 22 73 65 72 76 69 63 65 22 3a 22 64 69 73 63 6f 72 64 5f 62 6f 74 22 2c 22 70 65 72 6d 69 73 73 69 6f 6e 73 22 3a 5b 22 72 65 61 64 5f 74 65 6d 70 ... 117 more bytes>,
+                    encoding: 'buffer',
+                    callback: [Function (anonymous)]
+                  },
+                  allBuffers: false
+                ],
+                _pendingEncoding: '',
+                server: null,
+                _server: null,
+                timeout: 5000,
+                parser: null,
+                _httpMessage: [Circular *1],
+                autoSelectFamilyAttemptedAddresses: [ '::1:3001', '127.0.0.1:3001' ],
+                [Symbol(async_id_symbol)]: 185,
+                [Symbol(kHandle)]: null,
+                [Symbol(lastWriteQueueSize)]: 0,
+                [Symbol(timeout)]: Timeout {
+                  _idleTimeout: -1,
+                  _idlePrev: null,
+                  _idleNext: null,
+                  _idleStart: 4326,
+                  _onTimeout: null,
+                  _timerArgs: undefined,
+                  _repeat: null,
+                  _destroyed: true,
+                  [Symbol(refed)]: false,
+                  [Symbol(kHasPrimitive)]: false,
+                  [Symbol(asyncId)]: 175,
+                  [Symbol(triggerId)]: 0,
+                  [Symbol(kAsyncContextFrame)]: undefined
+                },
+                [Symbol(kBuffer)]: null,
+                [Symbol(kBufferCb)]: null,
+                [Symbol(kBufferGen)]: null,
+                [Symbol(shapeMode)]: true,
+                [Symbol(kCapture)]: false,
+                [Symbol(kSetNoDelay)]: true,
+                [Symbol(kSetKeepAlive)]: true,
+                [Symbol(kSetKeepAliveInitialDelay)]: 60,
+                [Symbol(kBytesRead)]: 0,
+                [Symbol(kBytesWritten)]: 0
+              }
+            ]
+          },
+          freeSockets: [Object: null prototype] {},
+          keepAliveMsecs: 1000,
+          keepAlive: true,
+          maxSockets: Infinity,
+          maxFreeSockets: 256,
+          scheduling: 'lifo',
+          maxTotalSockets: Infinity,
+          totalSocketCount: 1,
+          [Symbol(shapeMode)]: false,
+          [Symbol(kCapture)]: false
+        },
+        socketPath: undefined,
+        method: 'POST',
+        maxHeaderSize: undefined,
+        insecureHTTPParser: undefined,
+        joinDuplicateHeaders: undefined,
+        path: '/api/bot-service/auth',
+        _ended: false,
+        res: null,
+        aborted: false,
+        timeoutCb: [Function: emitRequestTimeout],
+        upgradeOrConnect: false,
+        parser: null,
+        maxHeadersCount: null,
+        reusedSocket: false,
+        host: 'localhost',
+        protocol: 'http:',
+        _redirectable: [Circular *2],
+        [Symbol(shapeMode)]: false,
+        [Symbol(kCapture)]: false,
+        [Symbol(kBytesWritten)]: 0,
+        [Symbol(kNeedDrain)]: false,
+        [Symbol(corked)]: 0,
+        [Symbol(kChunkedBuffer)]: [],
+        [Symbol(kChunkedLength)]: 0,
+        [Symbol(kSocket)]: Socket {
+          connecting: false,
+          _hadError: true,
+          _parent: null,
+          _host: 'localhost',
+          _closeAfterHandlingError: false,
+          _events: {
+            close: [
+              [Function: onClose],
+              [Function: socketCloseListener],
+              [Function: bound onceWrapper] {
+                listener: [Function: onClose]
+              }
+            ],
+            error: [Function: socketErrorListener],
+            prefinish: undefined,
+            finish: undefined,
+            drain: [Function: ondrain],
+            data: undefined,
+            end: [Function: onReadableStreamEnd],
+            readable: undefined,
+            connect: [
+              [Function: bound onceWrapper] {
+                listener: [Function (anonymous)]
+              },
+              [Function: bound onceWrapper] {
+                listener: [Function: connect]
+              },
+              [Function: bound onceWrapper] {
+                listener: [Function (anonymous)]
+              }
+            ],
+            free: [Function: onFree],
+            timeout: [
+              [Function: onTimeout],
+              [Function: bound onceWrapper] {
+                listener: [Function: emitRequestTimeout]
+              }
+            ],
+            agentRemove: [Function: onRemove]
+          },
+          _readableState: ReadableState {
+            highWaterMark: 16384,
+            buffer: [],
+            bufferIndex: 0,
+            length: 0,
+            pipes: [],
+            awaitDrainWriters: null,
+            [Symbol(kState)]: 59777526,
+            [Symbol(kErroredValue)]: AggregateError
+                at internalConnectMultiple (node:net:1134:18)
+                at afterConnectMultiple (node:net:1715:7) {
+              code: 'ECONNREFUSED',
+              [errors]: [
+                Error: connect ECONNREFUSED ::1:3001
+                    at createConnectionError (node:net:1678:14)
+                    at afterConnectMultiple (node:net:1708:16) {
+                  errno: -4078,
+                  code: 'ECONNREFUSED',
+                  syscall: 'connect',
+                  address: '::1',
+                  port: 3001
+                },
+                Error: connect ECONNREFUSED 127.0.0.1:3001
+                    at createConnectionError (node:net:1678:14)
+                    at afterConnectMultiple (node:net:1708:16) {
+                  errno: -4078,
+                  code: 'ECONNREFUSED',
+                  syscall: 'connect',
+                  address: '127.0.0.1',
+                  port: 3001
+                }
+              ]
+            }
+          },
+          _writableState: WritableState {
+            highWaterMark: 16384,
+            length: 475,
+            corked: 0,
+            onwrite: [Function: bound onwrite],
+            writelen: 475,
+            bufferedIndex: 0,
+            pendingcb: 1,
+            [Symbol(kState)]: 118260214,
+            [Symbol(kBufferedValue)]: null,
+            [Symbol(kWriteCbValue)]: [Function (anonymous)],
+            [Symbol(kErroredValue)]: AggregateError
+                at internalConnectMultiple (node:net:1134:18)
+                at afterConnectMultiple (node:net:1715:7) {
+              code: 'ECONNREFUSED',
+              [errors]: [
+                Error: connect ECONNREFUSED ::1:3001
+                    at createConnectionError (node:net:1678:14)
+                    at afterConnectMultiple (node:net:1708:16) {
+                  errno: -4078,
+                  code: 'ECONNREFUSED',
+                  syscall: 'connect',
+                  address: '::1',
+                  port: 3001
+                },
+                Error: connect ECONNREFUSED 127.0.0.1:3001
+                    at createConnectionError (node:net:1678:14)
+                    at afterConnectMultiple (node:net:1708:16) {
+                  errno: -4078,
+                  code: 'ECONNREFUSED',
+                  syscall: 'connect',
+                  address: '127.0.0.1',
+                  port: 3001
+                }
+              ]
+            }
+          },
+          allowHalfOpen: false,
+          _maxListeners: undefined,
+          _eventsCount: 8,
+          _sockname: null,
+          _pendingData: [
+            {
+              chunk: 'POST /api/bot-service/auth HTTP/1.1\r\n' +
+                'Accept: application/json, text/plain, */*\r\n' +
+                'Content-Type: application/json\r\n' +
+                'X-Bot-Token: YQAhsUtaPsOi5b7uj4gwb0G1UKmSGKvwdDfH6Ulf\r\n' +
+                'User-Agent: axios/1.11.0\r\n' +
+                'Content-Length: 167\r\n' +
+                'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+                'Host: localhost:3001\r\n' +
+                'Connection: keep-alive\r\n' +
+                '\r\n',
+              encoding: 'latin1',
+              callback: [Function: nop]
+            },
+            {
+              chunk: <Buffer 7b 22 73 65 72 76 69 63 65 22 3a 22 64 69 73 63 6f 72 64 5f 62 6f 74 22 2c 22 70 65 72 6d 69 73 73 69 6f 6e 73 22 3a 5b 22 72 65 61 64 5f 74 65 6d 70 ... 117 more bytes>,
+              encoding: 'buffer',
+              callback: [Function (anonymous)]
+            },
+            allBuffers: false
+          ],
+          _pendingEncoding: '',
+          server: null,
+          _server: null,
+          timeout: 5000,
+          parser: null,
+          _httpMessage: [Circular *1],
+          autoSelectFamilyAttemptedAddresses: [ '::1:3001', '127.0.0.1:3001' ],
+          [Symbol(async_id_symbol)]: 185,
+          [Symbol(kHandle)]: null,
+          [Symbol(lastWriteQueueSize)]: 0,
+          [Symbol(timeout)]: Timeout {
+            _idleTimeout: -1,
+            _idlePrev: null,
+            _idleNext: null,
+            _idleStart: 4326,
+            _onTimeout: null,
+            _timerArgs: undefined,
+            _repeat: null,
+            _destroyed: true,
+            [Symbol(refed)]: false,
+            [Symbol(kHasPrimitive)]: false,
+            [Symbol(asyncId)]: 175,
+            [Symbol(triggerId)]: 0,
+            [Symbol(kAsyncContextFrame)]: undefined
+          },
+          [Symbol(kBuffer)]: null,
+          [Symbol(kBufferCb)]: null,
+          [Symbol(kBufferGen)]: null,
+          [Symbol(shapeMode)]: true,
+          [Symbol(kCapture)]: false,
+          [Symbol(kSetNoDelay)]: true,
+          [Symbol(kSetKeepAlive)]: true,
+          [Symbol(kSetKeepAliveInitialDelay)]: 60,
+          [Symbol(kBytesRead)]: 0,
+          [Symbol(kBytesWritten)]: 0
+        },
+        [Symbol(kOutHeaders)]: [Object: null prototype] {
+          accept: [ 'Accept', 'application/json, text/plain, */*' ],
+          'content-type': [ 'Content-Type', 'application/json' ],
+          'x-bot-token': [ 'X-Bot-Token', 'YQAhsUtaPsOi5b7uj4gwb0G1UKmSGKvwdDfH6Ulf' ],
+          'user-agent': [ 'User-Agent', 'axios/1.11.0' ],
+          'content-length': [ 'Content-Length', '167' ],
+          'accept-encoding': [ 'Accept-Encoding', 'gzip, compress, deflate, br' ],
+          host: [ 'Host', 'localhost:3001' ]
+        },
+        [Symbol(errored)]: null,
+        [Symbol(kHighWaterMark)]: 16384,
+        [Symbol(kRejectNonStandardBodyWrites)]: false,
+        [Symbol(kUniqueHeaders)]: null
+      },
+      _currentUrl: 'http://localhost:3001/api/bot-service/auth',
+      [Symbol(shapeMode)]: true,
+      [Symbol(kCapture)]: false
+    },
+    cause: AggregateError
+        at internalConnectMultiple (node:net:1134:18)
+        at afterConnectMultiple (node:net:1715:7) {
+      code: 'ECONNREFUSED',
+      [errors]: [
+        Error: connect ECONNREFUSED ::1:3001
+            at createConnectionError (node:net:1678:14)
+            at afterConnectMultiple (node:net:1708:16) {
+          errno: -4078,
+          code: 'ECONNREFUSED',
+          syscall: 'connect',
+          address: '::1',
+          port: 3001
+        },
+        Error: connect ECONNREFUSED 127.0.0.1:3001
+            at createConnectionError (node:net:1678:14)
+            at afterConnectMultiple (node:net:1708:16) {
+          errno: -4078,
+          code: 'ECONNREFUSED',
+          syscall: 'connect',
+          address: '127.0.0.1',
+          port: 3001
+        }
+      ]
+    }
+  },
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-06 07:48:09'
+}
+{
+  service: 'discord-bot',
+  level: 'error',
+  message: 'Failed to authenticate with backend API: Authentication failed: ',
+  stack: 'Error: Authentication failed: \n' +
+    '    at BotApiService.authenticate (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\services\\botApiService.ts:201:19)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async ECBot.onReady (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts:151:13)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts:57:13)',
+  timestamp: '2025-09-06 07:48:09'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  error: 'Unknown interaction',
+  stack: 'DiscordAPIError[10062]: Unknown interaction\n' +
+    '    at handleErrors (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\handlers\\Shared.ts:148:10)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async BurstHandler.runRequest (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\handlers\\BurstHandler.ts:144:20)\n' +
+    '    at async _REST.request (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\REST.ts:210:20)\n' +
+    '    at async StringSelectMenuInteraction.reply (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\discord.js\\src\\structures\\interfaces\\InteractionResponses.js:200:22)\n' +
+    '    at async InteractionHandler.handleCategorySelect (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:405:13)\n' +
+    '    at async InteractionHandler.handleSelectMenu (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:178:17)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:41:17)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts:68:13)',
+  interactionType: 3,
+  userId: '417296513270808580',
+  guildId: '1413584793542856856',
+  level: 'error',
+  message: 'Error handling interaction:',
+  timestamp: '2025-09-06 08:42:28'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  requestBody: {
+    files: [],
+    json: {
+      type: 4,
+      data: {
+        content: '❌ An error occurred while processing your request. Please try again later.',
+        tts: false,
+        nonce: undefined,
+        enforce_nonce: false,
+        embeds: undefined,
+        components: undefined,
+        username: undefined,
+        avatar_url: undefined,
+        allowed_mentions: undefined,
+        flags: 64,
+        message_reference: undefined,
+        attachments: undefined,
+        sticker_ids: undefined,
+        thread_name: undefined,
+        applied_tags: undefined,
+        poll: undefined
+      }
+    }
+  },
+  rawError: { message: 'Unknown interaction', code: 10062 },
+  code: 10062,
+  status: 404,
+  method: 'POST',
+  url: 'https://discord.com/api/v10/interactions/1413685891326541904/aW50ZXJhY3Rpb246MTQxMzY4NTg5MTMyNjU0MTkwNDoyRGxJU3JHVXJ2QUliQzdlQjhNSm1oQUhPNW9QSTRqUEQ5MHowNUNpOENpcW5jRVdCUVhyZjdsS2V5UVZsdURyOFlUbDVPUHJxQm1tMWluY2h6OWZVMVJNR0VPV3ZZVWhIMk92Y0Zid2hHeTFZMHdQNUlpNTFBOHpKSTBvREdLTQ/callback?with_response=false',
+  level: 'error',
+  message: 'Failed to send error response: Unknown interaction',
+  stack: 'DiscordAPIError[10062]: Unknown interaction\n' +
+    '    at handleErrors (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\handlers\\Shared.ts:148:10)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async BurstHandler.runRequest (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\handlers\\BurstHandler.ts:144:20)\n' +
+    '    at async _REST.request (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\REST.ts:210:20)\n' +
+    '    at async StringSelectMenuInteraction.reply (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\discord.js\\src\\structures\\interfaces\\InteractionResponses.js:200:22)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:72:25)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts:68:13)',
+  timestamp: '2025-09-06 08:42:29'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  error: 'Unknown interaction',
+  stack: 'DiscordAPIError[10062]: Unknown interaction\n' +
+    '    at handleErrors (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\handlers\\Shared.ts:148:10)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async BurstHandler.runRequest (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\handlers\\BurstHandler.ts:144:20)\n' +
+    '    at async _REST.request (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\REST.ts:210:20)\n' +
+    '    at async StringSelectMenuInteraction.reply (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\discord.js\\src\\structures\\interfaces\\InteractionResponses.js:200:22)\n' +
+    '    at async InteractionHandler.handleCategorySelect (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:405:13)\n' +
+    '    at async InteractionHandler.handleSelectMenu (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:178:17)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:41:17)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts:68:13)',
+  interactionType: 3,
+  userId: '417296513270808580',
+  guildId: '1413584793542856856',
+  level: 'error',
+  message: 'Error handling interaction:',
+  timestamp: '2025-09-06 08:55:14'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  requestBody: {
+    files: [],
+    json: {
+      type: 4,
+      data: {
+        content: '❌ An error occurred while processing your request. Please try again later.',
+        tts: false,
+        nonce: undefined,
+        enforce_nonce: false,
+        embeds: undefined,
+        components: undefined,
+        username: undefined,
+        avatar_url: undefined,
+        allowed_mentions: undefined,
+        flags: 64,
+        message_reference: undefined,
+        attachments: undefined,
+        sticker_ids: undefined,
+        thread_name: undefined,
+        applied_tags: undefined,
+        poll: undefined
+      }
+    }
+  },
+  rawError: { message: 'Unknown interaction', code: 10062 },
+  code: 10062,
+  status: 404,
+  method: 'POST',
+  url: 'https://discord.com/api/v10/interactions/1413689109352026112/aW50ZXJhY3Rpb246MTQxMzY4OTEwOTM1MjAyNjExMjpQbFVUa3hvOVNrSGNzcjNaRDlobTF0QlhnSERVZERiaUl3YW1WMnpGSHdDSnFlR21YY21EdVlPMTM0Y2l5NXcwd3U2VTJTWmRtQUlRU3ozZVRHRmRPVkdnVDA1b3cxQ3VKSk1hV1pwb1FqTzBwanJRYWtwd0F0V0RIVklGZUtpTQ/callback?with_response=false',
+  level: 'error',
+  message: 'Failed to send error response: Unknown interaction',
+  stack: 'DiscordAPIError[10062]: Unknown interaction\n' +
+    '    at handleErrors (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\handlers\\Shared.ts:148:10)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async BurstHandler.runRequest (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\handlers\\BurstHandler.ts:144:20)\n' +
+    '    at async _REST.request (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\REST.ts:210:20)\n' +
+    '    at async StringSelectMenuInteraction.reply (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\discord.js\\src\\structures\\interfaces\\InteractionResponses.js:200:22)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:72:25)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts:68:13)',
+  timestamp: '2025-09-06 08:55:14'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  error: 'Unknown interaction',
+  stack: 'DiscordAPIError[10062]: Unknown interaction\n' +
+    '    at handleErrors (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\handlers\\Shared.ts:148:10)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async BurstHandler.runRequest (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\handlers\\BurstHandler.ts:144:20)\n' +
+    '    at async _REST.request (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\REST.ts:210:20)\n' +
+    '    at async StringSelectMenuInteraction.reply (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\discord.js\\src\\structures\\interfaces\\InteractionResponses.js:200:22)\n' +
+    '    at async InteractionHandler.handleCategorySelect (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:405:13)\n' +
+    '    at async InteractionHandler.handleSelectMenu (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:178:17)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:41:17)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts:68:13)',
+  interactionType: 3,
+  userId: '417296513270808580',
+  guildId: '1413584793542856856',
+  level: 'error',
+  message: 'Error handling interaction:',
+  timestamp: '2025-09-06 08:55:47'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  requestBody: {
+    files: [],
+    json: {
+      type: 4,
+      data: {
+        content: '❌ An error occurred while processing your request. Please try again later.',
+        tts: false,
+        nonce: undefined,
+        enforce_nonce: false,
+        embeds: undefined,
+        components: undefined,
+        username: undefined,
+        avatar_url: undefined,
+        allowed_mentions: undefined,
+        flags: 64,
+        message_reference: undefined,
+        attachments: undefined,
+        sticker_ids: undefined,
+        thread_name: undefined,
+        applied_tags: undefined,
+        poll: undefined
+      }
+    }
+  },
+  rawError: { message: 'Unknown interaction', code: 10062 },
+  code: 10062,
+  status: 404,
+  method: 'POST',
+  url: 'https://discord.com/api/v10/interactions/1413689247046570115/aW50ZXJhY3Rpb246MTQxMzY4OTI0NzA0NjU3MDExNTpZOU1sVHU3bGNVaVdscVZUQld3SnQxYjZDUktGdzd3OTFBV0xKdm1yR2pxVDdJVlM0akZDVm1EVkZ1Yk8wbGtHMWxWUm1wVklpa3JjbVBjWjdRYXlydVhjQUxBdUs5djJHTloxS1RrYmtyd0ZlZmxJQmlCYW5TSmpDd2xIeGRjUg/callback?with_response=false',
+  level: 'error',
+  message: 'Failed to send error response: Unknown interaction',
+  stack: 'DiscordAPIError[10062]: Unknown interaction\n' +
+    '    at handleErrors (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\handlers\\Shared.ts:148:10)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async BurstHandler.runRequest (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\handlers\\BurstHandler.ts:144:20)\n' +
+    '    at async _REST.request (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\REST.ts:210:20)\n' +
+    '    at async StringSelectMenuInteraction.reply (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\discord.js\\src\\structures\\interfaces\\InteractionResponses.js:200:22)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:72:25)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts:68:13)',
+  timestamp: '2025-09-06 08:55:47'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  error: 'Unknown interaction',
+  stack: 'DiscordAPIError[10062]: Unknown interaction\n' +
+    '    at handleErrors (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\handlers\\Shared.ts:148:10)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async BurstHandler.runRequest (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\handlers\\BurstHandler.ts:144:20)\n' +
+    '    at async _REST.request (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\REST.ts:210:20)\n' +
+    '    at async StringSelectMenuInteraction.reply (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\discord.js\\src\\structures\\interfaces\\InteractionResponses.js:200:22)\n' +
+    '    at async InteractionHandler.handleCategorySelect (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:406:13)\n' +
+    '    at async InteractionHandler.handleSelectMenu (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:179:17)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:42:17)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts:68:13)',
+  interactionType: 3,
+  userId: '417296513270808580',
+  guildId: '1413584793542856856',
+  level: 'error',
+  message: 'Error handling interaction:',
+  timestamp: '2025-09-06 09:00:42'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  requestBody: {
+    files: [],
+    json: {
+      type: 4,
+      data: {
+        content: '❌ An error occurred while processing your request. Please try again later.',
+        tts: false,
+        nonce: undefined,
+        enforce_nonce: false,
+        embeds: undefined,
+        components: undefined,
+        username: undefined,
+        avatar_url: undefined,
+        allowed_mentions: undefined,
+        flags: 64,
+        message_reference: undefined,
+        attachments: undefined,
+        sticker_ids: undefined,
+        thread_name: undefined,
+        applied_tags: undefined,
+        poll: undefined
+      }
+    }
+  },
+  rawError: { message: 'Unknown interaction', code: 10062 },
+  code: 10062,
+  status: 404,
+  method: 'POST',
+  url: 'https://discord.com/api/v10/interactions/1413690481941942314/aW50ZXJhY3Rpb246MTQxMzY5MDQ4MTk0MTk0MjMxNDo0SDUzelZXb2FwcHhyRkkzWmVCM3FXZ3RkeERmaHdLMnBFY29tb0pVVWpSc0IweVVwWUI1NHR4VHFXbjNWSTBaQXgyZkRmaVFWNmxwVXBiWGZoN3Q5cFd1T1hvNWZhUFUyTUd1RjlUaXdoYnI1dWhLNTByNFBMVVk0dzE4eDFrWA/callback?with_response=false',
+  level: 'error',
+  message: 'Failed to send error response: Unknown interaction',
+  stack: 'DiscordAPIError[10062]: Unknown interaction\n' +
+    '    at handleErrors (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\handlers\\Shared.ts:148:10)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async BurstHandler.runRequest (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\handlers\\BurstHandler.ts:144:20)\n' +
+    '    at async _REST.request (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\REST.ts:210:20)\n' +
+    '    at async StringSelectMenuInteraction.reply (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\discord.js\\src\\structures\\interfaces\\InteractionResponses.js:200:22)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:73:25)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts:68:13)',
+  timestamp: '2025-09-06 09:00:43'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  requestBody: { files: undefined, json: { type: 5, data: { flags: 64 } } },
+  rawError: { message: 'Unknown interaction', code: 10062 },
+  code: 10062,
+  status: 404,
+  method: 'POST',
+  url: 'https://discord.com/api/v10/interactions/1413843513585438783/aW50ZXJhY3Rpb246MTQxMzg0MzUxMzU4NTQzODc4MzpsYjRNYUhrdVVpT2plUDI4NTZwUEZkVUdlZzNHTnhQR0lSN3prUGs1c08yQzN2YkVkRE1XQzF3TkVDS2p4UnZ0SFVrY0RZbUZUREQ0Z2xlMWhhaDNkVWpXQ3JoSHN0RFdzZXhiZU1mUXpGNmJkd1lGTlZYSkNIcGhndzVZaGJnRg/callback?with_response=false',
+  level: 'error',
+  message: 'Shop command error: Unknown interaction',
+  stack: 'DiscordAPIError[10062]: Unknown interaction\n' +
+    '    at handleErrors (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\handlers\\Shared.ts:148:10)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async BurstHandler.runRequest (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\handlers\\BurstHandler.ts:144:20)\n' +
+    '    at async _REST.request (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@discordjs\\rest\\src\\lib\\REST.ts:210:20)\n' +
+    '    at async ChatInputCommandInteraction.deferReply (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\discord.js\\src\\structures\\interfaces\\InteractionResponses.js:129:22)\n' +
+    '    at async Object.execute (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\commands\\shop.ts:49:17)\n' +
+    '    at async CommandHandler.handleCommand (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\commandHandler.ts:102:13)\n' +
+    '    at async InteractionHandler.handleSlashCommand (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:115:9)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:38:17)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts:68:13)',
+  timestamp: '2025-09-06 19:08:49'
+}

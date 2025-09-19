@@ -1,0 +1,928 @@
+{
+  error: [96msrc/handlers/commandHandler.ts[0m:[93m35[0m:[93m70[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.
+    Type 'null' is not assignable to type 'string | undefined'.
+  
+  [7m35[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Guild only command used in DM');
+  [7m  [0m [91m                                                                     ~~~~~~~~~~~~~~~~~~~[0m
+  [96msrc/handlers/commandHandler.ts[0m:[93m64[0m:[93m62[0m - [91merror[0m[90m TS7006: [0mParameter 'permission' implicitly has an 'any' type.
+  
+  [7m64[0m             const hasPermissions = command.permissions.every(permission =>
+  [7m  [0m [91m                                                             ~~~~~~~~~~[0m
+  [96msrc/handlers/commandHandler.ts[0m:[93m83[0m:[93m74[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.
+    Type 'null' is not assignable to type 'string | undefined'.
+  
+  [7m83[0m                 logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Command on cooldown');
+  [7m  [0m [91m                                                                         ~~~~~~~~~~~~~~~~~~~[0m
+  [96msrc/handlers/commandHandler.ts[0m:[93m104[0m:[93m70[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.
+    Type 'null' is not assignable to type 'string | undefined'.
+  
+  [7m104[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, true);
+  [7m   [0m [91m                                                                     ~~~~~~~~~~~~~~~~~~~[0m
+  [96msrc/handlers/commandHandler.ts[0m:[93m106[0m:[93m70[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.
+    Type 'null' is not assignable to type 'string | undefined'.
+  
+  [7m106[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, error);
+  [7m   [0m [91m                                                                     ~~~~~~~~~~~~~~~~~~~[0m
+  ,
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m35\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m35\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Guild only command used in DM');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m64\x1B[0m:\x1B[93m62\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'permission' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m64\x1B[0m             const hasPermissions = command.permissions.every(permission =>\r\n' +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                             ~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m83\x1B[0m:\x1B[93m74\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m83\x1B[0m                 logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Command on cooldown');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                         ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m104\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m104\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, true);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m106\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m106\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, error);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    '\n' +
+    'TSError: ⨯ Unable to compile TypeScript:\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m35\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m35\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Guild only command used in DM');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m64\x1B[0m:\x1B[93m62\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'permission' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m64\x1B[0m             const hasPermissions = command.permissions.every(permission =>\r\n' +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                             ~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m83\x1B[0m:\x1B[93m74\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m83\x1B[0m                 logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Command on cooldown');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                         ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m104\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m104\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, true);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m106\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m106\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, error);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    '\n' +
+    '    at createTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:859:12)\n' +
+    '    at reportTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:863:19)\n' +
+    '    at getOutput (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1077:36)\n' +
+    '    at Object.compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1433:41)\n' +
+    '    at Module.m._compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1617:30)\n' +
+    '    at node:internal/modules/cjs/loader:1895:10\n' +
+    '    at Object.require.extensions.<computed> [as .ts] (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1621:12)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)',
+  stack: 'TSError: ⨯ Unable to compile TypeScript:\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m35\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m35\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Guild only command used in DM');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m64\x1B[0m:\x1B[93m62\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'permission' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m64\x1B[0m             const hasPermissions = command.permissions.every(permission =>\r\n' +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                             ~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m83\x1B[0m:\x1B[93m74\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m83\x1B[0m                 logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Command on cooldown');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                         ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m104\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m104\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, true);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m106\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m106\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, error);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    '\n' +
+    '    at createTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:859:12)\n' +
+    '    at reportTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:863:19)\n' +
+    '    at getOutput (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1077:36)\n' +
+    '    at Object.compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1433:41)\n' +
+    '    at Module.m._compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1617:30)\n' +
+    '    at node:internal/modules/cjs/loader:1895:10\n' +
+    '    at Object.require.extensions.<computed> [as .ts] (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1621:12)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)',
+  exception: true,
+  date: 'Fri Sep 05 2025 21:45:23 GMT+0800 (中国标准时间)',
+  process: {
+    pid: 95004,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot',
+    execPath: 'D:\\New Folder\\node.exe',
+    version: 'v22.17.0',
+    argv: [
+      'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\dist\\bin.js',
+      'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts'
+    ],
+    memoryUsage: {
+      rss: 339550208,
+      heapTotal: 281309184,
+      heapUsed: 250886736,
+      external: 9054098,
+      arrayBuffers: 4985981
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 1241807.593 },
+  trace: [
+    {
+      column: 12,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'createTSError',
+      line: 859,
+      method: null,
+      native: false
+    },
+    {
+      column: 19,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'reportTSError',
+      line: 863,
+      method: null,
+      native: false
+    },
+    {
+      column: 36,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'getOutput',
+      line: 1077,
+      method: null,
+      native: false
+    },
+    {
+      column: 41,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'Object.compile',
+      line: 1433,
+      method: 'compile',
+      native: false
+    },
+    {
+      column: 30,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'Module.m._compile',
+      line: 1617,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1895,
+      method: null,
+      native: false
+    },
+    {
+      column: 12,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'Object.require.extensions.<computed> [as .ts]',
+      line: 1621,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1465,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Function._load',
+      line: 1282,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:diagnostics_channel',
+      function: 'TracingChannel.traceSync',
+      line: 322,
+      method: 'traceSync',
+      native: false
+    }
+  ],
+  service: 'discord-bot',
+  timestamp: '2025-09-05 21:45:23'
+}
+{
+  error: [96msrc/handlers/commandHandler.ts[0m:[93m35[0m:[93m70[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.
+    Type 'null' is not assignable to type 'string | undefined'.
+  
+  [7m35[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Guild only command used in DM');
+  [7m  [0m [91m                                                                     ~~~~~~~~~~~~~~~~~~~[0m
+  [96msrc/handlers/commandHandler.ts[0m:[93m64[0m:[93m62[0m - [91merror[0m[90m TS7006: [0mParameter 'permission' implicitly has an 'any' type.
+  
+  [7m64[0m             const hasPermissions = command.permissions.every(permission =>
+  [7m  [0m [91m                                                             ~~~~~~~~~~[0m
+  [96msrc/handlers/commandHandler.ts[0m:[93m83[0m:[93m74[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.
+    Type 'null' is not assignable to type 'string | undefined'.
+  
+  [7m83[0m                 logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Command on cooldown');
+  [7m  [0m [91m                                                                         ~~~~~~~~~~~~~~~~~~~[0m
+  [96msrc/handlers/commandHandler.ts[0m:[93m104[0m:[93m70[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.
+    Type 'null' is not assignable to type 'string | undefined'.
+  
+  [7m104[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, true);
+  [7m   [0m [91m                                                                     ~~~~~~~~~~~~~~~~~~~[0m
+  [96msrc/handlers/commandHandler.ts[0m:[93m106[0m:[93m70[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.
+    Type 'null' is not assignable to type 'string | undefined'.
+  
+  [7m106[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, error);
+  [7m   [0m [91m                                                                     ~~~~~~~~~~~~~~~~~~~[0m
+  ,
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m35\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m35\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Guild only command used in DM');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m64\x1B[0m:\x1B[93m62\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'permission' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m64\x1B[0m             const hasPermissions = command.permissions.every(permission =>\r\n' +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                             ~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m83\x1B[0m:\x1B[93m74\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m83\x1B[0m                 logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Command on cooldown');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                         ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m104\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m104\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, true);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m106\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m106\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, error);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    '\n' +
+    'TSError: ⨯ Unable to compile TypeScript:\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m35\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m35\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Guild only command used in DM');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m64\x1B[0m:\x1B[93m62\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'permission' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m64\x1B[0m             const hasPermissions = command.permissions.every(permission =>\r\n' +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                             ~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m83\x1B[0m:\x1B[93m74\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m83\x1B[0m                 logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Command on cooldown');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                         ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m104\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m104\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, true);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m106\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m106\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, error);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    '\n' +
+    '    at createTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:859:12)\n' +
+    '    at reportTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:863:19)\n' +
+    '    at getOutput (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1077:36)\n' +
+    '    at Object.compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1433:41)\n' +
+    '    at Module.m._compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1617:30)\n' +
+    '    at node:internal/modules/cjs/loader:1895:10\n' +
+    '    at Object.require.extensions.<computed> [as .ts] (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1621:12)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)',
+  stack: 'TSError: ⨯ Unable to compile TypeScript:\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m35\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m35\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Guild only command used in DM');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m64\x1B[0m:\x1B[93m62\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'permission' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m64\x1B[0m             const hasPermissions = command.permissions.every(permission =>\r\n' +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                             ~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m83\x1B[0m:\x1B[93m74\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m83\x1B[0m                 logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Command on cooldown');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                         ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m104\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m104\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, true);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m106\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m106\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, error);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    '\n' +
+    '    at createTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:859:12)\n' +
+    '    at reportTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:863:19)\n' +
+    '    at getOutput (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1077:36)\n' +
+    '    at Object.compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1433:41)\n' +
+    '    at Module.m._compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1617:30)\n' +
+    '    at node:internal/modules/cjs/loader:1895:10\n' +
+    '    at Object.require.extensions.<computed> [as .ts] (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1621:12)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)',
+  exception: true,
+  date: 'Fri Sep 05 2025 21:47:57 GMT+0800 (中国标准时间)',
+  process: {
+    pid: 102952,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot',
+    execPath: 'D:\\New Folder\\node.exe',
+    version: 'v22.17.0',
+    argv: [
+      'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\dist\\bin.js',
+      'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts'
+    ],
+    memoryUsage: {
+      rss: 342573056,
+      heapTotal: 280784896,
+      heapUsed: 251079568,
+      external: 9054274,
+      arrayBuffers: 4986157
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 1241961.093 },
+  trace: [
+    {
+      column: 12,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'createTSError',
+      line: 859,
+      method: null,
+      native: false
+    },
+    {
+      column: 19,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'reportTSError',
+      line: 863,
+      method: null,
+      native: false
+    },
+    {
+      column: 36,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'getOutput',
+      line: 1077,
+      method: null,
+      native: false
+    },
+    {
+      column: 41,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'Object.compile',
+      line: 1433,
+      method: 'compile',
+      native: false
+    },
+    {
+      column: 30,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'Module.m._compile',
+      line: 1617,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1895,
+      method: null,
+      native: false
+    },
+    {
+      column: 12,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'Object.require.extensions.<computed> [as .ts]',
+      line: 1621,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1465,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Function._load',
+      line: 1282,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:diagnostics_channel',
+      function: 'TracingChannel.traceSync',
+      line: 322,
+      method: 'traceSync',
+      native: false
+    }
+  ],
+  service: 'discord-bot',
+  timestamp: '2025-09-05 21:47:57'
+}
+{
+  error: [96msrc/handlers/commandHandler.ts[0m:[93m35[0m:[93m70[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.
+    Type 'null' is not assignable to type 'string | undefined'.
+  
+  [7m35[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Guild only command used in DM');
+  [7m  [0m [91m                                                                     ~~~~~~~~~~~~~~~~~~~[0m
+  [96msrc/handlers/commandHandler.ts[0m:[93m64[0m:[93m62[0m - [91merror[0m[90m TS7006: [0mParameter 'permission' implicitly has an 'any' type.
+  
+  [7m64[0m             const hasPermissions = command.permissions.every(permission =>
+  [7m  [0m [91m                                                             ~~~~~~~~~~[0m
+  [96msrc/handlers/commandHandler.ts[0m:[93m83[0m:[93m74[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.
+    Type 'null' is not assignable to type 'string | undefined'.
+  
+  [7m83[0m                 logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Command on cooldown');
+  [7m  [0m [91m                                                                         ~~~~~~~~~~~~~~~~~~~[0m
+  [96msrc/handlers/commandHandler.ts[0m:[93m104[0m:[93m70[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.
+    Type 'null' is not assignable to type 'string | undefined'.
+  
+  [7m104[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, true);
+  [7m   [0m [91m                                                                     ~~~~~~~~~~~~~~~~~~~[0m
+  [96msrc/handlers/commandHandler.ts[0m:[93m106[0m:[93m70[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.
+    Type 'null' is not assignable to type 'string | undefined'.
+  
+  [7m106[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, error);
+  [7m   [0m [91m                                                                     ~~~~~~~~~~~~~~~~~~~[0m
+  ,
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m35\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m35\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Guild only command used in DM');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m64\x1B[0m:\x1B[93m62\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'permission' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m64\x1B[0m             const hasPermissions = command.permissions.every(permission =>\r\n' +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                             ~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m83\x1B[0m:\x1B[93m74\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m83\x1B[0m                 logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Command on cooldown');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                         ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m104\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m104\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, true);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m106\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m106\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, error);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    '\n' +
+    'TSError: ⨯ Unable to compile TypeScript:\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m35\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m35\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Guild only command used in DM');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m64\x1B[0m:\x1B[93m62\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'permission' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m64\x1B[0m             const hasPermissions = command.permissions.every(permission =>\r\n' +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                             ~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m83\x1B[0m:\x1B[93m74\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m83\x1B[0m                 logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Command on cooldown');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                         ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m104\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m104\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, true);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m106\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m106\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, error);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    '\n' +
+    '    at createTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:859:12)\n' +
+    '    at reportTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:863:19)\n' +
+    '    at getOutput (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1077:36)\n' +
+    '    at Object.compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1433:41)\n' +
+    '    at Module.m._compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1617:30)\n' +
+    '    at node:internal/modules/cjs/loader:1895:10\n' +
+    '    at Object.require.extensions.<computed> [as .ts] (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1621:12)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)',
+  stack: 'TSError: ⨯ Unable to compile TypeScript:\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m35\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m35\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Guild only command used in DM');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m64\x1B[0m:\x1B[93m62\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'permission' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m64\x1B[0m             const hasPermissions = command.permissions.every(permission =>\r\n' +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                             ~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m83\x1B[0m:\x1B[93m74\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m83\x1B[0m                 logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Command on cooldown');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                         ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m104\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m104\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, true);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m106\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m106\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, error);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    '\n' +
+    '    at createTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:859:12)\n' +
+    '    at reportTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:863:19)\n' +
+    '    at getOutput (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1077:36)\n' +
+    '    at Object.compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1433:41)\n' +
+    '    at Module.m._compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1617:30)\n' +
+    '    at node:internal/modules/cjs/loader:1895:10\n' +
+    '    at Object.require.extensions.<computed> [as .ts] (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1621:12)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)',
+  exception: true,
+  date: 'Fri Sep 05 2025 21:49:07 GMT+0800 (中国标准时间)',
+  process: {
+    pid: 107708,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot',
+    execPath: 'D:\\New Folder\\node.exe',
+    version: 'v22.17.0',
+    argv: [
+      'C:\\Users\\pmp\\Desktop\\EC\\node_modules\\@ecbot\\discord-bot\\node_modules\\ts-node\\dist\\bin.js',
+      'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts'
+    ],
+    memoryUsage: {
+      rss: 339554304,
+      heapTotal: 281309184,
+      heapUsed: 249657248,
+      external: 9054314,
+      arrayBuffers: 4986197
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 1242031.265 },
+  trace: [
+    {
+      column: 12,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'createTSError',
+      line: 859,
+      method: null,
+      native: false
+    },
+    {
+      column: 19,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'reportTSError',
+      line: 863,
+      method: null,
+      native: false
+    },
+    {
+      column: 36,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'getOutput',
+      line: 1077,
+      method: null,
+      native: false
+    },
+    {
+      column: 41,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'Object.compile',
+      line: 1433,
+      method: 'compile',
+      native: false
+    },
+    {
+      column: 30,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'Module.m._compile',
+      line: 1617,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1895,
+      method: null,
+      native: false
+    },
+    {
+      column: 12,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'Object.require.extensions.<computed> [as .ts]',
+      line: 1621,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1465,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Function._load',
+      line: 1282,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:diagnostics_channel',
+      function: 'TracingChannel.traceSync',
+      line: 322,
+      method: 'traceSync',
+      native: false
+    }
+  ],
+  service: 'discord-bot',
+  timestamp: '2025-09-05 21:49:07'
+}
+{
+  error: [96msrc/handlers/commandHandler.ts[0m:[93m35[0m:[93m70[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.
+    Type 'null' is not assignable to type 'string | undefined'.
+  
+  [7m35[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Guild only command used in DM');
+  [7m  [0m [91m                                                                     ~~~~~~~~~~~~~~~~~~~[0m
+  [96msrc/handlers/commandHandler.ts[0m:[93m64[0m:[93m62[0m - [91merror[0m[90m TS7006: [0mParameter 'permission' implicitly has an 'any' type.
+  
+  [7m64[0m             const hasPermissions = command.permissions.every(permission =>
+  [7m  [0m [91m                                                             ~~~~~~~~~~[0m
+  [96msrc/handlers/commandHandler.ts[0m:[93m83[0m:[93m74[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.
+    Type 'null' is not assignable to type 'string | undefined'.
+  
+  [7m83[0m                 logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Command on cooldown');
+  [7m  [0m [91m                                                                         ~~~~~~~~~~~~~~~~~~~[0m
+  [96msrc/handlers/commandHandler.ts[0m:[93m104[0m:[93m70[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.
+    Type 'null' is not assignable to type 'string | undefined'.
+  
+  [7m104[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, true);
+  [7m   [0m [91m                                                                     ~~~~~~~~~~~~~~~~~~~[0m
+  [96msrc/handlers/commandHandler.ts[0m:[93m106[0m:[93m70[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.
+    Type 'null' is not assignable to type 'string | undefined'.
+  
+  [7m106[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, error);
+  [7m   [0m [91m                                                                     ~~~~~~~~~~~~~~~~~~~[0m
+  ,
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m35\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m35\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Guild only command used in DM');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m64\x1B[0m:\x1B[93m62\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'permission' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m64\x1B[0m             const hasPermissions = command.permissions.every(permission =>\r\n' +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                             ~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m83\x1B[0m:\x1B[93m74\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m83\x1B[0m                 logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Command on cooldown');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                         ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m104\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m104\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, true);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m106\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m106\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, error);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    '\n' +
+    'TSError: ⨯ Unable to compile TypeScript:\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m35\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m35\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Guild only command used in DM');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m64\x1B[0m:\x1B[93m62\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'permission' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m64\x1B[0m             const hasPermissions = command.permissions.every(permission =>\r\n' +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                             ~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m83\x1B[0m:\x1B[93m74\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m83\x1B[0m                 logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Command on cooldown');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                         ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m104\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m104\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, true);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m106\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m106\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, error);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    '\n' +
+    '    at createTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:859:12)\n' +
+    '    at reportTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:863:19)\n' +
+    '    at getOutput (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1077:36)\n' +
+    '    at Object.compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1433:41)\n' +
+    '    at Module.m._compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1617:30)\n' +
+    '    at node:internal/modules/cjs/loader:1895:10\n' +
+    '    at Object.require.extensions.<computed> [as .ts] (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1621:12)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)',
+  stack: 'TSError: ⨯ Unable to compile TypeScript:\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m35\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m35\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Guild only command used in DM');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m64\x1B[0m:\x1B[93m62\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'permission' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m64\x1B[0m             const hasPermissions = command.permissions.every(permission =>\r\n' +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                             ~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m83\x1B[0m:\x1B[93m74\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    "\x1B[7m83\x1B[0m                 logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, 'Command on cooldown');\r\n" +
+    '\x1B[7m  \x1B[0m \x1B[91m                                                                         ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m104\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m104\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, true);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/commandHandler.ts\x1B[0m:\x1B[93m106\x1B[0m:\x1B[93m70\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS2345: \x1B[0mArgument of type 'string | null' is not assignable to parameter of type 'string | undefined'.\r\n" +
+    "  Type 'null' is not assignable to type 'string | undefined'.\r\n" +
+    '\r\n' +
+    '\x1B[7m106\x1B[0m             logCommand(interaction.commandName, interaction.user.id, interaction.guildId, false, error);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                                                                     ~~~~~~~~~~~~~~~~~~~\x1B[0m\r\n' +
+    '\n' +
+    '    at createTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:859:12)\n' +
+    '    at reportTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:863:19)\n' +
+    '    at getOutput (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1077:36)\n' +
+    '    at Object.compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1433:41)\n' +
+    '    at Module.m._compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1617:30)\n' +
+    '    at node:internal/modules/cjs/loader:1895:10\n' +
+    '    at Object.require.extensions.<computed> [as .ts] (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1621:12)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)',
+  exception: true,
+  date: 'Fri Sep 05 2025 21:49:29 GMT+0800 (中国标准时间)',
+  process: {
+    pid: 108320,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot',
+    execPath: 'D:\\New Folder\\node.exe',
+    version: 'v22.17.0',
+    argv: [
+      'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\dist\\bin.js',
+      'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts'
+    ],
+    memoryUsage: {
+      rss: 339124224,
+      heapTotal: 281309184,
+      heapUsed: 249707264,
+      external: 9054186,
+      arrayBuffers: 4986069
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 1242053.453 },
+  trace: [
+    {
+      column: 12,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'createTSError',
+      line: 859,
+      method: null,
+      native: false
+    },
+    {
+      column: 19,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'reportTSError',
+      line: 863,
+      method: null,
+      native: false
+    },
+    {
+      column: 36,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'getOutput',
+      line: 1077,
+      method: null,
+      native: false
+    },
+    {
+      column: 41,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'Object.compile',
+      line: 1433,
+      method: 'compile',
+      native: false
+    },
+    {
+      column: 30,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'Module.m._compile',
+      line: 1617,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1895,
+      method: null,
+      native: false
+    },
+    {
+      column: 12,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'Object.require.extensions.<computed> [as .ts]',
+      line: 1621,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1465,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Function._load',
+      line: 1282,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:diagnostics_channel',
+      function: 'TracingChannel.traceSync',
+      line: 322,
+      method: 'traceSync',
+      native: false
+    }
+  ],
+  service: 'discord-bot',
+  timestamp: '2025-09-05 21:49:29'
+}

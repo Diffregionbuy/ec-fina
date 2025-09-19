@@ -1,0 +1,2388 @@
+{
+  service: 'discord-bot',
+  code: 'TokenInvalid',
+  level: 'error',
+  message: 'Failed to login to Discord: An invalid token was provided.',
+  stack: 'Error [TokenInvalid]: An invalid token was provided.\n' +
+    '    at WebSocketManager.connect (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\discord.js\\src\\client\\websocket\\WebSocketManager.js:139:26)\n' +
+    '    at Client.login (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\discord.js\\src\\client\\Client.js:229:21)\n' +
+    '    at ECBot.start (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts:185:31)\n' +
+    '    at Object.<anonymous> (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts:221:5)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1730:14)\n' +
+    '    at Module.m._compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1618:23)\n' +
+    '    at node:internal/modules/cjs/loader:1895:10\n' +
+    '    at Object.require.extensions.<computed> [as .ts] (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1621:12)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)',
+  timestamp: '2025-09-05 22:19:30'
+}
+{
+  message: 'Bot is ready! Logged in as Ecbot#8830',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:22:44'
+}
+{
+  message: 'Bot is in 3 guilds',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:22:44'
+}
+{
+  message: 'Loaded command: admin',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:22:44'
+}
+{
+  message: 'Loaded command: link',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:22:44'
+}
+{
+  message: 'Loaded command: shop',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:22:44'
+}
+{
+  message: 'Loaded 3 commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:22:44'
+}
+{
+  message: 'Started refreshing application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:22:44'
+}
+{
+  message: 'Successfully reloaded 3 application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:22:45'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: false,
+  responseTime: '16ms',
+  error: AxiosError [AggregateError]
+      at Function.AxiosError.from (C:\Users\pmp\Desktop\EC\node_modules\axios\lib\core\AxiosError.js:92:14)
+      at RedirectableRequest.handleRequestError (C:\Users\pmp\Desktop\EC\node_modules\axios\lib\adapters\http.js:620:25)
+      at RedirectableRequest.emit (node:events:518:28)
+      at RedirectableRequest.emit (node:domain:489:12)
+      at ClientRequest.eventHandlers.<computed> (C:\Users\pmp\Desktop\EC\node_modules\follow-redirects\index.js:49:24)
+      at ClientRequest.emit (node:events:518:28)
+      at ClientRequest.emit (node:domain:489:12)
+      at emitErrorEvent (node:_http_client:104:11)
+      at Socket.socketErrorListener (node:_http_client:518:5)
+      at Socket.emit (node:events:518:28)
+      at Axios.request (C:\Users\pmp\Desktop\EC\node_modules\axios\lib\core\Axios.js:45:41)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async BotApiService.authenticate (C:\Users\pmp\Desktop\EC\packages\bot\src\services\botApiService.ts:167:72)
+      at async ECBot.onReady (C:\Users\pmp\Desktop\EC\packages\bot\src\index.ts:112:13)
+      at async Client.<anonymous> (C:\Users\pmp\Desktop\EC\packages\bot\src\index.ts:57:13) {
+    code: 'ECONNREFUSED',
+    errors: [
+      Error: connect ECONNREFUSED ::1:3001
+          at createConnectionError (node:net:1678:14)
+          at afterConnectMultiple (node:net:1708:16) {
+        errno: -4078,
+        code: 'ECONNREFUSED',
+        syscall: 'connect',
+        address: '::1',
+        port: 3001
+      },
+      Error: connect ECONNREFUSED 127.0.0.1:3001
+          at createConnectionError (node:net:1678:14)
+          at afterConnectMultiple (node:net:1708:16) {
+        errno: -4078,
+        code: 'ECONNREFUSED',
+        syscall: 'connect',
+        address: '127.0.0.1',
+        port: 3001
+      }
+    ],
+    config: {
+      transitional: {
+        silentJSONParsing: true,
+        forcedJSONParsing: true,
+        clarifyTimeoutError: false
+      },
+      adapter: [ 'xhr', 'http', 'fetch' ],
+      transformRequest: [ [Function: transformRequest] ],
+      transformResponse: [ [Function: transformResponse] ],
+      timeout: 0,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: {
+        FormData: [Function: FormData] [FormData] {
+          LINE_BREAK: '\r\n',
+          DEFAULT_CONTENT_TYPE: 'application/octet-stream'
+        },
+        Blob: [class Blob]
+      },
+      validateStatus: [Function: validateStatus],
+      headers: Object [AxiosHeaders] {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+        'X-Bot-Token': 'YQAhsUtaPsOi5b7uj4gwb0G1UKmSGKvwdDfH6Ulf',
+        'User-Agent': 'axios/1.11.0',
+        'Content-Length': '167',
+        'Accept-Encoding': 'gzip, compress, deflate, br'
+      },
+      method: 'post',
+      url: 'http://localhost:3001/api/bot-service/auth',
+      data: '{"service":"discord_bot","permissions":["read_templates","read_products","read_categories","create_payments","webhook_access","read_bot_config","update_order_status"]}',
+      allowAbsoluteUrls: true
+    },
+    request: <ref *2> Writable {
+      _events: {
+        close: undefined,
+        error: [Function: handleRequestError],
+        prefinish: undefined,
+        finish: undefined,
+        drain: undefined,
+        response: [Function: handleResponse],
+        socket: [Function: handleRequestSocket]
+      },
+      _writableState: WritableState {
+        highWaterMark: 16384,
+        length: 0,
+        corked: 0,
+        onwrite: [Function: bound onwrite],
+        writelen: 0,
+        bufferedIndex: 0,
+        pendingcb: 0,
+        [Symbol(kState)]: 17580812,
+        [Symbol(kBufferedValue)]: null
+      },
+      _maxListeners: undefined,
+      _options: {
+        maxRedirects: 21,
+        maxBodyLength: Infinity,
+        protocol: 'http:',
+        path: '/api/bot-service/auth',
+        method: 'POST',
+        headers: [Object: null prototype] {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+          'X-Bot-Token': 'YQAhsUtaPsOi5b7uj4gwb0G1UKmSGKvwdDfH6Ulf',
+          'User-Agent': 'axios/1.11.0',
+          'Content-Length': '167',
+          'Accept-Encoding': 'gzip, compress, deflate, br'
+        },
+        agents: { http: undefined, https: undefined },
+        auth: undefined,
+        family: undefined,
+        beforeRedirect: [Function: dispatchBeforeRedirect],
+        beforeRedirects: { proxy: [Function: beforeRedirect] },
+        hostname: 'localhost',
+        port: '3001',
+        agent: undefined,
+        nativeProtocols: {
+          'http:': {
+            _connectionListener: [Function: connectionListener],
+            METHODS: [
+              'ACL',        'BIND',        'CHECKOUT',
+              'CONNECT',    'COPY',        'DELETE',
+              'GET',        'HEAD',        'LINK',
+              'LOCK',       'M-SEARCH',    'MERGE',
+              'MKACTIVITY', 'MKCALENDAR',  'MKCOL',
+              'MOVE',       'NOTIFY',      'OPTIONS',
+              'PATCH',      'POST',        'PROPFIND',
+              'PROPPATCH',  'PURGE',       'PUT',
+              'QUERY',      'REBIND',      'REPORT',
+              'SEARCH',     'SOURCE',      'SUBSCRIBE',
+              'TRACE',      'UNBIND',      'UNLINK',
+              'UNLOCK',     'UNSUBSCRIBE'
+            ],
+            STATUS_CODES: {
+              '100': 'Continue',
+              '101': 'Switching Protocols',
+              '102': 'Processing',
+              '103': 'Early Hints',
+              '200': 'OK',
+              '201': 'Created',
+              '202': 'Accepted',
+              '203': 'Non-Authoritative Information',
+              '204': 'No Content',
+              '205': 'Reset Content',
+              '206': 'Partial Content',
+              '207': 'Multi-Status',
+              '208': 'Already Reported',
+              '226': 'IM Used',
+              '300': 'Multiple Choices',
+              '301': 'Moved Permanently',
+              '302': 'Found',
+              '303': 'See Other',
+              '304': 'Not Modified',
+              '305': 'Use Proxy',
+              '307': 'Temporary Redirect',
+              '308': 'Permanent Redirect',
+              '400': 'Bad Request',
+              '401': 'Unauthorized',
+              '402': 'Payment Required',
+              '403': 'Forbidden',
+              '404': 'Not Found',
+              '405': 'Method Not Allowed',
+              '406': 'Not Acceptable',
+              '407': 'Proxy Authentication Required',
+              '408': 'Request Timeout',
+              '409': 'Conflict',
+              '410': 'Gone',
+              '411': 'Length Required',
+              '412': 'Precondition Failed',
+              '413': 'Payload Too Large',
+              '414': 'URI Too Long',
+              '415': 'Unsupported Media Type',
+              '416': 'Range Not Satisfiable',
+              '417': 'Expectation Failed',
+              '418': "I'm a Teapot",
+              '421': 'Misdirected Request',
+              '422': 'Unprocessable Entity',
+              '423': 'Locked',
+              '424': 'Failed Dependency',
+              '425': 'Too Early',
+              '426': 'Upgrade Required',
+              '428': 'Precondition Required',
+              '429': 'Too Many Requests',
+              '431': 'Request Header Fields Too Large',
+              '451': 'Unavailable For Legal Reasons',
+              '500': 'Internal Server Error',
+              '501': 'Not Implemented',
+              '502': 'Bad Gateway',
+              '503': 'Service Unavailable',
+              '504': 'Gateway Timeout',
+              '505': 'HTTP Version Not Supported',
+              '506': 'Variant Also Negotiates',
+              '507': 'Insufficient Storage',
+              '508': 'Loop Detected',
+              '509': 'Bandwidth Limit Exceeded',
+              '510': 'Not Extended',
+              '511': 'Network Authentication Required'
+            },
+            Agent: [Function: Agent] { defaultMaxSockets: Infinity },
+            ClientRequest: [Function: ClientRequest],
+            IncomingMessage: [Function: IncomingMessage],
+            OutgoingMessage: [Function: OutgoingMessage],
+            Server: [Function: Server],
+            ServerResponse: [Function: ServerResponse],
+            createServer: [Function: createServer],
+            validateHeaderName: [Function: validateHeaderName] {
+              withoutStackTrace: [Function (anonymous)]
+            },
+            validateHeaderValue: [Function: validateHeaderValue] {
+              withoutStackTrace: [Function (anonymous)]
+            },
+            get: [Function: get],
+            request: [Function: request],
+            setMaxIdleHTTPParsers: [Function: setMaxIdleHTTPParsers],
+            maxHeaderSize: [Getter],
+            globalAgent: [Getter/Setter],
+            WebSocket: [Getter],
+            CloseEvent: [Getter],
+            MessageEvent: [Getter]
+          },
+          'https:': {
+            Agent: [Function: Agent],
+            globalAgent: Agent {
+              _events: [Object: null prototype] {
+                free: [Function (anonymous)],
+                newListener: [Function: maybeEnableKeylog]
+              },
+              _eventsCount: 2,
+              _maxListeners: undefined,
+              defaultPort: 443,
+              protocol: 'https:',
+              options: [Object: null prototype] {
+                keepAlive: true,
+                scheduling: 'lifo',
+                timeout: 5000,
+                noDelay: true,
+                path: null
+              },
+              requests: [Object: null prototype] {},
+              sockets: [Object: null prototype] {},
+              freeSockets: [Object: null prototype] {},
+              keepAliveMsecs: 1000,
+              keepAlive: true,
+              maxSockets: Infinity,
+              maxFreeSockets: 256,
+              scheduling: 'lifo',
+              maxTotalSockets: Infinity,
+              totalSocketCount: 0,
+              maxCachedSessions: 100,
+              _sessionCache: { map: {}, list: [] },
+              [Symbol(shapeMode)]: false,
+              [Symbol(kCapture)]: false
+            },
+            Server: [Function: Server],
+            createServer: [Function: createServer],
+            get: [Function: get],
+            request: [Function: request]
+          }
+        },
+        pathname: '/api/bot-service/auth'
+      },
+      _ended: false,
+      _ending: true,
+      _redirectCount: 0,
+      _redirects: [],
+      _requestBodyLength: 167,
+      _requestBodyBuffers: [
+        {
+          data: <Buffer 7b 22 73 65 72 76 69 63 65 22 3a 22 64 69 73 63 6f 72 64 5f 62 6f 74 22 2c 22 70 65 72 6d 69 73 73 69 6f 6e 73 22 3a 5b 22 72 65 61 64 5f 74 65 6d 70 ... 117 more bytes>,
+          encoding: undefined
+        }
+      ],
+      _eventsCount: 3,
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: <ref *1> ClientRequest {
+        _events: [Object: null prototype] {
+          response: [Function: bound onceWrapper] {
+            listener: [Function (anonymous)]
+          },
+          abort: [Function (anonymous)],
+          aborted: [Function (anonymous)],
+          connect: [Function (anonymous)],
+          error: [Function (anonymous)],
+          socket: [Function (anonymous)],
+          timeout: [Function (anonymous)]
+        },
+        _eventsCount: 7,
+        _maxListeners: undefined,
+        outputData: [],
+        outputSize: 0,
+        writable: true,
+        destroyed: false,
+        _last: false,
+        chunkedEncoding: false,
+        shouldKeepAlive: true,
+        maxRequestsOnConnectionReached: false,
+        _defaultKeepAlive: true,
+        useChunkedEncodingByDefault: true,
+        sendDate: false,
+        _removedConnection: false,
+        _removedContLen: false,
+        _removedTE: false,
+        strictContentLength: false,
+        _contentLength: 167,
+        _hasBody: true,
+        _trailer: '',
+        finished: false,
+        _headerSent: true,
+        _closed: false,
+        _header: 'POST /api/bot-service/auth HTTP/1.1\r\n' +
+          'Accept: application/json, text/plain, */*\r\n' +
+          'Content-Type: application/json\r\n' +
+          'X-Bot-Token: YQAhsUtaPsOi5b7uj4gwb0G1UKmSGKvwdDfH6Ulf\r\n' +
+          'User-Agent: axios/1.11.0\r\n' +
+          'Content-Length: 167\r\n' +
+          'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+          'Host: localhost:3001\r\n' +
+          'Connection: keep-alive\r\n' +
+          '\r\n',
+        _keepAliveTimeout: 0,
+        _onPendingData: [Function: nop],
+        agent: Agent {
+          _events: [Object: null prototype] {
+            free: [Function (anonymous)],
+            newListener: [Function: maybeEnableKeylog]
+          },
+          _eventsCount: 2,
+          _maxListeners: undefined,
+          defaultPort: 80,
+          protocol: 'http:',
+          options: [Object: null prototype] {
+            keepAlive: true,
+            scheduling: 'lifo',
+            timeout: 5000,
+            noDelay: true,
+            path: null
+          },
+          requests: [Object: null prototype] {},
+          sockets: [Object: null prototype] {
+            'localhost:3001:': [
+              Socket {
+                connecting: false,
+                _hadError: true,
+                _parent: null,
+                _host: 'localhost',
+                _closeAfterHandlingError: false,
+                _events: {
+                  close: [
+                    [Function: onClose],
+                    [Function: socketCloseListener],
+                    [Function: bound onceWrapper] {
+                      listener: [Function: onClose]
+                    }
+                  ],
+                  error: [Function: socketErrorListener],
+                  prefinish: undefined,
+                  finish: undefined,
+                  drain: [Function: ondrain],
+                  data: undefined,
+                  end: [Function: onReadableStreamEnd],
+                  readable: undefined,
+                  connect: [
+                    [Function: bound onceWrapper] {
+                      listener: [Function (anonymous)]
+                    },
+                    [Function: bound onceWrapper] {
+                      listener: [Function: connect]
+                    },
+                    [Function: bound onceWrapper] {
+                      listener: [Function (anonymous)]
+                    }
+                  ],
+                  free: [Function: onFree],
+                  timeout: [
+                    [Function: onTimeout],
+                    [Function: bound onceWrapper] {
+                      listener: [Function: emitRequestTimeout]
+                    }
+                  ],
+                  agentRemove: [Function: onRemove]
+                },
+                _readableState: ReadableState {
+                  highWaterMark: 16384,
+                  buffer: [],
+                  bufferIndex: 0,
+                  length: 0,
+                  pipes: [],
+                  awaitDrainWriters: null,
+                  [Symbol(kState)]: 59777526,
+                  [Symbol(kErroredValue)]: AggregateError
+                      at internalConnectMultiple (node:net:1134:18)
+                      at afterConnectMultiple (node:net:1715:7) {
+                    code: 'ECONNREFUSED',
+                    [errors]: [
+                      Error: connect ECONNREFUSED ::1:3001
+                          at createConnectionError (node:net:1678:14)
+                          at afterConnectMultiple (node:net:1708:16) {
+                        errno: -4078,
+                        code: 'ECONNREFUSED',
+                        syscall: 'connect',
+                        address: '::1',
+                        port: 3001
+                      },
+                      Error: connect ECONNREFUSED 127.0.0.1:3001
+                          at createConnectionError (node:net:1678:14)
+                          at afterConnectMultiple (node:net:1708:16) {
+                        errno: -4078,
+                        code: 'ECONNREFUSED',
+                        syscall: 'connect',
+                        address: '127.0.0.1',
+                        port: 3001
+                      }
+                    ]
+                  }
+                },
+                _writableState: WritableState {
+                  highWaterMark: 16384,
+                  length: 475,
+                  corked: 0,
+                  onwrite: [Function: bound onwrite],
+                  writelen: 475,
+                  bufferedIndex: 0,
+                  pendingcb: 1,
+                  [Symbol(kState)]: 118260214,
+                  [Symbol(kBufferedValue)]: null,
+                  [Symbol(kWriteCbValue)]: [Function (anonymous)],
+                  [Symbol(kErroredValue)]: AggregateError
+                      at internalConnectMultiple (node:net:1134:18)
+                      at afterConnectMultiple (node:net:1715:7) {
+                    code: 'ECONNREFUSED',
+                    [errors]: [
+                      Error: connect ECONNREFUSED ::1:3001
+                          at createConnectionError (node:net:1678:14)
+                          at afterConnectMultiple (node:net:1708:16) {
+                        errno: -4078,
+                        code: 'ECONNREFUSED',
+                        syscall: 'connect',
+                        address: '::1',
+                        port: 3001
+                      },
+                      Error: connect ECONNREFUSED 127.0.0.1:3001
+                          at createConnectionError (node:net:1678:14)
+                          at afterConnectMultiple (node:net:1708:16) {
+                        errno: -4078,
+                        code: 'ECONNREFUSED',
+                        syscall: 'connect',
+                        address: '127.0.0.1',
+                        port: 3001
+                      }
+                    ]
+                  }
+                },
+                allowHalfOpen: false,
+                _maxListeners: undefined,
+                _eventsCount: 8,
+                _sockname: null,
+                _pendingData: [
+                  {
+                    chunk: 'POST /api/bot-service/auth HTTP/1.1\r\n' +
+                      'Accept: application/json, text/plain, */*\r\n' +
+                      'Content-Type: application/json\r\n' +
+                      'X-Bot-Token: YQAhsUtaPsOi5b7uj4gwb0G1UKmSGKvwdDfH6Ulf\r\n' +
+                      'User-Agent: axios/1.11.0\r\n' +
+                      'Content-Length: 167\r\n' +
+                      'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+                      'Host: localhost:3001\r\n' +
+                      'Connection: keep-alive\r\n' +
+                      '\r\n',
+                    encoding: 'latin1',
+                    callback: [Function: nop]
+                  },
+                  {
+                    chunk: <Buffer 7b 22 73 65 72 76 69 63 65 22 3a 22 64 69 73 63 6f 72 64 5f 62 6f 74 22 2c 22 70 65 72 6d 69 73 73 69 6f 6e 73 22 3a 5b 22 72 65 61 64 5f 74 65 6d 70 ... 117 more bytes>,
+                    encoding: 'buffer',
+                    callback: [Function (anonymous)]
+                  },
+                  allBuffers: false
+                ],
+                _pendingEncoding: '',
+                server: null,
+                _server: null,
+                timeout: 5000,
+                parser: null,
+                _httpMessage: [Circular *1],
+                autoSelectFamilyAttemptedAddresses: [ '::1:3001', '127.0.0.1:3001' ],
+                [Symbol(async_id_symbol)]: 173,
+                [Symbol(kHandle)]: null,
+                [Symbol(lastWriteQueueSize)]: 0,
+                [Symbol(timeout)]: Timeout {
+                  _idleTimeout: -1,
+                  _idlePrev: null,
+                  _idleNext: null,
+                  _idleStart: 6737,
+                  _onTimeout: null,
+                  _timerArgs: undefined,
+                  _repeat: null,
+                  _destroyed: true,
+                  [Symbol(refed)]: false,
+                  [Symbol(kHasPrimitive)]: false,
+                  [Symbol(asyncId)]: 163,
+                  [Symbol(triggerId)]: 0,
+                  [Symbol(kAsyncContextFrame)]: undefined
+                },
+                [Symbol(kBuffer)]: null,
+                [Symbol(kBufferCb)]: null,
+                [Symbol(kBufferGen)]: null,
+                [Symbol(shapeMode)]: true,
+                [Symbol(kCapture)]: false,
+                [Symbol(kSetNoDelay)]: true,
+                [Symbol(kSetKeepAlive)]: true,
+                [Symbol(kSetKeepAliveInitialDelay)]: 60,
+                [Symbol(kBytesRead)]: 0,
+                [Symbol(kBytesWritten)]: 0
+              }
+            ]
+          },
+          freeSockets: [Object: null prototype] {},
+          keepAliveMsecs: 1000,
+          keepAlive: true,
+          maxSockets: Infinity,
+          maxFreeSockets: 256,
+          scheduling: 'lifo',
+          maxTotalSockets: Infinity,
+          totalSocketCount: 1,
+          [Symbol(shapeMode)]: false,
+          [Symbol(kCapture)]: false
+        },
+        socketPath: undefined,
+        method: 'POST',
+        maxHeaderSize: undefined,
+        insecureHTTPParser: undefined,
+        joinDuplicateHeaders: undefined,
+        path: '/api/bot-service/auth',
+        _ended: false,
+        res: null,
+        aborted: false,
+        timeoutCb: [Function: emitRequestTimeout],
+        upgradeOrConnect: false,
+        parser: null,
+        maxHeadersCount: null,
+        reusedSocket: false,
+        host: 'localhost',
+        protocol: 'http:',
+        _redirectable: [Circular *2],
+        [Symbol(shapeMode)]: false,
+        [Symbol(kCapture)]: false,
+        [Symbol(kBytesWritten)]: 0,
+        [Symbol(kNeedDrain)]: false,
+        [Symbol(corked)]: 0,
+        [Symbol(kChunkedBuffer)]: [],
+        [Symbol(kChunkedLength)]: 0,
+        [Symbol(kSocket)]: Socket {
+          connecting: false,
+          _hadError: true,
+          _parent: null,
+          _host: 'localhost',
+          _closeAfterHandlingError: false,
+          _events: {
+            close: [
+              [Function: onClose],
+              [Function: socketCloseListener],
+              [Function: bound onceWrapper] {
+                listener: [Function: onClose]
+              }
+            ],
+            error: [Function: socketErrorListener],
+            prefinish: undefined,
+            finish: undefined,
+            drain: [Function: ondrain],
+            data: undefined,
+            end: [Function: onReadableStreamEnd],
+            readable: undefined,
+            connect: [
+              [Function: bound onceWrapper] {
+                listener: [Function (anonymous)]
+              },
+              [Function: bound onceWrapper] {
+                listener: [Function: connect]
+              },
+              [Function: bound onceWrapper] {
+                listener: [Function (anonymous)]
+              }
+            ],
+            free: [Function: onFree],
+            timeout: [
+              [Function: onTimeout],
+              [Function: bound onceWrapper] {
+                listener: [Function: emitRequestTimeout]
+              }
+            ],
+            agentRemove: [Function: onRemove]
+          },
+          _readableState: ReadableState {
+            highWaterMark: 16384,
+            buffer: [],
+            bufferIndex: 0,
+            length: 0,
+            pipes: [],
+            awaitDrainWriters: null,
+            [Symbol(kState)]: 59777526,
+            [Symbol(kErroredValue)]: AggregateError
+                at internalConnectMultiple (node:net:1134:18)
+                at afterConnectMultiple (node:net:1715:7) {
+              code: 'ECONNREFUSED',
+              [errors]: [
+                Error: connect ECONNREFUSED ::1:3001
+                    at createConnectionError (node:net:1678:14)
+                    at afterConnectMultiple (node:net:1708:16) {
+                  errno: -4078,
+                  code: 'ECONNREFUSED',
+                  syscall: 'connect',
+                  address: '::1',
+                  port: 3001
+                },
+                Error: connect ECONNREFUSED 127.0.0.1:3001
+                    at createConnectionError (node:net:1678:14)
+                    at afterConnectMultiple (node:net:1708:16) {
+                  errno: -4078,
+                  code: 'ECONNREFUSED',
+                  syscall: 'connect',
+                  address: '127.0.0.1',
+                  port: 3001
+                }
+              ]
+            }
+          },
+          _writableState: WritableState {
+            highWaterMark: 16384,
+            length: 475,
+            corked: 0,
+            onwrite: [Function: bound onwrite],
+            writelen: 475,
+            bufferedIndex: 0,
+            pendingcb: 1,
+            [Symbol(kState)]: 118260214,
+            [Symbol(kBufferedValue)]: null,
+            [Symbol(kWriteCbValue)]: [Function (anonymous)],
+            [Symbol(kErroredValue)]: AggregateError
+                at internalConnectMultiple (node:net:1134:18)
+                at afterConnectMultiple (node:net:1715:7) {
+              code: 'ECONNREFUSED',
+              [errors]: [
+                Error: connect ECONNREFUSED ::1:3001
+                    at createConnectionError (node:net:1678:14)
+                    at afterConnectMultiple (node:net:1708:16) {
+                  errno: -4078,
+                  code: 'ECONNREFUSED',
+                  syscall: 'connect',
+                  address: '::1',
+                  port: 3001
+                },
+                Error: connect ECONNREFUSED 127.0.0.1:3001
+                    at createConnectionError (node:net:1678:14)
+                    at afterConnectMultiple (node:net:1708:16) {
+                  errno: -4078,
+                  code: 'ECONNREFUSED',
+                  syscall: 'connect',
+                  address: '127.0.0.1',
+                  port: 3001
+                }
+              ]
+            }
+          },
+          allowHalfOpen: false,
+          _maxListeners: undefined,
+          _eventsCount: 8,
+          _sockname: null,
+          _pendingData: [
+            {
+              chunk: 'POST /api/bot-service/auth HTTP/1.1\r\n' +
+                'Accept: application/json, text/plain, */*\r\n' +
+                'Content-Type: application/json\r\n' +
+                'X-Bot-Token: YQAhsUtaPsOi5b7uj4gwb0G1UKmSGKvwdDfH6Ulf\r\n' +
+                'User-Agent: axios/1.11.0\r\n' +
+                'Content-Length: 167\r\n' +
+                'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+                'Host: localhost:3001\r\n' +
+                'Connection: keep-alive\r\n' +
+                '\r\n',
+              encoding: 'latin1',
+              callback: [Function: nop]
+            },
+            {
+              chunk: <Buffer 7b 22 73 65 72 76 69 63 65 22 3a 22 64 69 73 63 6f 72 64 5f 62 6f 74 22 2c 22 70 65 72 6d 69 73 73 69 6f 6e 73 22 3a 5b 22 72 65 61 64 5f 74 65 6d 70 ... 117 more bytes>,
+              encoding: 'buffer',
+              callback: [Function (anonymous)]
+            },
+            allBuffers: false
+          ],
+          _pendingEncoding: '',
+          server: null,
+          _server: null,
+          timeout: 5000,
+          parser: null,
+          _httpMessage: [Circular *1],
+          autoSelectFamilyAttemptedAddresses: [ '::1:3001', '127.0.0.1:3001' ],
+          [Symbol(async_id_symbol)]: 173,
+          [Symbol(kHandle)]: null,
+          [Symbol(lastWriteQueueSize)]: 0,
+          [Symbol(timeout)]: Timeout {
+            _idleTimeout: -1,
+            _idlePrev: null,
+            _idleNext: null,
+            _idleStart: 6737,
+            _onTimeout: null,
+            _timerArgs: undefined,
+            _repeat: null,
+            _destroyed: true,
+            [Symbol(refed)]: false,
+            [Symbol(kHasPrimitive)]: false,
+            [Symbol(asyncId)]: 163,
+            [Symbol(triggerId)]: 0,
+            [Symbol(kAsyncContextFrame)]: undefined
+          },
+          [Symbol(kBuffer)]: null,
+          [Symbol(kBufferCb)]: null,
+          [Symbol(kBufferGen)]: null,
+          [Symbol(shapeMode)]: true,
+          [Symbol(kCapture)]: false,
+          [Symbol(kSetNoDelay)]: true,
+          [Symbol(kSetKeepAlive)]: true,
+          [Symbol(kSetKeepAliveInitialDelay)]: 60,
+          [Symbol(kBytesRead)]: 0,
+          [Symbol(kBytesWritten)]: 0
+        },
+        [Symbol(kOutHeaders)]: [Object: null prototype] {
+          accept: [ 'Accept', 'application/json, text/plain, */*' ],
+          'content-type': [ 'Content-Type', 'application/json' ],
+          'x-bot-token': [ 'X-Bot-Token', 'YQAhsUtaPsOi5b7uj4gwb0G1UKmSGKvwdDfH6Ulf' ],
+          'user-agent': [ 'User-Agent', 'axios/1.11.0' ],
+          'content-length': [ 'Content-Length', '167' ],
+          'accept-encoding': [ 'Accept-Encoding', 'gzip, compress, deflate, br' ],
+          host: [ 'Host', 'localhost:3001' ]
+        },
+        [Symbol(errored)]: null,
+        [Symbol(kHighWaterMark)]: 16384,
+        [Symbol(kRejectNonStandardBodyWrites)]: false,
+        [Symbol(kUniqueHeaders)]: null
+      },
+      _currentUrl: 'http://localhost:3001/api/bot-service/auth',
+      [Symbol(shapeMode)]: true,
+      [Symbol(kCapture)]: false
+    },
+    cause: AggregateError
+        at internalConnectMultiple (node:net:1134:18)
+        at afterConnectMultiple (node:net:1715:7) {
+      code: 'ECONNREFUSED',
+      [errors]: [
+        Error: connect ECONNREFUSED ::1:3001
+            at createConnectionError (node:net:1678:14)
+            at afterConnectMultiple (node:net:1708:16) {
+          errno: -4078,
+          code: 'ECONNREFUSED',
+          syscall: 'connect',
+          address: '::1',
+          port: 3001
+        },
+        Error: connect ECONNREFUSED 127.0.0.1:3001
+            at createConnectionError (node:net:1678:14)
+            at afterConnectMultiple (node:net:1708:16) {
+          errno: -4078,
+          code: 'ECONNREFUSED',
+          syscall: 'connect',
+          address: '127.0.0.1',
+          port: 3001
+        }
+      ]
+    }
+  },
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-05 22:22:45'
+}
+{
+  service: 'discord-bot',
+  level: 'error',
+  message: 'Failed to authenticate with backend API: Authentication failed: ',
+  stack: 'Error: Authentication failed: \n' +
+    '    at BotApiService.authenticate (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\services\\botApiService.ts:200:19)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async ECBot.onReady (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts:112:13)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts:57:13)',
+  timestamp: '2025-09-05 22:22:45'
+}
+{
+  message: 'Bot initialization complete',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:22:45'
+}
+{
+  message: 'Received SIGINT, shutting down gracefully...',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:23:21'
+}
+{
+  message: 'Bot is ready! Logged in as Ecbot#8830',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:23:41'
+}
+{
+  message: 'Bot is in 3 guilds',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:23:41'
+}
+{
+  message: 'Loaded command: admin',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:23:41'
+}
+{
+  message: 'Loaded command: link',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:23:42'
+}
+{
+  message: 'Loaded command: shop',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:23:42'
+}
+{
+  message: 'Loaded 3 commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:23:42'
+}
+{
+  message: 'Started refreshing application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:23:42'
+}
+{
+  message: 'Successfully reloaded 3 application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:23:44'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: true,
+  responseTime: '36ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 22:23:44'
+}
+{
+  component: 'api',
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:23:44'
+}
+{
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:23:44'
+}
+{
+  message: 'Bot initialization complete',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:23:44'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'slash_command',
+  data: {
+    command: 'shop',
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-05 22:24:19'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  userId: '417296513270808580',
+  username: 'gobo0812',
+  guildId: '417297319814496256',
+  guildName: 'Socialist cocaine',
+  level: 'info',
+  message: 'Executing command: shop',
+  timestamp: '2025-09-05 22:24:19'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '2539ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 22:24:22'
+}
+{
+  component: 'templates',
+  service: 'discord-bot',
+  template: 'server_templates',
+  serverId: '417297319814496256',
+  action: 'fetch',
+  success: true,
+  level: 'info',
+  message: 'Template action completed',
+  timestamp: '2025-09-05 22:24:22'
+}
+{
+  component: 'templates',
+  message: 'Fetched undefined templates for server 417297319814496256',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:24:22'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/products/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '2742ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 22:24:22'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/categories/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '2819ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 22:24:22'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  level: 'error',
+  message: 'Shop browse error: templates.find is not a function',
+  stack: 'TypeError: templates.find is not a function\n' +
+    '    at handleBrowse (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\commands\\shop.ts:101:40)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async Object.execute (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\commands\\shop.ts:47:21)\n' +
+    '    at async CommandHandler.handleCommand (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\commandHandler.ts:102:13)\n' +
+    '    at async InteractionHandler.handleSlashCommand (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:86:9)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:27:17)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts:62:13)',
+  timestamp: '2025-09-05 22:24:22'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop_browse',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: false,
+  error: TypeError: templates.find is not a function
+      at handleBrowse (C:\Users\pmp\Desktop\EC\packages\bot\src\commands\shop.ts:101:40)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async Object.execute (C:\Users\pmp\Desktop\EC\packages\bot\src\commands\shop.ts:47:21)
+      at async CommandHandler.handleCommand (C:\Users\pmp\Desktop\EC\packages\bot\src\handlers\commandHandler.ts:102:13)
+      at async InteractionHandler.handleSlashCommand (C:\Users\pmp\Desktop\EC\packages\bot\src\handlers\interactionHandler.ts:86:9)
+      at async InteractionHandler.handleInteraction (C:\Users\pmp\Desktop\EC\packages\bot\src\handlers\interactionHandler.ts:27:17)
+      at async Client.<anonymous> (C:\Users\pmp\Desktop\EC\packages\bot\src\index.ts:62:13),
+  level: 'info',
+  message: 'Shop command executed',
+  timestamp: '2025-09-05 22:24:23'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: true,
+  level: 'info',
+  message: 'Command executed',
+  timestamp: '2025-09-05 22:24:23'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'slash_command',
+  data: {
+    command: 'shop',
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-05 22:28:40'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  userId: '417296513270808580',
+  username: 'gobo0812',
+  guildId: '417297319814496256',
+  guildName: 'Socialist cocaine',
+  level: 'info',
+  message: 'Executing command: shop',
+  timestamp: '2025-09-05 22:28:40'
+}
+{
+  component: 'templates',
+  message: 'Using cached templates for server 417297319814496256',
+  level: 'debug',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:28:41'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/categories/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '2794ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 22:28:43'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/products/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '3640ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 22:28:44'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  level: 'error',
+  message: 'Shop browse error: templates.find is not a function',
+  stack: 'TypeError: templates.find is not a function\n' +
+    '    at handleBrowse (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\commands\\shop.ts:101:40)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async Object.execute (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\commands\\shop.ts:47:21)\n' +
+    '    at async CommandHandler.handleCommand (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\commandHandler.ts:102:13)\n' +
+    '    at async InteractionHandler.handleSlashCommand (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:86:9)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:27:17)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts:62:13)',
+  timestamp: '2025-09-05 22:28:44'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop_browse',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: false,
+  error: TypeError: templates.find is not a function
+      at handleBrowse (C:\Users\pmp\Desktop\EC\packages\bot\src\commands\shop.ts:101:40)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async Object.execute (C:\Users\pmp\Desktop\EC\packages\bot\src\commands\shop.ts:47:21)
+      at async CommandHandler.handleCommand (C:\Users\pmp\Desktop\EC\packages\bot\src\handlers\commandHandler.ts:102:13)
+      at async InteractionHandler.handleSlashCommand (C:\Users\pmp\Desktop\EC\packages\bot\src\handlers\interactionHandler.ts:86:9)
+      at async InteractionHandler.handleInteraction (C:\Users\pmp\Desktop\EC\packages\bot\src\handlers\interactionHandler.ts:27:17)
+      at async Client.<anonymous> (C:\Users\pmp\Desktop\EC\packages\bot\src\index.ts:62:13),
+  level: 'info',
+  message: 'Shop command executed',
+  timestamp: '2025-09-05 22:28:45'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: true,
+  level: 'info',
+  message: 'Command executed',
+  timestamp: '2025-09-05 22:28:45'
+}
+{
+  message: 'Received SIGINT, shutting down gracefully...',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:28:54'
+}
+{
+  message: 'Bot is ready! Logged in as Ecbot#8830',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:29:03'
+}
+{
+  message: 'Bot is in 3 guilds',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:29:03'
+}
+{
+  message: 'Loaded command: admin',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:29:03'
+}
+{
+  message: 'Loaded command: link',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:29:03'
+}
+{
+  message: 'Loaded command: shop',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:29:03'
+}
+{
+  message: 'Loaded 3 commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:29:03'
+}
+{
+  message: 'Started refreshing application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:29:03'
+}
+{
+  message: 'Successfully reloaded 3 application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:29:04'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: true,
+  responseTime: '12ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 22:29:04'
+}
+{
+  component: 'api',
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:29:04'
+}
+{
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:29:04'
+}
+{
+  message: 'Bot initialization complete',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:29:04'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'slash_command',
+  data: {
+    command: 'shop',
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-05 22:29:08'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  userId: '417296513270808580',
+  username: 'gobo0812',
+  guildId: '417297319814496256',
+  guildName: 'Socialist cocaine',
+  level: 'info',
+  message: 'Executing command: shop',
+  timestamp: '2025-09-05 22:29:08'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/categories/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '2108ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 22:29:12'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '2108ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 22:29:12'
+}
+{
+  component: 'templates',
+  service: 'discord-bot',
+  template: 'server_templates',
+  serverId: '417297319814496256',
+  action: 'fetch',
+  success: true,
+  level: 'info',
+  message: 'Template action completed',
+  timestamp: '2025-09-05 22:29:12'
+}
+{
+  component: 'templates',
+  message: 'Fetched undefined templates for server 417297319814496256',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:29:12'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/products/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '3034ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 22:29:13'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  level: 'error',
+  message: 'Shop browse error: products.slice is not a function',
+  stack: 'TypeError: products.slice is not a function\n' +
+    '    at createDefaultShopEmbed (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\commands\\shop.ts:252:38)\n' +
+    '    at handleBrowse (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\commands\\shop.ts:128:21)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async Object.execute (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\commands\\shop.ts:47:21)\n' +
+    '    at async CommandHandler.handleCommand (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\commandHandler.ts:102:13)\n' +
+    '    at async InteractionHandler.handleSlashCommand (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:86:9)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\handlers\\interactionHandler.ts:27:17)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts:62:13)',
+  timestamp: '2025-09-05 22:29:13'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop_browse',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: false,
+  error: TypeError: products.slice is not a function
+      at createDefaultShopEmbed (C:\Users\pmp\Desktop\EC\packages\bot\src\commands\shop.ts:252:38)
+      at handleBrowse (C:\Users\pmp\Desktop\EC\packages\bot\src\commands\shop.ts:128:21)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async Object.execute (C:\Users\pmp\Desktop\EC\packages\bot\src\commands\shop.ts:47:21)
+      at async CommandHandler.handleCommand (C:\Users\pmp\Desktop\EC\packages\bot\src\handlers\commandHandler.ts:102:13)
+      at async InteractionHandler.handleSlashCommand (C:\Users\pmp\Desktop\EC\packages\bot\src\handlers\interactionHandler.ts:86:9)
+      at async InteractionHandler.handleInteraction (C:\Users\pmp\Desktop\EC\packages\bot\src\handlers\interactionHandler.ts:27:17)
+      at async Client.<anonymous> (C:\Users\pmp\Desktop\EC\packages\bot\src\index.ts:62:13),
+  level: 'info',
+  message: 'Shop command executed',
+  timestamp: '2025-09-05 22:29:13'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: true,
+  level: 'info',
+  message: 'Command executed',
+  timestamp: '2025-09-05 22:29:13'
+}
+{
+  message: 'Received SIGINT, shutting down gracefully...',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:32:10'
+}
+{
+  message: 'Bot is ready! Logged in as Ecbot#8830',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:32:24'
+}
+{
+  message: 'Bot is in 3 guilds',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:32:24'
+}
+{
+  message: 'Loaded command: admin',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:32:24'
+}
+{
+  message: 'Loaded command: link',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:32:24'
+}
+{
+  message: 'Loaded command: shop',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:32:24'
+}
+{
+  message: 'Loaded 3 commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:32:24'
+}
+{
+  message: 'Started refreshing application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:32:24'
+}
+{
+  message: 'Successfully reloaded 3 application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:32:26'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: true,
+  responseTime: '13ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 22:32:26'
+}
+{
+  component: 'api',
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:32:26'
+}
+{
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:32:26'
+}
+{
+  message: 'Bot initialization complete',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:32:26'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'slash_command',
+  data: {
+    command: 'shop',
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-05 22:32:27'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  userId: '417296513270808580',
+  username: 'gobo0812',
+  guildId: '417297319814496256',
+  guildName: 'Socialist cocaine',
+  level: 'info',
+  message: 'Executing command: shop',
+  timestamp: '2025-09-05 22:32:27'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '1183ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 22:32:30'
+}
+{
+  component: 'templates',
+  service: 'discord-bot',
+  template: 'server_templates',
+  serverId: '417297319814496256',
+  action: 'fetch',
+  success: true,
+  level: 'info',
+  message: 'Template action completed',
+  timestamp: '2025-09-05 22:32:30'
+}
+{
+  component: 'templates',
+  message: 'Fetched undefined templates for server 417297319814496256',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:32:30'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/categories/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '2137ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 22:32:31'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  url: '/api/bot-service/products/417297319814496256',
+  method: 'get',
+  status: 404,
+  message: 'API request failed: Request failed with status code 404',
+  level: 'error',
+  timestamp: '2025-09-05 22:32:34'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/products/417297319814496256',
+  method: 'GET',
+  success: false,
+  responseTime: '5028ms',
+  error: 'Request failed with status code 404',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-05 22:32:34'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  level: 'error',
+  message: 'Shop command error: Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'ClientRequest'\n" +
+    "    |     property 'res' -> object with constructor 'IncomingMessage'\n" +
+    "    --- property 'req' closes the circle",
+  stack: 'TypeError: Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'ClientRequest'\n" +
+    "    |     property 'res' -> object with constructor 'IncomingMessage'\n" +
+    "    --- property 'req' closes the circle\n" +
+    '    at JSON.stringify (<anonymous>)\n' +
+    '    at Printf.template (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\utils\\logger.ts:27:29)\n' +
+    '    at Printf.transform (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\logform\\printf.js:11:26)\n' +
+    '    at Format.transform (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\logform\\combine.js:20:24)\n' +
+    '    at Console._write (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\winston-transport\\modern.js:91:33)\n' +
+    '    at doWrite (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\readable-stream\\lib\\_stream_writable.js:390:139)\n' +
+    '    at writeOrBuffer (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\readable-stream\\lib\\_stream_writable.js:381:5)\n' +
+    '    at Console.Writable.write (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\readable-stream\\lib\\_stream_writable.js:302:11)\n' +
+    '    at DerivedLogger.ondata (C:\\Users\\pmp\\Desktop\\EC\\node_modules\\readable-stream\\lib\\_stream_readable.js:629:20)\n' +
+    '    at DerivedLogger.emit (node:events:530:35)',
+  timestamp: '2025-09-05 22:32:34'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: true,
+  level: 'info',
+  message: 'Command executed',
+  timestamp: '2025-09-05 22:32:35'
+}
+{
+  message: 'Received SIGINT, shutting down gracefully...',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:36:55'
+}
+{
+  message: 'Bot is ready! Logged in as Ecbot#8830',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:37:04'
+}
+{
+  message: 'Bot is in 3 guilds',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:37:04'
+}
+{
+  message: 'Loaded command: admin',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:37:04'
+}
+{
+  message: 'Loaded command: link',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:37:04'
+}
+{
+  message: 'Loaded command: shop',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:37:04'
+}
+{
+  message: 'Loaded 3 commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:37:04'
+}
+{
+  message: 'Started refreshing application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:37:04'
+}
+{
+  message: 'Successfully reloaded 3 application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:37:04'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: true,
+  responseTime: '12ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 22:37:04'
+}
+{
+  component: 'api',
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:37:04'
+}
+{
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:37:04'
+}
+{
+  message: 'Bot initialization complete',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:37:04'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'slash_command',
+  data: {
+    command: 'shop',
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-05 22:37:13'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  userId: '417296513270808580',
+  username: 'gobo0812',
+  guildId: '417297319814496256',
+  guildName: 'Socialist cocaine',
+  level: 'info',
+  message: 'Executing command: shop',
+  timestamp: '2025-09-05 22:37:13'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/products/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '2897ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 22:37:17'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/categories/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '3247ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 22:37:18'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '3391ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 22:37:18'
+}
+{
+  component: 'templates',
+  service: 'discord-bot',
+  template: 'server_templates',
+  serverId: '417297319814496256',
+  action: 'fetch',
+  success: true,
+  level: 'info',
+  message: 'Template action completed',
+  timestamp: '2025-09-05 22:37:18'
+}
+{
+  component: 'templates',
+  message: 'Fetched undefined templates for server 417297319814496256',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 22:37:18'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop_browse',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: true,
+  error: undefined,
+  level: 'info',
+  message: 'Shop command executed',
+  timestamp: '2025-09-05 22:37:18'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: true,
+  level: 'info',
+  message: 'Command executed',
+  timestamp: '2025-09-05 22:37:18'
+}
+{
+  message: 'Received SIGINT, shutting down gracefully...',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:32:58'
+}
+{
+  message: 'Bot is ready! Logged in as Ecbot#8830',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:33:18'
+}
+{
+  message: 'Bot is in 3 guilds',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:33:18'
+}
+{
+  message: 'Loaded command: admin',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:33:18'
+}
+{
+  message: 'Loaded command: link',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:33:18'
+}
+{
+  message: 'Loaded command: shop',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:33:18'
+}
+{
+  message: 'Loaded 3 commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:33:18'
+}
+{
+  message: 'Started refreshing application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:33:18'
+}
+{
+  message: 'Successfully reloaded 3 application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:33:20'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: true,
+  responseTime: '11ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 23:33:20'
+}
+{
+  component: 'api',
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:33:20'
+}
+{
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:33:20'
+}
+{
+  message: 'Bot initialization complete',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:33:20'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'slash_command',
+  data: {
+    command: 'shop',
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-05 23:33:30'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  userId: '417296513270808580',
+  username: 'gobo0812',
+  guildId: '417297319814496256',
+  guildName: 'Socialist cocaine',
+  level: 'info',
+  message: 'Executing command: shop',
+  timestamp: '2025-09-05 23:33:30'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/categories/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '2716ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 23:33:34'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/products/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '3633ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 23:33:35'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  url: '/api/bot-service/templates/417297319814496256',
+  method: 'get',
+  status: 404,
+  message: 'API request failed: Request failed with status code 404',
+  level: 'error',
+  timestamp: '2025-09-05 23:33:36'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: false,
+  responseTime: '5028ms',
+  error: 'Request failed with status code 404',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-05 23:33:36'
+}
+{
+  component: 'templates',
+  service: 'discord-bot',
+  template: 'server_templates',
+  serverId: '417297319814496256',
+  action: 'fetch',
+  success: true,
+  level: 'info',
+  message: 'Template action completed',
+  timestamp: '2025-09-05 23:33:36'
+}
+{
+  component: 'templates',
+  message: 'Fetched 0 templates for server 417297319814496256',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:33:36'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop_browse',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: true,
+  error: undefined,
+  level: 'info',
+  message: 'Shop command executed',
+  timestamp: '2025-09-05 23:33:38'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: true,
+  level: 'info',
+  message: 'Command executed',
+  timestamp: '2025-09-05 23:33:38'
+}
+{
+  message: 'Received SIGINT, shutting down gracefully...',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:38:52'
+}
+{
+  message: 'Bot is ready! Logged in as Ecbot#8830',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:39:03'
+}
+{
+  message: 'Bot is in 3 guilds',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:39:03'
+}
+{
+  message: 'Loaded command: admin',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:39:03'
+}
+{
+  message: 'Loaded command: link',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:39:03'
+}
+{
+  message: 'Loaded command: shop',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:39:03'
+}
+{
+  message: 'Loaded 3 commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:39:03'
+}
+{
+  message: 'Started refreshing application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:39:03'
+}
+{
+  message: 'Successfully reloaded 3 application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:39:04'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: true,
+  responseTime: '11ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 23:39:04'
+}
+{
+  component: 'api',
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:39:04'
+}
+{
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:39:04'
+}
+{
+  message: 'Bot initialization complete',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:39:04'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'slash_command',
+  data: {
+    command: 'shop',
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-05 23:39:08'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  userId: '417296513270808580',
+  username: 'gobo0812',
+  guildId: '417297319814496256',
+  guildName: 'Socialist cocaine',
+  level: 'info',
+  message: 'Executing command: shop',
+  timestamp: '2025-09-05 23:39:08'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/categories/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '2644ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 23:39:11'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/products/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '2807ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 23:39:12'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '908ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 23:39:12'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: false,
+  responseTime: '908ms',
+  error: 'BOT_NOT_CONFIGURED',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-05 23:39:12'
+}
+{
+  component: 'templates',
+  service: 'discord-bot',
+  template: 'server_templates',
+  serverId: '417297319814496256',
+  action: 'fetch',
+  success: false,
+  error: 'BOT_NOT_CONFIGURED',
+  level: 'error',
+  message: 'Template action failed',
+  timestamp: '2025-09-05 23:39:12'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: true,
+  level: 'info',
+  message: 'Command executed',
+  timestamp: '2025-09-05 23:39:13'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'slash_command',
+  data: {
+    command: 'shop',
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-05 23:40:03'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  userId: '417296513270808580',
+  username: 'gobo0812',
+  guildId: '417297319814496256',
+  guildName: 'Socialist cocaine',
+  level: 'info',
+  message: 'Executing command: shop',
+  timestamp: '2025-09-05 23:40:03'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/categories/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '2833ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 23:40:07'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/products/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '2857ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 23:40:07'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '274ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 23:40:07'
+}
+{
+  component: 'templates',
+  service: 'discord-bot',
+  template: 'server_templates',
+  serverId: '417297319814496256',
+  action: 'fetch',
+  success: true,
+  level: 'info',
+  message: 'Template action completed',
+  timestamp: '2025-09-05 23:40:07'
+}
+{
+  component: 'templates',
+  message: 'Fetched 8 templates for server 417297319814496256',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:40:07'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop_browse',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: true,
+  error: undefined,
+  level: 'info',
+  message: 'Shop command executed',
+  timestamp: '2025-09-05 23:40:08'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: true,
+  level: 'info',
+  message: 'Command executed',
+  timestamp: '2025-09-05 23:40:08'
+}
+{
+  message: 'Received SIGINT, shutting down gracefully...',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:52:22'
+}
+{
+  message: 'Bot is ready! Logged in as Ecbot#8830',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:52:31'
+}
+{
+  message: 'Bot is in 3 guilds',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:52:31'
+}
+{
+  message: 'Loaded command: admin',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:52:32'
+}
+{
+  message: 'Loaded command: link',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:52:32'
+}
+{
+  message: 'Loaded command: shop',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:52:32'
+}
+{
+  message: 'Loaded 3 commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:52:32'
+}
+{
+  message: 'Started refreshing application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:52:32'
+}
+{
+  message: 'Successfully reloaded 3 application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:52:32'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: true,
+  responseTime: '10ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 23:52:32'
+}
+{
+  component: 'api',
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:52:32'
+}
+{
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:52:32'
+}
+{
+  message: 'Bot initialization complete',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-05 23:52:32'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'slash_command',
+  data: {
+    command: 'shop',
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-05 23:53:38'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  userId: '417296513270808580',
+  username: 'gobo0812',
+  guildId: '417297319814496256',
+  guildName: 'Socialist cocaine',
+  level: 'info',
+  message: 'Executing command: shop',
+  timestamp: '2025-09-05 23:53:38'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '1079ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-05 23:53:40'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: true,
+  level: 'info',
+  message: 'Command executed',
+  timestamp: '2025-09-05 23:53:41'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'button_click',
+  data: {
+    customId: 'home_start',
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-05 23:59:56'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  customId: 'home_start',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'warn',
+  message: 'Unknown button action: home',
+  timestamp: '2025-09-05 23:59:56'
+}

@@ -1,0 +1,504 @@
+{
+  error: [96msrc/handlers/interactionHandler.ts[0m:[93m493[0m:[93m24[0m - [91merror[0m[90m TS7006: [0mParameter 'o' implicitly has an 'any' type.
+  
+  [7m493[0m             })).filter(o => o.value && o.label);
+  [7m   [0m [91m                       ~[0m
+  [96msrc/handlers/interactionHandler.ts[0m:[93m501[0m:[93m23[0m - [91merror[0m[90m TS7006: [0mParameter 'o' implicitly has an 'any' type.
+  
+  [7m501[0m             }).filter(o => o.value && o.label);
+  [7m   [0m [91m                      ~[0m
+  ,
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    "\x1B[96msrc/handlers/interactionHandler.ts\x1B[0m:\x1B[93m493\x1B[0m:\x1B[93m24\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'o' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m493\x1B[0m             })).filter(o => o.value && o.label);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                       ~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/interactionHandler.ts\x1B[0m:\x1B[93m501\x1B[0m:\x1B[93m23\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'o' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m501\x1B[0m             }).filter(o => o.value && o.label);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                      ~\x1B[0m\r\n' +
+    '\n' +
+    'TSError: ⨯ Unable to compile TypeScript:\n' +
+    "\x1B[96msrc/handlers/interactionHandler.ts\x1B[0m:\x1B[93m493\x1B[0m:\x1B[93m24\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'o' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m493\x1B[0m             })).filter(o => o.value && o.label);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                       ~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/interactionHandler.ts\x1B[0m:\x1B[93m501\x1B[0m:\x1B[93m23\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'o' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m501\x1B[0m             }).filter(o => o.value && o.label);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                      ~\x1B[0m\r\n' +
+    '\n' +
+    '    at createTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:859:12)\n' +
+    '    at reportTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:863:19)\n' +
+    '    at getOutput (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1077:36)\n' +
+    '    at Object.compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1433:41)\n' +
+    '    at Module.m._compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1617:30)\n' +
+    '    at node:internal/modules/cjs/loader:1895:10\n' +
+    '    at Object.require.extensions.<computed> [as .ts] (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1621:12)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)',
+  stack: 'TSError: ⨯ Unable to compile TypeScript:\n' +
+    "\x1B[96msrc/handlers/interactionHandler.ts\x1B[0m:\x1B[93m493\x1B[0m:\x1B[93m24\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'o' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m493\x1B[0m             })).filter(o => o.value && o.label);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                       ~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/interactionHandler.ts\x1B[0m:\x1B[93m501\x1B[0m:\x1B[93m23\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'o' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m501\x1B[0m             }).filter(o => o.value && o.label);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                      ~\x1B[0m\r\n' +
+    '\n' +
+    '    at createTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:859:12)\n' +
+    '    at reportTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:863:19)\n' +
+    '    at getOutput (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1077:36)\n' +
+    '    at Object.compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1433:41)\n' +
+    '    at Module.m._compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1617:30)\n' +
+    '    at node:internal/modules/cjs/loader:1895:10\n' +
+    '    at Object.require.extensions.<computed> [as .ts] (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1621:12)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)',
+  exception: true,
+  date: 'Sat Sep 06 2025 14:07:16 GMT+0800 (中国标准时间)',
+  process: {
+    pid: 109092,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot',
+    execPath: 'D:\\New Folder\\node.exe',
+    version: 'v22.17.0',
+    argv: [
+      'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\dist\\bin.js',
+      'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts'
+    ],
+    memoryUsage: {
+      rss: 349110272,
+      heapTotal: 290115584,
+      heapUsed: 257218744,
+      external: 9042691,
+      arrayBuffers: 4986101
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 1300720.015 },
+  trace: [
+    {
+      column: 12,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'createTSError',
+      line: 859,
+      method: null,
+      native: false
+    },
+    {
+      column: 19,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'reportTSError',
+      line: 863,
+      method: null,
+      native: false
+    },
+    {
+      column: 36,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'getOutput',
+      line: 1077,
+      method: null,
+      native: false
+    },
+    {
+      column: 41,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'Object.compile',
+      line: 1433,
+      method: 'compile',
+      native: false
+    },
+    {
+      column: 30,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'Module.m._compile',
+      line: 1617,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1895,
+      method: null,
+      native: false
+    },
+    {
+      column: 12,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'Object.require.extensions.<computed> [as .ts]',
+      line: 1621,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1465,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Function._load',
+      line: 1282,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:diagnostics_channel',
+      function: 'TracingChannel.traceSync',
+      line: 322,
+      method: 'traceSync',
+      native: false
+    }
+  ],
+  service: 'discord-bot',
+  timestamp: '2025-09-06 14:07:16'
+}
+{
+  error: [96msrc/handlers/interactionHandler.ts[0m:[93m493[0m:[93m24[0m - [91merror[0m[90m TS7006: [0mParameter 'o' implicitly has an 'any' type.
+  
+  [7m493[0m             })).filter(o => o.value && o.label);
+  [7m   [0m [91m                       ~[0m
+  [96msrc/handlers/interactionHandler.ts[0m:[93m501[0m:[93m23[0m - [91merror[0m[90m TS7006: [0mParameter 'o' implicitly has an 'any' type.
+  
+  [7m501[0m             }).filter(o => o.value && o.label);
+  [7m   [0m [91m                      ~[0m
+  ,
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    "\x1B[96msrc/handlers/interactionHandler.ts\x1B[0m:\x1B[93m493\x1B[0m:\x1B[93m24\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'o' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m493\x1B[0m             })).filter(o => o.value && o.label);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                       ~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/interactionHandler.ts\x1B[0m:\x1B[93m501\x1B[0m:\x1B[93m23\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'o' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m501\x1B[0m             }).filter(o => o.value && o.label);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                      ~\x1B[0m\r\n' +
+    '\n' +
+    'TSError: ⨯ Unable to compile TypeScript:\n' +
+    "\x1B[96msrc/handlers/interactionHandler.ts\x1B[0m:\x1B[93m493\x1B[0m:\x1B[93m24\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'o' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m493\x1B[0m             })).filter(o => o.value && o.label);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                       ~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/interactionHandler.ts\x1B[0m:\x1B[93m501\x1B[0m:\x1B[93m23\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'o' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m501\x1B[0m             }).filter(o => o.value && o.label);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                      ~\x1B[0m\r\n' +
+    '\n' +
+    '    at createTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:859:12)\n' +
+    '    at reportTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:863:19)\n' +
+    '    at getOutput (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1077:36)\n' +
+    '    at Object.compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1433:41)\n' +
+    '    at Module.m._compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1617:30)\n' +
+    '    at node:internal/modules/cjs/loader:1895:10\n' +
+    '    at Object.require.extensions.<computed> [as .ts] (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1621:12)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)',
+  stack: 'TSError: ⨯ Unable to compile TypeScript:\n' +
+    "\x1B[96msrc/handlers/interactionHandler.ts\x1B[0m:\x1B[93m493\x1B[0m:\x1B[93m24\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'o' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m493\x1B[0m             })).filter(o => o.value && o.label);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                       ~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/interactionHandler.ts\x1B[0m:\x1B[93m501\x1B[0m:\x1B[93m23\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'o' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m501\x1B[0m             }).filter(o => o.value && o.label);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                      ~\x1B[0m\r\n' +
+    '\n' +
+    '    at createTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:859:12)\n' +
+    '    at reportTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:863:19)\n' +
+    '    at getOutput (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1077:36)\n' +
+    '    at Object.compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1433:41)\n' +
+    '    at Module.m._compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1617:30)\n' +
+    '    at node:internal/modules/cjs/loader:1895:10\n' +
+    '    at Object.require.extensions.<computed> [as .ts] (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1621:12)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)',
+  exception: true,
+  date: 'Sat Sep 06 2025 14:08:11 GMT+0800 (中国标准时间)',
+  process: {
+    pid: 41760,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot',
+    execPath: 'D:\\New Folder\\node.exe',
+    version: 'v22.17.0',
+    argv: [
+      'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\dist\\bin.js',
+      'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts'
+    ],
+    memoryUsage: {
+      rss: 346894336,
+      heapTotal: 290639872,
+      heapUsed: 256808736,
+      external: 9042715,
+      arrayBuffers: 4986125
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 1300775.593 },
+  trace: [
+    {
+      column: 12,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'createTSError',
+      line: 859,
+      method: null,
+      native: false
+    },
+    {
+      column: 19,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'reportTSError',
+      line: 863,
+      method: null,
+      native: false
+    },
+    {
+      column: 36,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'getOutput',
+      line: 1077,
+      method: null,
+      native: false
+    },
+    {
+      column: 41,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'Object.compile',
+      line: 1433,
+      method: 'compile',
+      native: false
+    },
+    {
+      column: 30,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'Module.m._compile',
+      line: 1617,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1895,
+      method: null,
+      native: false
+    },
+    {
+      column: 12,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'Object.require.extensions.<computed> [as .ts]',
+      line: 1621,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1465,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Function._load',
+      line: 1282,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:diagnostics_channel',
+      function: 'TracingChannel.traceSync',
+      line: 322,
+      method: 'traceSync',
+      native: false
+    }
+  ],
+  service: 'discord-bot',
+  timestamp: '2025-09-06 14:08:11'
+}
+{
+  error: [96msrc/handlers/interactionHandler.ts[0m:[93m493[0m:[93m24[0m - [91merror[0m[90m TS7006: [0mParameter 'o' implicitly has an 'any' type.
+  
+  [7m493[0m             })).filter(o => o.value && o.label);
+  [7m   [0m [91m                       ~[0m
+  [96msrc/handlers/interactionHandler.ts[0m:[93m501[0m:[93m23[0m - [91merror[0m[90m TS7006: [0mParameter 'o' implicitly has an 'any' type.
+  
+  [7m501[0m             }).filter(o => o.value && o.label);
+  [7m   [0m [91m                      ~[0m
+  ,
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    "\x1B[96msrc/handlers/interactionHandler.ts\x1B[0m:\x1B[93m493\x1B[0m:\x1B[93m24\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'o' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m493\x1B[0m             })).filter(o => o.value && o.label);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                       ~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/interactionHandler.ts\x1B[0m:\x1B[93m501\x1B[0m:\x1B[93m23\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'o' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m501\x1B[0m             }).filter(o => o.value && o.label);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                      ~\x1B[0m\r\n' +
+    '\n' +
+    'TSError: ⨯ Unable to compile TypeScript:\n' +
+    "\x1B[96msrc/handlers/interactionHandler.ts\x1B[0m:\x1B[93m493\x1B[0m:\x1B[93m24\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'o' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m493\x1B[0m             })).filter(o => o.value && o.label);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                       ~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/interactionHandler.ts\x1B[0m:\x1B[93m501\x1B[0m:\x1B[93m23\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'o' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m501\x1B[0m             }).filter(o => o.value && o.label);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                      ~\x1B[0m\r\n' +
+    '\n' +
+    '    at createTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:859:12)\n' +
+    '    at reportTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:863:19)\n' +
+    '    at getOutput (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1077:36)\n' +
+    '    at Object.compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1433:41)\n' +
+    '    at Module.m._compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1617:30)\n' +
+    '    at node:internal/modules/cjs/loader:1895:10\n' +
+    '    at Object.require.extensions.<computed> [as .ts] (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1621:12)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)',
+  stack: 'TSError: ⨯ Unable to compile TypeScript:\n' +
+    "\x1B[96msrc/handlers/interactionHandler.ts\x1B[0m:\x1B[93m493\x1B[0m:\x1B[93m24\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'o' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m493\x1B[0m             })).filter(o => o.value && o.label);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                       ~\x1B[0m\r\n' +
+    "\x1B[96msrc/handlers/interactionHandler.ts\x1B[0m:\x1B[93m501\x1B[0m:\x1B[93m23\x1B[0m - \x1B[91merror\x1B[0m\x1B[90m TS7006: \x1B[0mParameter 'o' implicitly has an 'any' type.\r\n" +
+    '\r\n' +
+    '\x1B[7m501\x1B[0m             }).filter(o => o.value && o.label);\r\n' +
+    '\x1B[7m   \x1B[0m \x1B[91m                      ~\x1B[0m\r\n' +
+    '\n' +
+    '    at createTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:859:12)\n' +
+    '    at reportTSError (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:863:19)\n' +
+    '    at getOutput (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1077:36)\n' +
+    '    at Object.compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1433:41)\n' +
+    '    at Module.m._compile (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1617:30)\n' +
+    '    at node:internal/modules/cjs/loader:1895:10\n' +
+    '    at Object.require.extensions.<computed> [as .ts] (C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts:1621:12)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)',
+  exception: true,
+  date: 'Sat Sep 06 2025 14:25:36 GMT+0800 (中国标准时间)',
+  process: {
+    pid: 9536,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot',
+    execPath: 'D:\\New Folder\\node.exe',
+    version: 'v22.17.0',
+    argv: [
+      'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\dist\\bin.js',
+      'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\src\\index.ts'
+    ],
+    memoryUsage: {
+      rss: 351805440,
+      heapTotal: 288804864,
+      heapUsed: 257740640,
+      external: 9042691,
+      arrayBuffers: 4986101
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 1301819.765 },
+  trace: [
+    {
+      column: 12,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'createTSError',
+      line: 859,
+      method: null,
+      native: false
+    },
+    {
+      column: 19,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'reportTSError',
+      line: 863,
+      method: null,
+      native: false
+    },
+    {
+      column: 36,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'getOutput',
+      line: 1077,
+      method: null,
+      native: false
+    },
+    {
+      column: 41,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'Object.compile',
+      line: 1433,
+      method: 'compile',
+      native: false
+    },
+    {
+      column: 30,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'Module.m._compile',
+      line: 1617,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1895,
+      method: null,
+      native: false
+    },
+    {
+      column: 12,
+      file: 'C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\node_modules\\ts-node\\src\\index.ts',
+      function: 'Object.require.extensions.<computed> [as .ts]',
+      line: 1621,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1465,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Function._load',
+      line: 1282,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:diagnostics_channel',
+      function: 'TracingChannel.traceSync',
+      line: 322,
+      method: 'traceSync',
+      native: false
+    }
+  ],
+  service: 'discord-bot',
+  timestamp: '2025-09-06 14:25:36'
+}

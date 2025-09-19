@@ -1,0 +1,30 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 7
+    },
+    "auditLog": "C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\logs\\.b88eeeb1e1bf66b43641f6ba5e62c4f335c8b275-audit.json",
+    "files": [
+        {
+            "date": 1757079923939,
+            "name": "C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\logs\\debug-2025-09-05.log",
+            "hash": "4d1d369fa3bced28d9877f3a5b28a8d30dc98da7e03181e328f0792ef76b754c"
+        },
+        {
+            "date": 1757088003992,
+            "name": "C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\logs\\debug-2025-09-06.log",
+            "hash": "5e4d48eace51378cc3c38d79ff7cb3042d915790b694035b6b3f226baf06e3e3"
+        },
+        {
+            "date": 1757193630165,
+            "name": "C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\logs\\debug-2025-09-07.log",
+            "hash": "7283524f6188376d4fd7b9433c90829e53b87e7a9a6f41cc29997e17065ddc79"
+        },
+        {
+            "date": 1757261011520,
+            "name": "C:\\Users\\pmp\\Desktop\\EC\\packages\\bot\\logs\\debug-2025-09-08.log",
+            "hash": "7148409c08d4f4103c00b505317c910676ad2b2bab3960c79dbf28ab90bdef71"
+        }
+    ],
+    "hashType": "sha256"
+}

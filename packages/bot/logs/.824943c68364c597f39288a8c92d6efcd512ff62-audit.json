@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\logs\\.824943c68364c597f39288a8c92d6efcd512ff62-audit.json",
+    "files": [
+        {
+            "date": 1758125285932,
+            "name": "C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\logs\\bot-2025-09-18.log",
+            "hash": "a7541c83e1a86ab8477542fc87101c3c794eb5e7e43f52a6a5ce5be640beaa2d"
+        },
+        {
+            "date": 1758242763750,
+            "name": "C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\logs\\bot-2025-09-19.log",
+            "hash": "75831026664228c5c23c8cf3d987e882a35ba7f5d64ae7fc49744d51f0a0d437"
+        }
+    ],
+    "hashType": "sha256"
+}

@@ -1,0 +1,1706 @@
+{
+  message: 'Bot is ready! Logged in as Ecbot#8830',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-19 08:46:05'
+}
+{
+  message: 'Bot is in 3 guilds',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-19 08:46:05'
+}
+{
+  service: 'discord-bot',
+  appId: '1390575948134350928',
+  cfgId: '1390575948134350928',
+  invite: 'https://discord.com/api/oauth2/authorize?client_id=1390575948134350928&scope=bot%20applications.commands&permissions=0',
+  level: 'info',
+  message: 'Discord IDs and Invite URL',
+  timestamp: '2025-09-19 08:46:05'
+}
+{
+  message: 'Loaded command: admin',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-19 08:46:05'
+}
+{
+  message: 'Loaded command: link',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-19 08:46:05'
+}
+{
+  message: 'Loaded command: shop',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-19 08:46:05'
+}
+{
+  message: 'Loaded 3 commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-19 08:46:05'
+}
+{
+  service: 'discord-bot',
+  guildId: '1413584793542856856',
+  level: 'info',
+  message: 'Refreshing guild (/) commands',
+  timestamp: '2025-09-19 08:46:05'
+}
+{
+  service: 'discord-bot',
+  guildId: '1413584793542856856',
+  level: 'info',
+  message: 'Successfully reloaded 3 guild (/) commands',
+  timestamp: '2025-09-19 08:46:05'
+}
+{
+  message: 'Refreshing global application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-19 08:46:05'
+}
+{
+  message: 'Successfully reloaded 3 global application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-19 08:46:05'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: true,
+  responseTime: '13ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 08:46:05'
+}
+{
+  component: 'api',
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-19 08:46:05'
+}
+{
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-19 08:46:05'
+}
+{
+  message: 'Bot initialization complete',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-19 08:46:05'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-19 08:46:08'
+}
+{
+  service: 'discord-bot',
+  type: 2,
+  isChatInput: true,
+  userId: '417296513270808580',
+  guildId: '1413584793542856856',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-19 08:46:08'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 2,
+  isChatInput: true,
+  userId: '417296513270808580',
+  guildId: '1413584793542856856',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-19 08:46:08'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'slash_command',
+  data: {
+    command: 'shop',
+    userId: '417296513270808580',
+    guildId: '1413584793542856856'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-19 08:46:08'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  userId: '417296513270808580',
+  username: 'gobo0812',
+  guildId: '1413584793542856856',
+  guildName: 'Wiko的服务器',
+  level: 'info',
+  message: 'Executing command: shop',
+  timestamp: '2025-09-19 08:46:08'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/categories/1413584793542856856',
+  method: 'GET',
+  success: true,
+  responseTime: '2115ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 08:46:11'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/products/1413584793542856856',
+  method: 'GET',
+  success: true,
+  responseTime: '2277ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 08:46:11'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/1413584793542856856',
+  method: 'GET',
+  success: true,
+  responseTime: '466ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 08:46:11'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/1413584793542856856',
+  method: 'GET',
+  success: false,
+  responseTime: '466ms',
+  error: 'BOT_NOT_CONFIGURED',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-19 08:46:11'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop',
+  userId: '417296513270808580',
+  guildId: '1413584793542856856',
+  success: true,
+  level: 'info',
+  message: 'Command executed',
+  timestamp: '2025-09-19 08:46:12'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-19 08:58:18'
+}
+{
+  service: 'discord-bot',
+  type: 2,
+  isChatInput: true,
+  userId: '417296513270808580',
+  guildId: '1413584793542856856',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-19 08:58:18'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 2,
+  isChatInput: true,
+  userId: '417296513270808580',
+  guildId: '1413584793542856856',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-19 08:58:18'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'slash_command',
+  data: {
+    command: 'shop',
+    userId: '417296513270808580',
+    guildId: '1413584793542856856'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-19 08:58:18'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  userId: '417296513270808580',
+  username: 'gobo0812',
+  guildId: '1413584793542856856',
+  guildName: 'Wiko的服务器',
+  level: 'info',
+  message: 'Executing command: shop',
+  timestamp: '2025-09-19 08:58:18'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/products/1413584793542856856',
+  method: 'GET',
+  success: true,
+  responseTime: '789ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 08:58:19'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/categories/1413584793542856856',
+  method: 'GET',
+  success: true,
+  responseTime: '803ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 08:58:20'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/1413584793542856856',
+  method: 'GET',
+  success: true,
+  responseTime: '432ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 08:58:20'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/1413584793542856856',
+  method: 'GET',
+  success: false,
+  responseTime: '432ms',
+  error: 'BOT_NOT_CONFIGURED',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-19 08:58:20'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop',
+  userId: '417296513270808580',
+  guildId: '1413584793542856856',
+  success: true,
+  level: 'info',
+  message: 'Command executed',
+  timestamp: '2025-09-19 08:58:20'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-19 08:58:36'
+}
+{
+  service: 'discord-bot',
+  type: 2,
+  isChatInput: true,
+  userId: '417296513270808580',
+  guildId: '1413584793542856856',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-19 08:58:36'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 2,
+  isChatInput: true,
+  userId: '417296513270808580',
+  guildId: '1413584793542856856',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-19 08:58:36'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'slash_command',
+  data: {
+    command: 'shop',
+    userId: '417296513270808580',
+    guildId: '1413584793542856856'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-19 08:58:36'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  userId: '417296513270808580',
+  username: 'gobo0812',
+  guildId: '1413584793542856856',
+  guildName: 'Wiko的服务器',
+  level: 'info',
+  message: 'Executing command: shop',
+  timestamp: '2025-09-19 08:58:36'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/categories/1413584793542856856',
+  method: 'GET',
+  success: true,
+  responseTime: '647ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 08:58:37'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/products/1413584793542856856',
+  method: 'GET',
+  success: true,
+  responseTime: '918ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 08:58:38'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/1413584793542856856',
+  method: 'GET',
+  success: true,
+  responseTime: '427ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 08:58:38'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/1413584793542856856',
+  method: 'GET',
+  success: false,
+  responseTime: '428ms',
+  error: 'BOT_NOT_CONFIGURED',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-19 08:58:38'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop',
+  userId: '417296513270808580',
+  guildId: '1413584793542856856',
+  success: true,
+  level: 'info',
+  message: 'Command executed',
+  timestamp: '2025-09-19 08:58:38'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'guild_join',
+  data: {
+    guildId: '417297319814496256',
+    guildName: 'Socialist cocaine',
+    memberCount: 6,
+    ownerId: '417296513270808580'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-19 09:00:08'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  guildId: '417297319814496256',
+  guildName: 'Socialist cocaine',
+  memberCount: 6,
+  ownerId: '417296513270808580',
+  features: [],
+  level: 'info',
+  message: 'Bot joined guild: Socialist cocaine (417297319814496256)',
+  timestamp: '2025-09-19 09:00:08'
+}
+{
+  component: 'events',
+  message: 'Sent welcome message to Socialist cocaine in channel general',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-19 09:00:08'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '540ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 09:00:09'
+}
+{
+  component: 'templates',
+  service: 'discord-bot',
+  template: 'server_templates',
+  serverId: '417297319814496256',
+  action: 'fetch',
+  success: true,
+  level: 'info',
+  message: 'Template action completed',
+  timestamp: '2025-09-19 09:00:09'
+}
+{
+  component: 'templates',
+  message: 'Fetched 8 templates for server 417297319814496256',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-19 09:00:09'
+}
+{
+  component: 'events',
+  message: 'Guild Socialist cocaine has 8 templates configured',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-19 09:00:09'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-19 09:00:22'
+}
+{
+  service: 'discord-bot',
+  type: 2,
+  isChatInput: true,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-19 09:00:22'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 2,
+  isChatInput: true,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-19 09:00:22'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'slash_command',
+  data: {
+    command: 'shop',
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-19 09:00:22'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  userId: '417296513270808580',
+  username: 'gobo0812',
+  guildId: '417297319814496256',
+  guildName: 'Socialist cocaine',
+  level: 'info',
+  message: 'Executing command: shop',
+  timestamp: '2025-09-19 09:00:22'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/categories/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '799ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 09:00:23'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/products/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '1380ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 09:00:24'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '411ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 09:00:24'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  resolvedLayout: 'horizontal',
+  rawMode: 'horizontal',
+  modeStr: 'horizontal',
+  showProducts: true,
+  hasMenuTmpl: true,
+  hasGlobalPds: true,
+  pdsOwnerId: null,
+  pds: { displayMode: 'horizontal', showProducts: true },
+  level: 'info',
+  message: 'Shop browse layout',
+  timestamp: '2025-09-19 09:00:24'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop_browse',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: true,
+  error: undefined,
+  level: 'info',
+  message: 'Shop command executed',
+  timestamp: '2025-09-19 09:00:24'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: true,
+  level: 'info',
+  message: 'Command executed',
+  timestamp: '2025-09-19 09:00:24'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-19 09:01:43'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-19 09:01:43'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-19 09:01:43'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'category_select',
+    selectedValues: [ '908f7077-382f-4538-8251-24962dcb7bf4' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-19 09:01:43'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-19 09:01:52'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-19 09:01:52'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-19 09:01:52'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'product_select',
+    selectedValues: [ 'f5a24cd3-6b3c-4c17-9db8-4199f45acf61' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-19 09:01:52'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-19 09:01:55'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-19 09:01:55'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-19 09:01:55'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'payment_select',
+    selectedValues: [ 'crypto' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-19 09:01:55'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  url: '/api/bot-service/templates/417297319814496256',
+  method: 'get',
+  status: undefined,
+  message: 'API request failed: Error',
+  level: 'error',
+  timestamp: '2025-09-19 09:01:55'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: false,
+  responseTime: '38ms',
+  error: 'Error',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-19 09:01:55'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  url: '/api/fees/estimate',
+  method: 'get',
+  status: undefined,
+  message: 'API request failed: Error',
+  level: 'error',
+  timestamp: '2025-09-19 09:01:55'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-19 09:05:28'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-19 09:05:28'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-19 09:05:28'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'coin_select',
+    selectedValues: [ 'BTC' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-19 09:05:28'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  url: '/api/fees/estimate',
+  method: 'get',
+  status: undefined,
+  message: 'API request failed: Error',
+  level: 'error',
+  timestamp: '2025-09-19 09:05:28'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  url: '/api/bot-service/templates/417297319814496256',
+  method: 'get',
+  status: undefined,
+  message: 'API request failed: Error',
+  level: 'error',
+  timestamp: '2025-09-19 09:05:28'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: false,
+  responseTime: '1ms',
+  error: 'Error',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-19 09:05:28'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  error: "Cannot destructure property 'emoji' of 'selectMenuOption' as it is undefined.",
+  stack: "TypeError: Cannot destructure property 'emoji' of 'selectMenuOption' as it is undefined.\n" +
+    '    at Function.normalizeEmoji (C:\\Users\\pmp\\Desktop\\EC-fina\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:36:13)\n' +
+    '    at C:\\Users\\pmp\\Desktop\\EC-fina\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:49:91\n' +
+    '    at Array.map (<anonymous>)\n' +
+    '    at StringSelectMenuBuilder.addOptions (C:\\Users\\pmp\\Desktop\\EC-fina\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:49:53)\n' +
+    '    at InteractionHandler.handleCoinSelect (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\handlers\\interactionHandler.ts:1277:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async InteractionHandler.handleSelectMenu (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\handlers\\interactionHandler.ts:350:17)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\handlers\\interactionHandler.ts:180:17)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\index.ts:67:13)',
+  interactionType: 3,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'error',
+  message: 'Error handling interaction:',
+  timestamp: '2025-09-19 09:05:28'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-19 09:05:40'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-19 09:05:40'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-19 09:05:40'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'category_select',
+    selectedValues: [ '908f7077-382f-4538-8251-24962dcb7bf4' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-19 09:05:40'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-19 09:05:42'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-19 09:05:42'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-19 09:05:42'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'product_select',
+    selectedValues: [ 'f5a24cd3-6b3c-4c17-9db8-4199f45acf61' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-19 09:05:43'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-19 09:05:45'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-19 09:05:45'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-19 09:05:45'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'payment_select',
+    selectedValues: [ 'crypto' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-19 09:05:45'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  url: '/api/bot-service/templates/417297319814496256',
+  method: 'get',
+  status: undefined,
+  message: 'API request failed: Error',
+  level: 'error',
+  timestamp: '2025-09-19 09:05:45'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: false,
+  responseTime: '2ms',
+  error: 'Error',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-19 09:05:45'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  url: '/api/fees/estimate',
+  method: 'get',
+  status: undefined,
+  message: 'API request failed: Error',
+  level: 'error',
+  timestamp: '2025-09-19 09:05:45'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-19 09:05:51'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-19 09:05:51'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-19 09:05:51'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'button_click',
+  data: {
+    customId: 'confirm_order',
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-19 09:05:51'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  url: '/api/bot-service/orders',
+  method: 'post',
+  status: undefined,
+  message: 'API request failed: Error',
+  level: 'error',
+  timestamp: '2025-09-19 09:05:51'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/orders',
+  method: 'POST',
+  success: false,
+  responseTime: '4ms',
+  error: 'Error',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-19 09:05:51'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-19 09:06:46'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-19 09:06:46'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-19 09:06:46'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'category_select',
+    selectedValues: [ '908f7077-382f-4538-8251-24962dcb7bf4' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-19 09:06:47'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-19 09:06:50'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-19 09:06:50'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-19 09:06:50'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'product_select',
+    selectedValues: [ 'f5a24cd3-6b3c-4c17-9db8-4199f45acf61' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-19 09:06:50'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-19 09:06:53'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-19 09:06:53'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-19 09:06:53'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'payment_select',
+    selectedValues: [ 'crypto' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-19 09:06:53'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: true,
+  responseTime: '22ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 09:06:53'
+}
+{
+  component: 'api',
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-19 09:06:53'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '625ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 09:06:54'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-19 09:07:08'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-19 09:07:08'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-19 09:07:08'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'button_click',
+  data: {
+    customId: 'confirm_order',
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-19 09:07:08'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/orders',
+  method: 'POST',
+  success: true,
+  responseTime: '3823ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 09:07:13'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '183ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 09:07:13'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-19 09:17:08'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-19 09:17:08'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-19 09:17:08'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'button_click',
+  data: {
+    customId: 'invoice_check',
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-19 09:17:08'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-19 09:41:31'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-19 09:41:31'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-19 09:41:31'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'category_select',
+    selectedValues: [ '908f7077-382f-4538-8251-24962dcb7bf4' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-19 09:41:31'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: true,
+  responseTime: '20ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 09:41:31'
+}
+{
+  component: 'api',
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-19 09:41:31'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: true,
+  responseTime: '19ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 09:41:31'
+}
+{
+  component: 'api',
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-19 09:41:31'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/categories/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '1366ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 09:41:33'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/products/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '2099ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 09:41:33'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-19 09:41:35'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-19 09:41:35'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-19 09:41:35'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'product_select',
+    selectedValues: [ 'f5a24cd3-6b3c-4c17-9db8-4199f45acf61' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-19 09:41:35'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-19 09:41:38'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-19 09:41:38'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-19 09:41:38'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'payment_select',
+    selectedValues: [ 'crypto' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-19 09:41:39'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '588ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 09:41:39'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-19 09:41:46'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-19 09:41:46'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-19 09:41:46'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'network_select',
+    selectedValues: [ 'ethereum-sepolia' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-19 09:41:47'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '555ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 09:41:47'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  error: "Cannot destructure property 'emoji' of 'selectMenuOption' as it is undefined.",
+  stack: "TypeError: Cannot destructure property 'emoji' of 'selectMenuOption' as it is undefined.\n" +
+    '    at Function.normalizeEmoji (C:\\Users\\pmp\\Desktop\\EC-fina\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:36:13)\n' +
+    '    at C:\\Users\\pmp\\Desktop\\EC-fina\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:49:91\n' +
+    '    at Array.map (<anonymous>)\n' +
+    '    at StringSelectMenuBuilder.addOptions (C:\\Users\\pmp\\Desktop\\EC-fina\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:49:53)\n' +
+    '    at InteractionHandler.handleCoinSelect (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\handlers\\interactionHandler.ts:1277:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async InteractionHandler.handleNetworkSelect (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\handlers\\interactionHandler.ts:1309:9)\n' +
+    '    at async InteractionHandler.handleSelectMenu (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\handlers\\interactionHandler.ts:353:17)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\handlers\\interactionHandler.ts:180:17)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\index.ts:67:13)',
+  interactionType: 3,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'error',
+  message: 'Error handling interaction:',
+  timestamp: '2025-09-19 09:41:47'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-19 09:42:00'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-19 09:42:00'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-19 09:42:00'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'button_click',
+  data: {
+    customId: 'confirm_order',
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-19 09:42:00'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/orders',
+  method: 'POST',
+  success: true,
+  responseTime: '4294ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 09:42:04'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '252ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-19 09:42:05'
+}

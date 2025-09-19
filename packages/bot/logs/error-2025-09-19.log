@@ -1,0 +1,197 @@
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/1413584793542856856',
+  method: 'GET',
+  success: false,
+  responseTime: '466ms',
+  error: 'BOT_NOT_CONFIGURED',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-19 08:46:11'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/1413584793542856856',
+  method: 'GET',
+  success: false,
+  responseTime: '432ms',
+  error: 'BOT_NOT_CONFIGURED',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-19 08:58:20'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/1413584793542856856',
+  method: 'GET',
+  success: false,
+  responseTime: '428ms',
+  error: 'BOT_NOT_CONFIGURED',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-19 08:58:38'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  url: '/api/bot-service/templates/417297319814496256',
+  method: 'get',
+  status: undefined,
+  message: 'API request failed: Error',
+  level: 'error',
+  timestamp: '2025-09-19 09:01:55'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: false,
+  responseTime: '38ms',
+  error: 'Error',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-19 09:01:55'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  url: '/api/fees/estimate',
+  method: 'get',
+  status: undefined,
+  message: 'API request failed: Error',
+  level: 'error',
+  timestamp: '2025-09-19 09:01:55'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  url: '/api/fees/estimate',
+  method: 'get',
+  status: undefined,
+  message: 'API request failed: Error',
+  level: 'error',
+  timestamp: '2025-09-19 09:05:28'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  url: '/api/bot-service/templates/417297319814496256',
+  method: 'get',
+  status: undefined,
+  message: 'API request failed: Error',
+  level: 'error',
+  timestamp: '2025-09-19 09:05:28'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: false,
+  responseTime: '1ms',
+  error: 'Error',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-19 09:05:28'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  error: "Cannot destructure property 'emoji' of 'selectMenuOption' as it is undefined.",
+  stack: "TypeError: Cannot destructure property 'emoji' of 'selectMenuOption' as it is undefined.\n" +
+    '    at Function.normalizeEmoji (C:\\Users\\pmp\\Desktop\\EC-fina\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:36:13)\n' +
+    '    at C:\\Users\\pmp\\Desktop\\EC-fina\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:49:91\n' +
+    '    at Array.map (<anonymous>)\n' +
+    '    at StringSelectMenuBuilder.addOptions (C:\\Users\\pmp\\Desktop\\EC-fina\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:49:53)\n' +
+    '    at InteractionHandler.handleCoinSelect (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\handlers\\interactionHandler.ts:1277:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async InteractionHandler.handleSelectMenu (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\handlers\\interactionHandler.ts:350:17)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\handlers\\interactionHandler.ts:180:17)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\index.ts:67:13)',
+  interactionType: 3,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'error',
+  message: 'Error handling interaction:',
+  timestamp: '2025-09-19 09:05:28'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  url: '/api/bot-service/templates/417297319814496256',
+  method: 'get',
+  status: undefined,
+  message: 'API request failed: Error',
+  level: 'error',
+  timestamp: '2025-09-19 09:05:45'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: false,
+  responseTime: '2ms',
+  error: 'Error',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-19 09:05:45'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  url: '/api/fees/estimate',
+  method: 'get',
+  status: undefined,
+  message: 'API request failed: Error',
+  level: 'error',
+  timestamp: '2025-09-19 09:05:45'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  url: '/api/bot-service/orders',
+  method: 'post',
+  status: undefined,
+  message: 'API request failed: Error',
+  level: 'error',
+  timestamp: '2025-09-19 09:05:51'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/orders',
+  method: 'POST',
+  success: false,
+  responseTime: '4ms',
+  error: 'Error',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-19 09:05:51'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  error: "Cannot destructure property 'emoji' of 'selectMenuOption' as it is undefined.",
+  stack: "TypeError: Cannot destructure property 'emoji' of 'selectMenuOption' as it is undefined.\n" +
+    '    at Function.normalizeEmoji (C:\\Users\\pmp\\Desktop\\EC-fina\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:36:13)\n' +
+    '    at C:\\Users\\pmp\\Desktop\\EC-fina\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:49:91\n' +
+    '    at Array.map (<anonymous>)\n' +
+    '    at StringSelectMenuBuilder.addOptions (C:\\Users\\pmp\\Desktop\\EC-fina\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:49:53)\n' +
+    '    at InteractionHandler.handleCoinSelect (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\handlers\\interactionHandler.ts:1277:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async InteractionHandler.handleNetworkSelect (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\handlers\\interactionHandler.ts:1309:9)\n' +
+    '    at async InteractionHandler.handleSelectMenu (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\handlers\\interactionHandler.ts:353:17)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\handlers\\interactionHandler.ts:180:17)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\index.ts:67:13)',
+  interactionType: 3,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'error',
+  message: 'Error handling interaction:',
+  timestamp: '2025-09-19 09:41:47'
+}

@@ -1,0 +1,193 @@
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: false,
+  responseTime: '25ms',
+  error: 'Request failed with status code 401',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-18 00:08:08'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: false,
+  responseTime: '4ms',
+  error: 'Request failed with status code 401',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-18 00:08:08'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: false,
+  responseTime: '3ms',
+  error: 'Request failed with status code 401',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-18 00:08:09'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: false,
+  responseTime: '5ms',
+  error: 'Request failed with status code 401',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-18 00:08:11'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: false,
+  responseTime: '4ms',
+  error: 'Request failed with status code 401',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-18 00:08:15'
+}
+{
+  service: 'discord-bot',
+  level: 'error',
+  message: 'Failed to authenticate with backend API: Authentication failed after retries: Request failed with status code 401',
+  stack: 'Error: Authentication failed after retries: Request failed with status code 401\n' +
+    '    at BotApiService.authenticate (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\services\\botApiService.ts:162:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async ECBot.onReady (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\index.ts:151:13)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\index.ts:57:13)',
+  timestamp: '2025-09-18 00:08:15'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: false,
+  responseTime: '22ms',
+  error: 'Request failed with status code 401',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-18 00:08:42'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: false,
+  responseTime: '4ms',
+  error: 'Request failed with status code 401',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-18 00:08:42'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: false,
+  responseTime: '3ms',
+  error: 'Request failed with status code 401',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-18 00:08:43'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: false,
+  responseTime: '2ms',
+  error: 'Request failed with status code 401',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-18 00:08:45'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: false,
+  responseTime: '3ms',
+  error: 'Request failed with status code 401',
+  level: 'error',
+  message: 'API call failed',
+  timestamp: '2025-09-18 00:08:49'
+}
+{
+  service: 'discord-bot',
+  level: 'error',
+  message: 'Failed to authenticate with backend API: Authentication failed after retries: Request failed with status code 401',
+  stack: 'Error: Authentication failed after retries: Request failed with status code 401\n' +
+    '    at BotApiService.authenticate (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\services\\botApiService.ts:162:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async ECBot.onReady (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\index.ts:151:13)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\index.ts:57:13)',
+  timestamp: '2025-09-18 00:08:49'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  error: "Cannot destructure property 'emoji' of 'selectMenuOption' as it is undefined.",
+  stack: "TypeError: Cannot destructure property 'emoji' of 'selectMenuOption' as it is undefined.\n" +
+    '    at Function.normalizeEmoji (C:\\Users\\pmp\\Desktop\\EC-fina\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:36:13)\n' +
+    '    at C:\\Users\\pmp\\Desktop\\EC-fina\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:49:91\n' +
+    '    at Array.map (<anonymous>)\n' +
+    '    at StringSelectMenuBuilder.addOptions (C:\\Users\\pmp\\Desktop\\EC-fina\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:49:53)\n' +
+    '    at InteractionHandler.handlePaymentSelect (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\handlers\\interactionHandler.ts:1077:20)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async InteractionHandler.handleSelectMenu (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\handlers\\interactionHandler.ts:359:17)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\handlers\\interactionHandler.ts:180:17)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\index.ts:67:13)',
+  level: 'error',
+  message: 'payment_select failed',
+  timestamp: '2025-09-18 00:48:47'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  error: "Cannot destructure property 'emoji' of 'selectMenuOption' as it is undefined.",
+  stack: "TypeError: Cannot destructure property 'emoji' of 'selectMenuOption' as it is undefined.\n" +
+    '    at Function.normalizeEmoji (C:\\Users\\pmp\\Desktop\\EC-fina\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:36:13)\n' +
+    '    at C:\\Users\\pmp\\Desktop\\EC-fina\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:49:91\n' +
+    '    at Array.map (<anonymous>)\n' +
+    '    at StringSelectMenuBuilder.addOptions (C:\\Users\\pmp\\Desktop\\EC-fina\\node_modules\\discord.js\\src\\structures\\StringSelectMenuBuilder.js:49:53)\n' +
+    '    at InteractionHandler.handlePaymentSelect (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\handlers\\interactionHandler.ts:1077:20)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async InteractionHandler.handleSelectMenu (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\handlers\\interactionHandler.ts:359:17)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\handlers\\interactionHandler.ts:180:17)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\index.ts:67:13)',
+  level: 'error',
+  message: 'payment_select failed',
+  timestamp: '2025-09-18 00:49:00'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  error: 'The reply to this interaction has already been sent or deferred.',
+  stack: 'Error [InteractionAlreadyReplied]: The reply to this interaction has already been sent or deferred.\n' +
+    '    at StringSelectMenuInteraction.reply (C:\\Users\\pmp\\Desktop\\EC-fina\\node_modules\\discord.js\\src\\structures\\interfaces\\InteractionResponses.js:169:46)\n' +
+    '    at InteractionHandler.handlePaymentSelect (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\handlers\\interactionHandler.ts:993:39)\n' +
+    '    at InteractionHandler.handleSelectMenu (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\handlers\\interactionHandler.ts:359:28)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\handlers\\interactionHandler.ts:180:17)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC-fina\\packages\\bot\\src\\index.ts:67:13)',
+  level: 'error',
+  message: 'payment_select failed',
+  timestamp: '2025-09-18 00:52:06'
+}

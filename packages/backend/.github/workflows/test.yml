@@ -1,0 +1,124 @@
+name: Backend Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'packages/backend/**'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'packages/backend/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: ecbot_test
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: packages/backend/package-lock.json
+
+    - name: Install dependencies
+      run: |
+        cd packages/backend
+        npm ci
+
+    - name: Run linting
+      run: |
+        cd packages/backend
+        npm run lint
+
+    - name: Run type checking
+      run: |
+        cd packages/backend
+        npm run build
+
+    - name: Run unit tests
+      run: |
+        cd packages/backend
+        npm run test:ci
+      env:
+        NODE_ENV: test
+        JWT_SECRET: test-jwt-secret-for-ci
+        SUPABASE_URL: ${{ secrets.SUPABASE_TEST_URL || 'https://test.supabase.co' }}
+        SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_TEST_SERVICE_ROLE_KEY || 'test-key' }}
+        OKX_API_KEY: test-okx-api-key
+        OKX_SECRET_KEY: test-okx-secret-key
+        OKX_PASSPHRASE: test-okx-passphrase
+        OKX_SANDBOX: true
+        DISCORD_CLIENT_ID: test-discord-client-id
+        DISCORD_CLIENT_SECRET: test-discord-client-secret
+        DISCORD_BOT_TOKEN: test-discord-bot-token
+
+    - name: Run integration tests
+      run: |
+        cd packages/backend
+        npm run test:integration
+      env:
+        NODE_ENV: test
+        JWT_SECRET: test-jwt-secret-for-ci
+        SUPABASE_URL: ${{ secrets.SUPABASE_TEST_URL || 'https://test.supabase.co' }}
+        SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_TEST_SERVICE_ROLE_KEY || 'test-key' }}
+        OKX_API_KEY: test-okx-api-key
+        OKX_SECRET_KEY: test-okx-secret-key
+        OKX_PASSPHRASE: test-okx-passphrase
+        OKX_SANDBOX: true
+        DISCORD_CLIENT_ID: test-discord-client-id
+        DISCORD_CLIENT_SECRET: test-discord-client-secret
+        DISCORD_BOT_TOKEN: test-discord-bot-token
+
+    - name: Run load tests
+      run: |
+        cd packages/backend
+        npm run test:load
+      env:
+        NODE_ENV: test
+        JWT_SECRET: test-jwt-secret-for-ci
+        SUPABASE_URL: ${{ secrets.SUPABASE_TEST_URL || 'https://test.supabase.co' }}
+        SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_TEST_SERVICE_ROLE_KEY || 'test-key' }}
+        OKX_API_KEY: test-okx-api-key
+        OKX_SECRET_KEY: test-okx-secret-key
+        OKX_PASSPHRASE: test-okx-passphrase
+        OKX_SANDBOX: true
+
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        file: packages/backend/coverage/lcov.info
+        flags: backend
+        name: backend-coverage
+        fail_ci_if_error: false
+
+    - name: Upload test results
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: test-results-${{ matrix.node-version }}
+        path: |
+          packages/backend/coverage/
+          packages/backend/test-results.xml
+        retention-days: 30
