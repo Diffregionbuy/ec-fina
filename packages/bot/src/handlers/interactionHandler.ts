@@ -120,11 +120,69 @@ async function loadTatumSupported(): Promise<void> {
       DYNAMIC_COIN_TICKERS = coinSymbols;
       DYNAMIC_NETS = netsMap;
       lastLoadedAt = now;
+      console.log('[loadTatumSupported] Successfully loaded coins:', coinSymbols);
+      eventLogger.info('Successfully loaded Tatum supported coins', { 
+        coinCount: coinSymbols.length,
+        coins: coinSymbols,
+        backend,
+        hasToken: !!token
+      });
+    } else {
+      console.warn('[loadTatumSupported] No coins returned from API');
+      eventLogger.warn('No coins returned from Tatum API', { 
+        backend: process.env.BACKEND_URL || 'http://localhost:3001',
+        hasToken: !!(process.env.DISCORD_BOT_SERVICE_TOKEN || process.env.BACKEND_BOT_TOKEN || process.env.BACKEND_TOKEN)
+      });
     }
   } catch (e) {
     // Keep defaults on failure
+    console.error('[loadTatumSupported] Failed to load dynamic coins/networks:', e);
+    eventLogger.error('Failed to load Tatum supported coins', { 
+      error: e instanceof Error ? e.message : String(e),
+      backend: process.env.BACKEND_URL || 'http://localhost:3001',
+      hasToken: !!(process.env.DISCORD_BOT_SERVICE_TOKEN || process.env.BACKEND_BOT_TOKEN || process.env.BACKEND_TOKEN)
+    });
   }
 }
+
+// Test function to manually check API connectivity
+async function testTatumAPI(): Promise<void> {
+  const backend = process.env.BACKEND_URL || 'http://localhost:3001';
+  const token = process.env.DISCORD_BOT_SERVICE_TOKEN || process.env.BACKEND_BOT_TOKEN || process.env.BACKEND_TOKEN;
+  
+  console.log('[testTatumAPI] Testing connection to:', `${backend}/api/tatum/supported`);
+  console.log('[testTatumAPI] Using token:', token ? `${token.substring(0, 10)}...` : 'NO TOKEN');
+  
+  try {
+    const resp = await fetch(`${backend}/api/tatum/supported`, {
+      headers: {
+        'Content-Type': 'application/json',
+        ...(token ? { 'X-BOT-TOKEN': token } : {}),
+      },
+    });
+    
+    console.log('[testTatumAPI] Response status:', resp.status);
+    console.log('[testTatumAPI] Response headers:', Object.fromEntries(resp.headers.entries()));
+    
+    if (!resp.ok) {
+      const errorText = await resp.text();
+      console.error('[testTatumAPI] Error response:', errorText);
+      return;
+    }
+    
+    const body = await resp.json();
+    console.log('[testTatumAPI] Success! Response:', {
+      success: body.success,
+      dataLength: Array.isArray(body.data) ? body.data.length : 'not array',
+      coins: Array.isArray(body.data) ? body.data.map((c: any) => c.symbol) : 'no coins'
+    });
+  } catch (error) {
+    console.error('[testTatumAPI] Exception:', error);
+  }
+}
+
+// Run test immediately
+void testTatumAPI();
 
 // Kick off background load (non-blocking)
 void loadTatumSupported();
@@ -133,11 +191,24 @@ void loadTatumSupported();
 const COIN_TICKERS: any = new Proxy(DEFAULT_COIN_TICKERS as any, {
   get(_t, prop: any) {
     const src: any = (DYNAMIC_COIN_TICKERS as any) || (DEFAULT_COIN_TICKERS as any);
+    const isDynamic = !!DYNAMIC_COIN_TICKERS;
     // Trigger background refresh opportunistically
     void loadTatumSupported();
+    
+    // Log data source for debugging
+    if (prop === 'length' || prop === '0') {
+      console.log(`[COIN_TICKERS] Using ${isDynamic ? 'DYNAMIC' : 'DEFAULT'} data:`, 
+        isDynamic ? DYNAMIC_COIN_TICKERS : DEFAULT_COIN_TICKERS);
+    }
+    
     return src[prop];
   },
-  ownKeys() { void loadTatumSupported(); return Object.keys((DYNAMIC_COIN_TICKERS as any) || DEFAULT_COIN_TICKERS); },
+  ownKeys() { 
+    void loadTatumSupported(); 
+    const keys = Object.keys((DYNAMIC_COIN_TICKERS as any) || DEFAULT_COIN_TICKERS);
+    console.log(`[COIN_TICKERS] ownKeys using ${DYNAMIC_COIN_TICKERS ? 'DYNAMIC' : 'DEFAULT'}:`, keys);
+    return keys;
+  },
   getOwnPropertyDescriptor() { return { enumerable: true, configurable: true }; },
 });
 
@@ -804,9 +875,13 @@ export class InteractionHandler {
                 }))
                 .filter(o => o.value && o.label);
 
+            // Find selected category name for placeholder
+            const selectedCategory = categories.find((c: any) => String(c?.id) === String(selectedCategoryId));
+            const selectedCategoryName = selectedCategory?.name || 'Select category';
+
             const categorySelect = new StringSelectMenuBuilder()
                 .setCustomId('category_select')
-                .setPlaceholder('Select category')
+                .setPlaceholder(selectedCategoryName)
                 .setMinValues(1)
                 .setMaxValues(1)
                 .addOptions(categoryOptions.length ? categoryOptions : [{ label: 'No categories', value: 'none', description: 'No categories available' }]);
@@ -1067,16 +1142,26 @@ ${vars.product_description}`);
                 }
 
                 // Build coin/network/quantity selects and action buttons
-                const coinTickers = COIN_TICKERS;
+                // Force dynamic data load and wait briefly
+                await loadTatumSupported();
+                const coinTickers = DYNAMIC_COIN_TICKERS || DEFAULT_COIN_TICKERS;
+                console.log('[DROPDOWN] Using direct data access - dynamic loaded:', !!DYNAMIC_COIN_TICKERS);
                 const selectedCoin = 'ETH';
                 // Build safe options (filter out undefined/empty)
                 const coinOptions = (() => {
                   try {
                     const arr: any[] = Array.isArray(coinTickers) ? coinTickers as any[] : Array.from(coinTickers as any);
-                    return arr
-                      .filter((t: any) => typeof t === 'string' && t.trim().length > 0)
-                      .map((t: string) => ({ label: t, value: t, default: t === selectedCoin }));
-                  } catch {
+                    console.log('[DROPDOWN] Raw coinTickers:', coinTickers);
+                    console.log('[DROPDOWN] Converted to array:', arr);
+                    const filtered = arr.filter((t: any) => typeof t === 'string' && t.trim().length > 0);
+                    console.log('[DROPDOWN] After filtering:', filtered);
+                    console.log('[DROPDOWN] Filtered length:', filtered.length);
+                    const options = filtered.map((t: string) => ({ label: t, value: t, default: t === selectedCoin }));
+                    console.log('[DROPDOWN] Options length:', options.length);
+                    console.log('[DROPDOWN] Final coin options:', options);
+                    return options;
+                  } catch (e) {
+                    console.error('[DROPDOWN] Error processing coins:', e);
                     return ['ETH','BTC','USDT','USDC'].map(t => ({ label: t, value: t, default: t === selectedCoin }));
                   }
                 })();

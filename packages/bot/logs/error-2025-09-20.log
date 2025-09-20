@@ -242,3 +242,74 @@
   level: 'error',
   timestamp: '2025-09-20 18:06:17'
 }
+{
+  component: 'api',
+  service: 'discord-bot',
+  url: '/api/fees/estimate',
+  method: 'get',
+  status: undefined,
+  message: 'API request failed: timeout of 3200ms exceeded',
+  level: 'error',
+  timestamp: '2025-09-20 18:57:55'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  url: '/api/fees/estimate',
+  method: 'get',
+  status: undefined,
+  message: 'API request failed: timeout of 3200ms exceeded',
+  level: 'error',
+  timestamp: '2025-09-20 18:58:02'
+}
+{
+  service: 'discord-bot',
+  level: 'error',
+  message: "Error loading command admin.d.ts: Unexpected token 'const'",
+  stack: "SyntaxError: Unexpected token 'const'\n" +
+    '    at compileSourceTextModule (node:internal/modules/esm/utils:344:16)\n' +
+    '    at ModuleLoader.importSyncForRequire (node:internal/modules/esm/loader:420:18)\n' +
+    '    at loadESMFromCJS (node:internal/modules/cjs/loader:1561:24)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1712:5)\n' +
+    '    at Object..js (node:internal/modules/cjs/loader:1895:10)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1487:12)',
+  timestamp: '2025-09-20 19:14:41'
+}
+{
+  service: 'discord-bot',
+  level: 'error',
+  message: "Error loading command link.d.ts: Unexpected token 'const'",
+  stack: "SyntaxError: Unexpected token 'const'\n" +
+    '    at compileSourceTextModule (node:internal/modules/esm/utils:344:16)\n' +
+    '    at ModuleLoader.importSyncForRequire (node:internal/modules/esm/loader:420:18)\n' +
+    '    at loadESMFromCJS (node:internal/modules/cjs/loader:1561:24)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1712:5)\n' +
+    '    at Object..js (node:internal/modules/cjs/loader:1895:10)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1487:12)',
+  timestamp: '2025-09-20 19:14:41'
+}
+{
+  service: 'discord-bot',
+  level: 'error',
+  message: "Error loading command shop.d.ts: Unexpected token 'const'",
+  stack: "SyntaxError: Unexpected token 'const'\n" +
+    '    at compileSourceTextModule (node:internal/modules/esm/utils:344:16)\n' +
+    '    at ModuleLoader.importSyncForRequire (node:internal/modules/esm/loader:420:18)\n' +
+    '    at loadESMFromCJS (node:internal/modules/cjs/loader:1561:24)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1712:5)\n' +
+    '    at Object..js (node:internal/modules/cjs/loader:1895:10)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1487:12)',
+  timestamp: '2025-09-20 19:14:41'
+}

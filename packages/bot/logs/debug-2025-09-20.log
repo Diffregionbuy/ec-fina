@@ -2896,3 +2896,2509 @@
   service: 'discord-bot',
   timestamp: '2025-09-20 18:53:58'
 }
+{
+  message: 'Bot is ready! Logged in as Ecbot#8830',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 18:56:42'
+}
+{
+  message: 'Bot is in 4 guilds',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 18:56:42'
+}
+{
+  service: 'discord-bot',
+  appId: '1390575948134350928',
+  cfgId: '1390575948134350928',
+  invite: 'https://discord.com/api/oauth2/authorize?client_id=1390575948134350928&scope=bot%20applications.commands&permissions=0',
+  level: 'info',
+  message: 'Discord IDs and Invite URL',
+  timestamp: '2025-09-20 18:56:42'
+}
+{
+  message: 'Loaded command: admin',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 18:56:42'
+}
+{
+  message: 'Loaded command: link',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 18:56:42'
+}
+{
+  message: 'Loaded command: shop',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 18:56:42'
+}
+{
+  message: 'Loaded 3 commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 18:56:42'
+}
+{
+  service: 'discord-bot',
+  guildId: '1413584793542856856',
+  level: 'info',
+  message: 'Refreshing guild (/) commands',
+  timestamp: '2025-09-20 18:56:42'
+}
+{
+  service: 'discord-bot',
+  guildId: '1413584793542856856',
+  level: 'info',
+  message: 'Successfully reloaded 3 guild (/) commands',
+  timestamp: '2025-09-20 18:56:43'
+}
+{
+  message: 'Refreshing global application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 18:56:43'
+}
+{
+  message: 'Successfully reloaded 3 global application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 18:56:45'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: true,
+  responseTime: '26ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 18:56:45'
+}
+{
+  component: 'api',
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 18:56:45'
+}
+{
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 18:56:45'
+}
+{
+  message: 'Bot initialization complete',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 18:56:45'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 18:57:17'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 18:57:17'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 18:57:17'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'category_select',
+    selectedValues: [ '908f7077-382f-4538-8251-24962dcb7bf4' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 18:57:18'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/categories/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '6025ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 18:57:24'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/products/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '13919ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 18:57:32'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 18:57:37'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 18:57:37'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 18:57:37'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'product_select',
+    selectedValues: [ 'f5a24cd3-6b3c-4c17-9db8-4199f45acf61' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 18:57:38'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 18:57:51'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 18:57:51'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 18:57:51'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'payment_select',
+    selectedValues: [ 'crypto' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 18:57:51'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '826ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 18:57:52'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  url: '/api/fees/estimate',
+  method: 'get',
+  status: undefined,
+  message: 'API request failed: timeout of 3200ms exceeded',
+  level: 'error',
+  timestamp: '2025-09-20 18:57:55'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  url: '/api/fees/estimate',
+  method: 'get',
+  status: undefined,
+  message: 'API request failed: timeout of 3200ms exceeded',
+  level: 'error',
+  timestamp: '2025-09-20 18:58:02'
+}
+{
+  message: 'Bot is ready! Logged in as Ecbot#8830',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:14:41'
+}
+{
+  message: 'Bot is in 4 guilds',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:14:41'
+}
+{
+  service: 'discord-bot',
+  appId: '1390575948134350928',
+  cfgId: '1390575948134350928',
+  invite: 'https://discord.com/api/oauth2/authorize?client_id=1390575948134350928&scope=bot%20applications.commands&permissions=0',
+  level: 'info',
+  message: 'Discord IDs and Invite URL',
+  timestamp: '2025-09-20 19:14:41'
+}
+{
+  service: 'discord-bot',
+  level: 'error',
+  message: "Error loading command admin.d.ts: Unexpected token 'const'",
+  stack: "SyntaxError: Unexpected token 'const'\n" +
+    '    at compileSourceTextModule (node:internal/modules/esm/utils:344:16)\n' +
+    '    at ModuleLoader.importSyncForRequire (node:internal/modules/esm/loader:420:18)\n' +
+    '    at loadESMFromCJS (node:internal/modules/cjs/loader:1561:24)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1712:5)\n' +
+    '    at Object..js (node:internal/modules/cjs/loader:1895:10)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1487:12)',
+  timestamp: '2025-09-20 19:14:41'
+}
+{
+  message: 'Loaded command: admin',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:14:41'
+}
+{
+  service: 'discord-bot',
+  level: 'error',
+  message: "Error loading command link.d.ts: Unexpected token 'const'",
+  stack: "SyntaxError: Unexpected token 'const'\n" +
+    '    at compileSourceTextModule (node:internal/modules/esm/utils:344:16)\n' +
+    '    at ModuleLoader.importSyncForRequire (node:internal/modules/esm/loader:420:18)\n' +
+    '    at loadESMFromCJS (node:internal/modules/cjs/loader:1561:24)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1712:5)\n' +
+    '    at Object..js (node:internal/modules/cjs/loader:1895:10)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1487:12)',
+  timestamp: '2025-09-20 19:14:41'
+}
+{
+  message: 'Loaded command: link',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:14:41'
+}
+{
+  service: 'discord-bot',
+  level: 'error',
+  message: "Error loading command shop.d.ts: Unexpected token 'const'",
+  stack: "SyntaxError: Unexpected token 'const'\n" +
+    '    at compileSourceTextModule (node:internal/modules/esm/utils:344:16)\n' +
+    '    at ModuleLoader.importSyncForRequire (node:internal/modules/esm/loader:420:18)\n' +
+    '    at loadESMFromCJS (node:internal/modules/cjs/loader:1561:24)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1712:5)\n' +
+    '    at Object..js (node:internal/modules/cjs/loader:1895:10)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1465:32)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1282:12)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1487:12)',
+  timestamp: '2025-09-20 19:14:41'
+}
+{
+  message: 'Loaded command: shop',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:14:41'
+}
+{
+  message: 'Loaded 3 commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:14:41'
+}
+{
+  service: 'discord-bot',
+  guildId: '1413584793542856856',
+  level: 'info',
+  message: 'Refreshing guild (/) commands',
+  timestamp: '2025-09-20 19:14:41'
+}
+{
+  service: 'discord-bot',
+  guildId: '1413584793542856856',
+  level: 'info',
+  message: 'Successfully reloaded 3 guild (/) commands',
+  timestamp: '2025-09-20 19:14:42'
+}
+{
+  message: 'Refreshing global application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:14:42'
+}
+{
+  message: 'Successfully reloaded 3 global application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:14:44'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: true,
+  responseTime: '12ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:14:44'
+}
+{
+  component: 'api',
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:14:44'
+}
+{
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:14:44'
+}
+{
+  message: 'Bot initialization complete',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:14:44'
+}
+{
+  message: 'Received SIGINT, shutting down gracefully...',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:15:01'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  coinCount: 20,
+  coins: [
+    'ALGO',  'BTC',   'ETH',
+    'AVAX',  'BNB',   'ADA',
+    'CELO',  'DOGE',  'FTM',
+    'FLR',   'KAI',   'LTC',
+    'MATIC', 'XRP',   'SOL',
+    'XLM',   'TRX',   'USDT',
+    'USDC',  'PYUSD'
+  ],
+  backend: 'http://localhost:3001',
+  hasToken: true,
+  level: 'info',
+  message: 'Successfully loaded Tatum supported coins',
+  timestamp: '2025-09-20 19:15:13'
+}
+{
+  message: 'Bot is ready! Logged in as Ecbot#8830',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:15:21'
+}
+{
+  message: 'Bot is in 4 guilds',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:15:21'
+}
+{
+  service: 'discord-bot',
+  appId: '1390575948134350928',
+  cfgId: '1390575948134350928',
+  invite: 'https://discord.com/api/oauth2/authorize?client_id=1390575948134350928&scope=bot%20applications.commands&permissions=0',
+  level: 'info',
+  message: 'Discord IDs and Invite URL',
+  timestamp: '2025-09-20 19:15:21'
+}
+{
+  message: 'Loaded command: admin',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:15:21'
+}
+{
+  message: 'Loaded command: link',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:15:21'
+}
+{
+  message: 'Loaded command: shop',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:15:21'
+}
+{
+  message: 'Loaded 3 commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:15:21'
+}
+{
+  service: 'discord-bot',
+  guildId: '1413584793542856856',
+  level: 'info',
+  message: 'Refreshing guild (/) commands',
+  timestamp: '2025-09-20 19:15:21'
+}
+{
+  service: 'discord-bot',
+  guildId: '1413584793542856856',
+  level: 'info',
+  message: 'Successfully reloaded 3 guild (/) commands',
+  timestamp: '2025-09-20 19:15:22'
+}
+{
+  message: 'Refreshing global application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:15:22'
+}
+{
+  message: 'Successfully reloaded 3 global application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:15:23'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: true,
+  responseTime: '11ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:15:23'
+}
+{
+  component: 'api',
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:15:23'
+}
+{
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:15:23'
+}
+{
+  message: 'Bot initialization complete',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:15:23'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 19:15:37'
+}
+{
+  service: 'discord-bot',
+  type: 2,
+  isChatInput: true,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 19:15:37'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 2,
+  isChatInput: true,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 19:15:37'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'slash_command',
+  data: {
+    command: 'shop',
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 19:15:37'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  userId: '417296513270808580',
+  username: 'gobo0812',
+  guildId: '417297319814496256',
+  guildName: 'Socialist cocaine',
+  level: 'info',
+  message: 'Executing command: shop',
+  timestamp: '2025-09-20 19:15:37'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/categories/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '4663ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:15:44'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/products/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '5759ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:15:45'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '1027ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:15:46'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  resolvedLayout: 'horizontal',
+  rawMode: 'horizontal',
+  modeStr: 'horizontal',
+  showProducts: true,
+  hasMenuTmpl: true,
+  hasGlobalPds: true,
+  pdsOwnerId: null,
+  pds: { displayMode: 'horizontal', showProducts: true },
+  level: 'info',
+  message: 'Shop browse layout',
+  timestamp: '2025-09-20 19:15:46'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop_browse',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: true,
+  error: undefined,
+  level: 'info',
+  message: 'Shop command executed',
+  timestamp: '2025-09-20 19:15:47'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: true,
+  level: 'info',
+  message: 'Command executed',
+  timestamp: '2025-09-20 19:15:47'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 19:15:56'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 19:15:56'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 19:15:56'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'category_select',
+    selectedValues: [ '908f7077-382f-4538-8251-24962dcb7bf4' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 19:16:01'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 19:16:34'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 19:16:34'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 19:16:34'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'category_select',
+    selectedValues: [ '908f7077-382f-4538-8251-24962dcb7bf4' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 19:16:35'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 19:16:38'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 19:16:38'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 19:16:38'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'product_select',
+    selectedValues: [ 'f5a24cd3-6b3c-4c17-9db8-4199f45acf61' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 19:16:38'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 19:16:43'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 19:16:43'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 19:16:43'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'payment_select',
+    selectedValues: [ 'crypto' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 19:16:44'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '1883ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:16:46'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  coinCount: 20,
+  coins: [
+    'ALGO',  'BTC',   'ETH',
+    'AVAX',  'BNB',   'ADA',
+    'CELO',  'DOGE',  'FTM',
+    'FLR',   'KAI',   'LTC',
+    'MATIC', 'XRP',   'SOL',
+    'XLM',   'TRX',   'USDT',
+    'USDC',  'PYUSD'
+  ],
+  backend: 'http://localhost:3001',
+  hasToken: true,
+  level: 'info',
+  message: 'Successfully loaded Tatum supported coins',
+  timestamp: '2025-09-20 19:26:22'
+}
+{
+  message: 'Bot is ready! Logged in as Ecbot#8830',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:26:25'
+}
+{
+  message: 'Bot is in 4 guilds',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:26:25'
+}
+{
+  service: 'discord-bot',
+  appId: '1390575948134350928',
+  cfgId: '1390575948134350928',
+  invite: 'https://discord.com/api/oauth2/authorize?client_id=1390575948134350928&scope=bot%20applications.commands&permissions=0',
+  level: 'info',
+  message: 'Discord IDs and Invite URL',
+  timestamp: '2025-09-20 19:26:25'
+}
+{
+  message: 'Loaded command: admin',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:26:25'
+}
+{
+  message: 'Loaded command: link',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:26:25'
+}
+{
+  message: 'Loaded command: shop',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:26:25'
+}
+{
+  message: 'Loaded 3 commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:26:25'
+}
+{
+  service: 'discord-bot',
+  guildId: '1413584793542856856',
+  level: 'info',
+  message: 'Refreshing guild (/) commands',
+  timestamp: '2025-09-20 19:26:25'
+}
+{
+  service: 'discord-bot',
+  guildId: '1413584793542856856',
+  level: 'info',
+  message: 'Successfully reloaded 3 guild (/) commands',
+  timestamp: '2025-09-20 19:26:26'
+}
+{
+  message: 'Refreshing global application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:26:26'
+}
+{
+  message: 'Successfully reloaded 3 global application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:26:27'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: true,
+  responseTime: '12ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:26:27'
+}
+{
+  component: 'api',
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:26:27'
+}
+{
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:26:27'
+}
+{
+  message: 'Bot initialization complete',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:26:27'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 19:26:35'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 19:26:35'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 19:26:35'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'category_select',
+    selectedValues: [ '908f7077-382f-4538-8251-24962dcb7bf4' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 19:26:36'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/categories/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '1930ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:26:38'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/products/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '2209ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:26:38'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 19:26:42'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 19:26:42'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 19:26:42'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'product_select',
+    selectedValues: [ 'f5a24cd3-6b3c-4c17-9db8-4199f45acf61' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 19:26:42'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 19:27:23'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 19:27:23'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 19:27:23'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'payment_select',
+    selectedValues: [ 'crypto' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 19:27:25'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '510ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:27:25'
+}
+{
+  message: 'Received SIGINT, shutting down gracefully...',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:31:02'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  coinCount: 20,
+  coins: [
+    'ALGO',  'BTC',   'ETH',
+    'AVAX',  'BNB',   'ADA',
+    'CELO',  'DOGE',  'FTM',
+    'FLR',   'KAI',   'LTC',
+    'MATIC', 'XRP',   'SOL',
+    'XLM',   'TRX',   'USDT',
+    'USDC',  'PYUSD'
+  ],
+  backend: 'http://localhost:3001',
+  hasToken: true,
+  level: 'info',
+  message: 'Successfully loaded Tatum supported coins',
+  timestamp: '2025-09-20 19:43:42'
+}
+{
+  message: 'Bot is ready! Logged in as Ecbot#8830',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:43:45'
+}
+{
+  message: 'Bot is in 4 guilds',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:43:45'
+}
+{
+  service: 'discord-bot',
+  appId: '1390575948134350928',
+  cfgId: '1390575948134350928',
+  invite: 'https://discord.com/api/oauth2/authorize?client_id=1390575948134350928&scope=bot%20applications.commands&permissions=0',
+  level: 'info',
+  message: 'Discord IDs and Invite URL',
+  timestamp: '2025-09-20 19:43:45'
+}
+{
+  message: 'Loaded command: admin',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:43:45'
+}
+{
+  message: 'Loaded command: link',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:43:45'
+}
+{
+  message: 'Loaded command: shop',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:43:45'
+}
+{
+  message: 'Loaded 3 commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:43:45'
+}
+{
+  service: 'discord-bot',
+  guildId: '1413584793542856856',
+  level: 'info',
+  message: 'Refreshing guild (/) commands',
+  timestamp: '2025-09-20 19:43:45'
+}
+{
+  service: 'discord-bot',
+  guildId: '1413584793542856856',
+  level: 'info',
+  message: 'Successfully reloaded 3 guild (/) commands',
+  timestamp: '2025-09-20 19:43:45'
+}
+{
+  message: 'Refreshing global application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:43:45'
+}
+{
+  message: 'Successfully reloaded 3 global application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:43:51'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: true,
+  responseTime: '12ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:43:51'
+}
+{
+  component: 'api',
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:43:51'
+}
+{
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:43:51'
+}
+{
+  message: 'Bot initialization complete',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:43:51'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 19:43:55'
+}
+{
+  service: 'discord-bot',
+  type: 2,
+  isChatInput: true,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 19:43:55'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 2,
+  isChatInput: true,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 19:43:55'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'slash_command',
+  data: {
+    command: 'shop',
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 19:43:55'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  userId: '417296513270808580',
+  username: 'gobo0812',
+  guildId: '417297319814496256',
+  guildName: 'Socialist cocaine',
+  level: 'info',
+  message: 'Executing command: shop',
+  timestamp: '2025-09-20 19:43:55'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/categories/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '3528ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:44:00'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/products/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '5008ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:44:02'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '733ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:44:03'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  resolvedLayout: 'horizontal',
+  rawMode: 'horizontal',
+  modeStr: 'horizontal',
+  showProducts: true,
+  hasMenuTmpl: true,
+  hasGlobalPds: true,
+  pdsOwnerId: null,
+  pds: { displayMode: 'horizontal', showProducts: true },
+  level: 'info',
+  message: 'Shop browse layout',
+  timestamp: '2025-09-20 19:44:03'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop_browse',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: true,
+  error: undefined,
+  level: 'info',
+  message: 'Shop command executed',
+  timestamp: '2025-09-20 19:44:04'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: true,
+  level: 'info',
+  message: 'Command executed',
+  timestamp: '2025-09-20 19:44:04'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 19:44:07'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 19:44:07'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 19:44:07'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'category_select',
+    selectedValues: [ '908f7077-382f-4538-8251-24962dcb7bf4' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 19:44:07'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 19:44:29'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 19:44:29'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 19:44:29'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'category_select',
+    selectedValues: [ '908f7077-382f-4538-8251-24962dcb7bf4' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 19:44:31'
+}
+{
+  message: 'Received SIGINT, shutting down gracefully...',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:44:44'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  coinCount: 20,
+  coins: [
+    'ALGO',  'BTC',   'ETH',
+    'AVAX',  'BNB',   'ADA',
+    'CELO',  'DOGE',  'FTM',
+    'FLR',   'KAI',   'LTC',
+    'MATIC', 'XRP',   'SOL',
+    'XLM',   'TRX',   'USDT',
+    'USDC',  'PYUSD'
+  ],
+  backend: 'http://localhost:3001',
+  hasToken: true,
+  level: 'info',
+  message: 'Successfully loaded Tatum supported coins',
+  timestamp: '2025-09-20 19:45:03'
+}
+{
+  message: 'Bot is ready! Logged in as Ecbot#8830',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:45:11'
+}
+{
+  message: 'Bot is in 4 guilds',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:45:11'
+}
+{
+  service: 'discord-bot',
+  appId: '1390575948134350928',
+  cfgId: '1390575948134350928',
+  invite: 'https://discord.com/api/oauth2/authorize?client_id=1390575948134350928&scope=bot%20applications.commands&permissions=0',
+  level: 'info',
+  message: 'Discord IDs and Invite URL',
+  timestamp: '2025-09-20 19:45:11'
+}
+{
+  message: 'Loaded command: admin',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:45:11'
+}
+{
+  message: 'Loaded command: link',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:45:11'
+}
+{
+  message: 'Loaded command: shop',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:45:11'
+}
+{
+  message: 'Loaded 3 commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:45:11'
+}
+{
+  service: 'discord-bot',
+  guildId: '1413584793542856856',
+  level: 'info',
+  message: 'Refreshing guild (/) commands',
+  timestamp: '2025-09-20 19:45:11'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 19:45:17'
+}
+{
+  service: 'discord-bot',
+  type: 2,
+  isChatInput: true,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 19:45:17'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 2,
+  isChatInput: true,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 19:45:17'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'slash_command',
+  data: {
+    command: 'shop',
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 19:45:17'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  userId: '417296513270808580',
+  username: 'gobo0812',
+  guildId: '417297319814496256',
+  guildName: 'Socialist cocaine',
+  level: 'info',
+  message: 'Executing command: shop',
+  timestamp: '2025-09-20 19:45:17'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: true,
+  responseTime: '27ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:45:17'
+}
+{
+  component: 'api',
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:45:17'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: true,
+  responseTime: '22ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:45:17'
+}
+{
+  component: 'api',
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:45:17'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/categories/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '2093ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:45:20'
+}
+{
+  service: 'discord-bot',
+  guildId: '1413584793542856856',
+  level: 'info',
+  message: 'Successfully reloaded 3 guild (/) commands',
+  timestamp: '2025-09-20 19:45:20'
+}
+{
+  message: 'Refreshing global application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:45:20'
+}
+{
+  message: 'Successfully reloaded 3 global application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:45:20'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: true,
+  responseTime: '3ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:45:20'
+}
+{
+  component: 'api',
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:45:20'
+}
+{
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:45:20'
+}
+{
+  message: 'Bot initialization complete',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:45:20'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/products/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '6068ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:45:24'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '381ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:45:24'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  resolvedLayout: 'horizontal',
+  rawMode: 'horizontal',
+  modeStr: 'horizontal',
+  showProducts: true,
+  hasMenuTmpl: true,
+  hasGlobalPds: true,
+  pdsOwnerId: null,
+  pds: { displayMode: 'horizontal', showProducts: true },
+  level: 'info',
+  message: 'Shop browse layout',
+  timestamp: '2025-09-20 19:45:24'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop_browse',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: true,
+  error: undefined,
+  level: 'info',
+  message: 'Shop command executed',
+  timestamp: '2025-09-20 19:45:26'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: true,
+  level: 'info',
+  message: 'Command executed',
+  timestamp: '2025-09-20 19:45:26'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 19:45:30'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 19:45:30'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 19:45:30'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'category_select',
+    selectedValues: [ '908f7077-382f-4538-8251-24962dcb7bf4' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 19:45:30'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 19:45:45'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 19:45:45'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 19:45:45'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'category_select',
+    selectedValues: [ '908f7077-382f-4538-8251-24962dcb7bf4' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 19:45:46'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 19:46:08'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 19:46:08'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 19:46:08'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'category_select',
+    selectedValues: [ '9d419f6e-fa2d-4b49-9ccc-d2996b007374' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 19:46:09'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 19:46:13'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 19:46:13'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 19:46:13'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'category_select',
+    selectedValues: [ '908f7077-382f-4538-8251-24962dcb7bf4' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 19:46:13'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 19:47:10'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 19:47:10'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 19:47:10'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'category_select',
+    selectedValues: [ '908f7077-382f-4538-8251-24962dcb7bf4' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 19:47:11'
+}
+{
+  message: 'Received SIGINT, shutting down gracefully...',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:50:27'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  coinCount: 20,
+  coins: [
+    'ALGO',  'BTC',   'ETH',
+    'AVAX',  'BNB',   'ADA',
+    'CELO',  'DOGE',  'FTM',
+    'FLR',   'KAI',   'LTC',
+    'MATIC', 'XRP',   'SOL',
+    'XLM',   'TRX',   'USDT',
+    'USDC',  'PYUSD'
+  ],
+  backend: 'http://localhost:3001',
+  hasToken: true,
+  level: 'info',
+  message: 'Successfully loaded Tatum supported coins',
+  timestamp: '2025-09-20 19:50:38'
+}
+{
+  message: 'Bot is ready! Logged in as Ecbot#8830',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:50:40'
+}
+{
+  message: 'Bot is in 4 guilds',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:50:40'
+}
+{
+  service: 'discord-bot',
+  appId: '1390575948134350928',
+  cfgId: '1390575948134350928',
+  invite: 'https://discord.com/api/oauth2/authorize?client_id=1390575948134350928&scope=bot%20applications.commands&permissions=0',
+  level: 'info',
+  message: 'Discord IDs and Invite URL',
+  timestamp: '2025-09-20 19:50:40'
+}
+{
+  message: 'Loaded command: admin',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:50:40'
+}
+{
+  message: 'Loaded command: link',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:50:40'
+}
+{
+  message: 'Loaded command: shop',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:50:40'
+}
+{
+  message: 'Loaded 3 commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:50:40'
+}
+{
+  service: 'discord-bot',
+  guildId: '1413584793542856856',
+  level: 'info',
+  message: 'Refreshing guild (/) commands',
+  timestamp: '2025-09-20 19:50:40'
+}
+{
+  service: 'discord-bot',
+  guildId: '1413584793542856856',
+  level: 'info',
+  message: 'Successfully reloaded 3 guild (/) commands',
+  timestamp: '2025-09-20 19:50:41'
+}
+{
+  message: 'Refreshing global application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:50:41'
+}
+{
+  message: 'Successfully reloaded 3 global application (/) commands',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:50:44'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/auth',
+  method: 'POST',
+  success: true,
+  responseTime: '12ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:50:44'
+}
+{
+  component: 'api',
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:50:44'
+}
+{
+  message: 'Successfully authenticated with backend API',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:50:44'
+}
+{
+  message: 'Bot initialization complete',
+  level: 'info',
+  service: 'discord-bot',
+  timestamp: '2025-09-20 19:50:44'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 19:50:57'
+}
+{
+  service: 'discord-bot',
+  type: 2,
+  isChatInput: true,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 19:50:57'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 2,
+  isChatInput: true,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 19:50:57'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'slash_command',
+  data: {
+    command: 'shop',
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 19:50:57'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  userId: '417296513270808580',
+  username: 'gobo0812',
+  guildId: '417297319814496256',
+  guildName: 'Socialist cocaine',
+  level: 'info',
+  message: 'Executing command: shop',
+  timestamp: '2025-09-20 19:50:57'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/categories/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '1716ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:51:00'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/products/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '3028ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:51:01'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '700ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:51:02'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  resolvedLayout: 'horizontal',
+  rawMode: 'horizontal',
+  modeStr: 'horizontal',
+  showProducts: true,
+  hasMenuTmpl: true,
+  hasGlobalPds: true,
+  pdsOwnerId: null,
+  pds: { displayMode: 'horizontal', showProducts: true },
+  level: 'info',
+  message: 'Shop browse layout',
+  timestamp: '2025-09-20 19:51:02'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop_browse',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: true,
+  error: undefined,
+  level: 'info',
+  message: 'Shop command executed',
+  timestamp: '2025-09-20 19:51:02'
+}
+{
+  component: 'commands',
+  service: 'discord-bot',
+  command: 'shop',
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  success: true,
+  level: 'info',
+  message: 'Command executed',
+  timestamp: '2025-09-20 19:51:02'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 19:51:04'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 19:51:04'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 19:51:04'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'category_select',
+    selectedValues: [ '908f7077-382f-4538-8251-24962dcb7bf4' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 19:51:05'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 19:51:10'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 19:51:10'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 19:51:10'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'product_select',
+    selectedValues: [ 'f5a24cd3-6b3c-4c17-9db8-4199f45acf61' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 19:51:11'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 19:51:17'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 19:51:17'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 19:51:17'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'payment_select',
+    selectedValues: [ 'crypto' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 19:51:18'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '4115ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:51:22'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 19:51:39'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 19:51:39'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 19:51:39'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'select_menu',
+  data: {
+    customId: 'network_select',
+    selectedValues: [ 'ethereum-sepolia' ],
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 19:51:40'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '923ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:51:41'
+}
+{
+  service: 'discord-bot',
+  t: 'INTERACTION_CREATE',
+  level: 'info',
+  message: 'raw INTERACTION packet',
+  timestamp: '2025-09-20 19:52:19'
+}
+{
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'interactionCreate received',
+  timestamp: '2025-09-20 19:52:19'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  type: 3,
+  isChatInput: false,
+  userId: '417296513270808580',
+  guildId: '417297319814496256',
+  level: 'info',
+  message: 'Incoming interaction',
+  timestamp: '2025-09-20 19:52:19'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  eventType: 'button_click',
+  data: {
+    customId: 'confirm_order',
+    userId: '417296513270808580',
+    guildId: '417297319814496256'
+  },
+  success: true,
+  level: 'info',
+  message: 'Event processed',
+  timestamp: '2025-09-20 19:52:19'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/orders',
+  method: 'POST',
+  success: true,
+  responseTime: '17201ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:52:38'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/orders/1ae69e07-ee36-43ae-8e8d-3a895e77f2ab',
+  method: 'GET',
+  success: true,
+  responseTime: '290ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:52:38'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  endpoint: '/api/bot-service/templates/417297319814496256',
+  method: 'GET',
+  success: true,
+  responseTime: '291ms',
+  level: 'info',
+  message: 'API call completed',
+  timestamp: '2025-09-20 19:52:38'
+}
