@@ -183,15 +183,15 @@ export class TatumService {
 
   /**
    * Check if should use mock mode
-   * Note: For address generation, we always use "mock" mode since Tatum chain endpoints don't exist
+   * Mock mode is limited to missing credentials or explicit overrides
    */
   private shouldUseMockMode(additionalCheck?: boolean): boolean {
     const forceMock = String(process.env.TATUM_USE_MOCK || '').toLowerCase() === 'true';
     const forceReal = String(process.env.TATUM_USE_REAL || '').toLowerCase() === 'true';
     if (forceMock) return true;
     if (forceReal) return false;
-    // Default behavior: mock when no key, or in dev unless explicitly forced real
-    return !this.apiKey || (process.env.NODE_ENV === 'development' && !forceReal) || additionalCheck === true;
+    // Default behavior: rely on mock mode only when the API key is missing or explicitly requested
+    return !this.apiKey || additionalCheck === true;
   }
 
   /**
@@ -204,14 +204,146 @@ export class TatumService {
     index?: number,
     userIdForCustomer?: string
   ): Promise<TatumWalletResponse> {
-    // Always generate mock addresses since Tatum chain endpoints don't exist
-    logger.info(`Generating ${type} address directly (Tatum chain endpoints unavailable)`, {
-      currency,
-      index,
-      type
-    });
+    const shouldMock = this.shouldUseMockMode();
+    const derivedIndex = typeof index === 'number' ? index : 0;
+    const chain = this.getChainName(currency);
+    const endpoint = this.getApiEndpoint(currency);
 
-    return this.generateMockWallet(currency);
+    if (shouldMock) {
+      const mockAddress = `0x${crypto.randomBytes(20).toString('hex')}`;
+      const mockPrivateKey = crypto.randomBytes(32).toString('hex');
+
+      logger.warn('Tatum mock mode enabled - returning generated development wallet', {
+        currency,
+        index: derivedIndex,
+        type,
+        chain,
+      });
+
+      return {
+        address: mockAddress,
+        privateKey: mockPrivateKey,
+        currency,
+      };
+    }
+
+    try {
+      const walletResponse = await this.makeApiRequest<{
+        mnemonic?: string;
+        xpub?: string;
+        address?: string;
+        privateKey?: string;
+      }>(
+        `${this.baseUrl}${endpoint}/wallet`,
+        { method: 'POST' }
+      );
+
+      if (!walletResponse.ok || !walletResponse.data) {
+        throw new Error(`Failed to create wallet via Tatum: ${walletResponse.status}`);
+      }
+
+      const walletData = walletResponse.data as any;
+      const mnemonic = typeof walletData?.mnemonic === 'string' ? walletData.mnemonic : undefined;
+      const xpub = typeof walletData?.xpub === 'string' ? walletData.xpub : undefined;
+      let address = typeof walletData?.address === 'string' ? walletData.address : undefined;
+      let privateKey = typeof walletData?.privateKey === 'string' ? walletData.privateKey : undefined;
+
+      if ((!address || typeof address !== 'string') && xpub) {
+        const addressResponse = await this.makeApiRequest<{ address?: string }>(
+          `${this.baseUrl}${endpoint}/address/${xpub}/${derivedIndex}`,
+          { method: 'GET' }
+        );
+
+        if (!addressResponse.ok || !addressResponse.data) {
+          throw new Error(`Failed to derive wallet address: ${addressResponse.status}`);
+        }
+
+        const derivedData = addressResponse.data as any;
+        const derivedAddress = typeof derivedData === 'string'
+          ? derivedData
+          : typeof derivedData?.address === 'string'
+            ? derivedData.address
+            : undefined;
+
+        if (!derivedAddress) {
+          throw new Error('Tatum address derivation response missing address field');
+        }
+
+        address = derivedAddress;
+      }
+
+      if ((!privateKey || typeof privateKey !== 'string') && mnemonic) {
+        const privResponse = await this.makeApiRequest<{ key?: string; privateKey?: string }>(
+          `${this.baseUrl}${endpoint}/wallet/priv`,
+          {
+            method: 'POST',
+            body: JSON.stringify({ mnemonic, index: derivedIndex })
+          }
+        );
+
+        if (!privResponse.ok || !privResponse.data) {
+          logger.warn('Tatum wallet private key derivation returned no key', {
+            currency,
+            chain,
+            index: derivedIndex,
+            status: privResponse.status,
+            error: privResponse.error
+          });
+        } else {
+          const privData = privResponse.data as any;
+          const derivedKey = typeof privData === 'string'
+            ? privData
+            : privData?.key || privData?.privateKey;
+
+          if (derivedKey) {
+            privateKey = derivedKey;
+          } else {
+            logger.warn('Tatum wallet private key derivation response missing key field', {
+              currency,
+              chain,
+              index: derivedIndex,
+              status: privResponse.status
+            });
+          }
+        }
+      }
+
+      if (!address) {
+        throw new Error('Tatum wallet generation did not return an address');
+      }
+
+      if (!privateKey) {
+        logger.warn('Tatum wallet generation returned address without private key', {
+          currency,
+          chain,
+          index: derivedIndex
+        });
+      }
+
+      logger.info('Generated Tatum wallet', {
+        currency,
+        chain,
+        type,
+        index: derivedIndex,
+        hasPrivateKey: !!privateKey,
+        userIdForCustomer
+      });
+
+      return {
+        address,
+        privateKey: privateKey || '',
+        currency,
+      };
+    } catch (error) {
+      logger.error('Failed to generate wallet via Tatum', {
+        currency,
+        chain,
+        index: derivedIndex,
+        type,
+        error: error instanceof Error ? error.message : error
+      });
+      throw error;
+    }
   }
 
   /**
@@ -411,46 +543,6 @@ export class TatumService {
       // Do not block VA creation; return empty to continue without customerId
       return '';
     }
-  }
-
-  /**
-   * Generate a simple mnemonic for wallet creation
-   */
-  private generateMnemonic(): string {
-    // Generate a simple 12-word mnemonic using random words
-    const words = [
-      'abandon', 'ability', 'able', 'about', 'above', 'absent', 'absorb', 'abstract',
-      'absurd', 'abuse', 'access', 'accident', 'account', 'accuse', 'achieve', 'acid',
-      'acoustic', 'acquire', 'across', 'act', 'action', 'actor', 'actress', 'actual'
-    ];
-
-    const mnemonic = [];
-    for (let i = 0; i < 12; i++) {
-      mnemonic.push(words[Math.floor(Math.random() * words.length)]);
-    }
-
-    return mnemonic.join(' ');
-  }
-
-  /**
-   * Generate mock wallet for development/testing
-   * Now used as primary method since Tatum chain endpoints don't exist
-   */
-  private generateMockWallet(currency: string): TatumWalletResponse {
-    const mockAddress = `0x${crypto.randomBytes(20).toString('hex')}`;
-    const mockPrivateKey = crypto.randomBytes(32).toString('hex');
-
-    logger.info('Generated address for payment monitoring', {
-      address: mockAddress,
-      currency,
-      note: 'Direct generation (Tatum chain endpoints unavailable)'
-    });
-
-    return {
-      address: mockAddress,
-      privateKey: mockPrivateKey,
-      currency
-    };
   }
 
   /**
