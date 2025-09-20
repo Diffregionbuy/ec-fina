@@ -7,3 +7,4 @@ CREATE UNIQUE INDEX IF NOT EXISTS uq_wallets_user_ccy_chain
   ON wallets(user_id, ccy, chain);
 
 COMMENT ON INDEX uq_wallets_user_ccy_chain IS 'Ensures one Virtual Account per user per currency/chain combination';
+

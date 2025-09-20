@@ -1431,7 +1431,7 @@ export class TatumService {
 
   /**
    * Generate unique deposit address for an invoice using Tatum ledger
-   * Each invoice gets a fresh address while reusing the same VA for accounting
+   * Uses correct Tatum ledger account endpoints and generates addresses via wallet creation
    * Supports memo/tag fields for blockchains that require them
    */
   async generateUniqueDepositAddress(accountId: string, orderId?: string): Promise<{
@@ -1466,96 +1466,120 @@ export class TatumService {
         return { address: mockAddress };
       }
 
-      // Step 1: Check for existing address
-      let existingAddress = null;
+      // Step 1: Get Virtual Account details using correct Tatum endpoint
+      let accountDetails = null;
       try {
         const getResponse = await this.makeApiRequest<{
-          address: string;
-          memo?: string;
-          tag?: string;
-        }>(`${this.baseUrl}/ledger/account/address/${accountId}`, {
+          id: string;
+          balance: { accountBalance: string; availableBalance: string };
+          currency: string;
+          frozen: boolean;
+          active: boolean;
+          customerId?: string;
+        }>(`${this.baseUrl}/ledger/account/${accountId}`, {
           method: 'GET'
         });
 
-        if (getResponse.ok && getResponse.data?.address) {
-          existingAddress = getResponse.data;
-          logger.info('[generateUniqueDepositAddress] Found existing ledger address', {
+        if (getResponse.ok && getResponse.data) {
+          accountDetails = getResponse.data;
+          logger.info('[generateUniqueDepositAddress] Retrieved VA account details', {
             accountId,
-            orderId,
-            address: existingAddress.address,
-            memo: existingAddress.memo,
-            tag: existingAddress.tag,
-            currency,
-            chain
+            currency: accountDetails.currency,
+            active: accountDetails.active,
+            frozen: accountDetails.frozen
           });
+        } else if (getResponse.status === 404) {
+          throw new Error(`Virtual Account not found: ${accountId}`);
+        } else {
+          throw new Error(`Failed to get VA details: ${getResponse.status} ${JSON.stringify(getResponse.error)}`);
         }
       } catch (error) {
-        logger.debug('[generateUniqueDepositAddress] No existing address found, will create new one', {
-          accountId,
-          error: error instanceof Error ? error.message : 'Unknown error'
-        });
-      }
-
-      // Step 2: If no existing address, create a new one
-      if (!existingAddress) {
-        try {
-          const createResponse = await this.makeApiRequest<{
-            address: string;
-            memo?: string;
-            tag?: string;
-          }>(`${this.baseUrl}/ledger/account/address/${accountId}`, {
-            method: 'POST',
-            body: JSON.stringify({})
-          });
-
-          if (createResponse.ok && createResponse.data?.address) {
-            existingAddress = createResponse.data;
-            logger.info('[generateUniqueDepositAddress] Created new ledger address', {
-              accountId,
-              orderId,
-              address: existingAddress.address,
-              memo: existingAddress.memo,
-              tag: existingAddress.tag,
-              currency,
-              chain
-            });
-          } else {
-            throw new Error(`Failed to create ledger address: ${createResponse.status} ${JSON.stringify(createResponse.error)}`);
-          }
-        } catch (error) {
-          // In production, don't fabricate addresses - throw the error
-          if (process.env.NODE_ENV === 'production') {
-            logger.error('[generateUniqueDepositAddress] Failed to create ledger address in production', {
-              accountId,
-              orderId,
-              currency,
-              chain,
-              error: error instanceof Error ? error.message : 'Unknown error'
-            });
-            throw new Error('Failed to create deposit address via Tatum ledger API');
-          }
-
-          // In dev/test, fall back to mock address with warning
-          const fallbackAddress = `0x${crypto.randomBytes(20).toString('hex')}`;
-          logger.warn('[generateUniqueDepositAddress] Tatum API failed, using fallback address in dev/test', {
+        if (process.env.NODE_ENV === 'production') {
+          logger.error('[generateUniqueDepositAddress] Failed to get VA details in production', {
             accountId,
             orderId,
-            address: fallbackAddress,
             currency,
             chain,
-            error: error instanceof Error ? error.message : 'Unknown error',
-            method: 'fallback_generation'
+            error: error instanceof Error ? error.message : 'Unknown error'
           });
-
-          return { address: fallbackAddress };
+          throw error;
         }
+
+        // In dev/test, fall back to mock address with warning
+        const fallbackAddress = `0x${crypto.randomBytes(20).toString('hex')}`;
+        logger.warn('[generateUniqueDepositAddress] Tatum VA API failed, using fallback address in dev/test', {
+          accountId,
+          orderId,
+          address: fallbackAddress,
+          currency,
+          chain,
+          error: error instanceof Error ? error.message : 'Unknown error',
+          method: 'fallback_generation'
+        });
+
+        return { address: fallbackAddress };
       }
 
-      return {
-        address: existingAddress.address,
-        memo: existingAddress.memo,
-        tag: existingAddress.tag
-      };
+      // Step 2: Generate a unique wallet address for this order
+      // Since Tatum VAs don't have direct address endpoints, we generate a wallet
+      // and associate it with the VA for deposit tracking
+      try {
+        const wallet = await this.generateWallet(currency);
+        
+        // For blockchains that support memo/tag, generate them
+        let memo: string | undefined;
+        let tag: string | undefined;
+
+        // Generate memo/tag for supported chains
+        if (currency.toUpperCase() === 'XRP') {
+          tag = Math.floor(Math.random() * 4294967295).toString(); // XRP destination tag
+        } else if (['XLM', 'STELLAR'].includes(currency.toUpperCase())) {
+          memo = crypto.randomBytes(16).toString('hex'); // Stellar memo
+        }
+
+        logger.info('[generateUniqueDepositAddress] Generated wallet address for VA', {
+          accountId,
+          orderId,
+          address: wallet.address,
+          currency,
+          chain,
+          memo,
+          tag,
+          method: 'wallet_generation'
+        });
+
+        return {
+          address: wallet.address,
+          memo,
+          tag
+        };
+
+      } catch (error) {
+        if (process.env.NODE_ENV === 'production') {
+          logger.error('[generateUniqueDepositAddress] Failed to generate wallet in production', {
+            accountId,
+            orderId,
+            currency,
+            chain,
+            error: error instanceof Error ? error.message : 'Unknown error'
+          });
+          throw new Error('Failed to generate deposit address');
+        }
+
+        // In dev/test, fall back to mock address
+        const fallbackAddress = `0x${crypto.randomBytes(20).toString('hex')}`;
+        logger.warn('[generateUniqueDepositAddress] Wallet generation failed, using fallback address', {
+          accountId,
+          orderId,
+          address: fallbackAddress,
+          currency,
+          chain,
+          error: error instanceof Error ? error.message : 'Unknown error',
+          method: 'fallback_generation'
+        });
+
+        return { address: fallbackAddress };
+      }
 
     } catch (error) {
       logger.error('Failed to generate unique deposit address:', error);
