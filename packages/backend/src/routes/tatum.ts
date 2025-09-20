@@ -163,4 +163,33 @@ router.post('/simulate-payment', optimizedAuthMiddleware.authenticate, async (re
   }
 });
 
+// POST /api/tatum/test-wallet - test wallet generation for a currency
+router.post('/test-wallet', eitherAuth, async (req, res) => {
+  try {
+    const { currency = 'ETH' } = req.body || {};
+    
+    logger.info('Testing wallet generation', { currency });
+    
+    const testResult = await tatumService.testWalletGeneration(currency);
+    
+    res.json({ 
+      success: true, 
+      data: {
+        currency,
+        ...testResult,
+        timestamp: new Date().toISOString()
+      }
+    });
+  } catch (error) {
+    logger.error('Failed to test wallet generation:', error);
+    res.status(500).json({ 
+      success: false, 
+      error: { 
+        code: 'WALLET_TEST_ERROR', 
+        message: error instanceof Error ? error.message : 'Failed to test wallet generation' 
+      } 
+    });
+  }
+});
+
 export default router;

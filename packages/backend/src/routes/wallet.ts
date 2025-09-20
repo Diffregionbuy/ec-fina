@@ -735,4 +735,125 @@ router.get('/transactions', authenticateToken, async (req, res) => {
   }
 });
 
+// Generate HD wallet address for supported networks
+const generateWalletSchema = z.object({
+  currency: z.string().min(1, 'Currency is required').max(20, 'Currency code too long'),
+  chain: z.string().min(1, 'Chain is required').max(100, 'Chain name too long'),
+  orderId: z.string().optional(),
+});
+
+router.post('/generate', authenticateToken, async (req, res) => {
+  try {
+    const userId = await ensureUserExistsInDB(req.user);
+    if (!userId) {
+      return res.status(401).json({
+        success: false,
+        error: { code: 'UNAUTHORIZED', message: 'User not authenticated' },
+      });
+    }
+
+    const validation = generateWalletSchema.safeParse(req.body);
+    if (!validation.success) {
+      return res.status(400).json({
+        success: false,
+        error: {
+          code: 'VALIDATION_ERROR',
+          message: 'Invalid wallet generation data',
+          details: validation.error.errors,
+        },
+      });
+    }
+
+    const { currency, chain, orderId } = validation.data;
+    logger.info(`[Wallet/Generate] Generating HD wallet for user ${userId}`, {
+      currency,
+      chain,
+      orderId
+    });
+
+    // Import tatumService
+    const { tatumService } = require('../services/tatumService');
+    
+    // Generate HD wallet address
+    const result = await tatumService.generateHDWalletAddress(
+      currency,
+      chain,
+      orderId || `gen_${Date.now()}`,
+      userId
+    );
+
+    // Optionally save to wallets table
+    try {
+      const { data: existingWallet } = await supabase
+        .from('wallets')
+        .select('id')
+        .eq('user_id', userId)
+        .eq('wallet_address', result.address)
+        .eq('ccy', currency)
+        .eq('chain', chain)
+        .maybeSingle();
+
+      if (!existingWallet) {
+        // Check if this is the first wallet for this currency/chain combination
+        const { data: existingDefault } = await supabase
+          .from('wallets')
+          .select('id')
+          .eq('user_id', userId)
+          .eq('ccy', currency)
+          .eq('chain', chain)
+          .eq('is_default', true)
+          .maybeSingle();
+
+        const isFirstWallet = !existingDefault;
+
+        await supabase
+          .from('wallets')
+          .insert({
+            user_id: userId,
+            wallet_address: result.address,
+            ccy: currency,
+            chain: chain,
+            tatum_va_id: result.accountId,
+            is_default: isFirstWallet,
+            tag: orderId ? `Generated for order ${orderId}` : 'HD Wallet Generated',
+          });
+
+        logger.info(`[Wallet/Generate] Saved generated wallet to database`, {
+          userId,
+          address: result.address,
+          currency,
+          chain,
+          isDefault: isFirstWallet
+        });
+      }
+    } catch (saveError) {
+      logger.warn(`[Wallet/Generate] Failed to save wallet to database (non-critical)`, {
+        error: (saveError as any)?.message
+      });
+    }
+
+    res.json({
+      success: true,
+      data: {
+        address: result.address,
+        currency,
+        chain,
+        accountId: result.accountId,
+        hasPrivateKey: !!result.privateKey,
+        orderId,
+      },
+      timestamp: new Date().toISOString(),
+    });
+  } catch (error) {
+    logger.error('[Wallet/Generate] Unexpected error:', error);
+    res.status(500).json({
+      success: false,
+      error: { 
+        code: 'GENERATION_ERROR', 
+        message: error instanceof Error ? error.message : 'Failed to generate wallet' 
+      },
+    });
+  }
+});
+
 export default router;

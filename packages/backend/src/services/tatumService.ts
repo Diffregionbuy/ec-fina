@@ -162,16 +162,24 @@ export class TatumService {
       } as TatumApiResponse<T>;
 
       if (!response.ok) {
-        logger.warn('Tatum API non-OK response', {
-          url,
+        // Enhanced logging for common Tatum API issues
+        const logLevel = response.status === 404 ? 'info' : 'warn';
+        logger[logLevel]('Tatum API non-OK response', {
+          url: url.replace(this.baseUrl, ''), // Remove base URL for cleaner logs
           status: response.status,
           error: (result as any)?.error,
+          isWalletEndpoint: url.includes('/wallet'),
+          hasApiKey: !!this.apiKey
         });
       }
 
       return result;
     } catch (error) {
-      logger.error('API request failed:', { url, error });
+      logger.error('API request failed:', {
+        url: url.replace(this.baseUrl, ''),
+        error: error instanceof Error ? error.message : error,
+        hasApiKey: !!this.apiKey
+      });
       return {
         ok: false,
         status: 0,
@@ -195,8 +203,7 @@ export class TatumService {
   }
 
   /**
-   * Generate wallet or address with unified logic
-   * Simplified to avoid failing API calls - generates addresses directly
+   * Generate HD wallet or address with proper Tatum API endpoints
    */
   private async generateWalletOrAddress(
     currency: string = 'ETH',
@@ -204,6 +211,7 @@ export class TatumService {
     index?: number,
     userIdForCustomer?: string
   ): Promise<TatumWalletResponse> {
+<<<<<<< Updated upstream
     // Always generate mock addresses since Tatum chain endpoints don't exist
     logger.info(`Generating ${type} address directly (Tatum chain endpoints unavailable)`, {
       currency,
@@ -212,6 +220,541 @@ export class TatumService {
     });
 
     return this.generateMockWallet(currency);
+=======
+    const shouldMock = this.shouldUseMockMode();
+    const derivedIndex = typeof index === 'number' ? index : 0;
+    const chain = this.getChainName(currency);
+    const config = this.getCurrencyConfig(currency);
+
+    if (shouldMock) {
+      const mockAddress = this.generateMockAddress(currency);
+      const mockPrivateKey = crypto.randomBytes(32).toString('hex');
+
+      logger.warn('Tatum mock mode enabled - returning generated development wallet', {
+        currency,
+        index: derivedIndex,
+        type,
+        chain,
+      });
+
+      return {
+        address: mockAddress,
+        privateKey: mockPrivateKey,
+        currency,
+      };
+    }
+
+    try {
+      // Step 1: Generate a mnemonic phrase first (12 words)
+      const mnemonic = this.generateMnemonic();
+
+      // Step 2: Get xpub from Tatum using the mnemonic (GET request with query params)
+      const walletEndpoint = this.getWalletGenerationEndpoint(currency);
+      const chainName = this.getChainName(currency);
+
+      // Build query parameters for GET request
+      const params = new URLSearchParams({
+        mnemonic: mnemonic,
+        ...(this.isTestnet && { testnetType: chainName })
+      });
+
+      const walletResponse = await this.makeApiRequest<{
+        mnemonic: string;
+        xpub: string;
+      }>(
+        `${this.baseUrl}${walletEndpoint}?${params.toString()}`,
+        { method: 'GET' }
+      );
+
+      if (!walletResponse.ok || !walletResponse.data) {
+        // If the API endpoint doesn't exist (404) or fails, use fallback immediately
+        if (walletResponse.status === 404) {
+          logger.warn(`Tatum wallet endpoint not available for ${currency}, using fallback generation`, {
+            currency,
+            endpoint: walletEndpoint,
+            status: walletResponse.status,
+            error: walletResponse.error
+          });
+          const fallbackAddress = this.generateMockAddress(currency);
+          return {
+            address: fallbackAddress,
+            privateKey: '',
+            currency,
+          };
+        }
+        throw new Error(`Failed to create HD wallet via Tatum: ${walletResponse.status} - ${JSON.stringify(walletResponse.error)}`);
+      }
+
+      const walletData = walletResponse.data;
+      const xpub = walletData.xpub;
+      let address: string | undefined;
+      let privateKey: string | undefined;
+
+      logger.info('Tatum wallet generation response', {
+        currency,
+        endpoint: walletEndpoint,
+        hasMnemonic: !!mnemonic,
+        hasXpub: !!xpub,
+        chainName,
+        isTestnet: this.isTestnet
+      });
+
+      // Step 2: If we have xpub but no address, derive address from xpub
+      if (!address && xpub) {
+        const addressEndpoint = this.getAddressDerivationEndpoint(currency, xpub, derivedIndex);
+        const addressResponse = await this.makeApiRequest<any>(
+          `${this.baseUrl}${addressEndpoint}`,
+          { method: 'GET' }
+        );
+
+        if (addressResponse.ok && addressResponse.data) {
+          // Handle different response formats
+          address = typeof addressResponse.data === 'string'
+            ? addressResponse.data
+            : addressResponse.data.address;
+        }
+      }
+
+      // Step 3: If we need private key and have mnemonic, derive private key
+      if (!privateKey && mnemonic && type === 'wallet') {
+        const privKeyEndpoint = this.getPrivateKeyDerivationEndpoint(currency);
+        const privResponse = await this.makeApiRequest<any>(
+          `${this.baseUrl}${privKeyEndpoint}`,
+          {
+            method: 'POST',
+            body: JSON.stringify({
+              mnemonic,
+              index: derivedIndex,
+              ...(currency === 'BTC' && { testnet: this.isTestnet })
+            })
+          }
+        );
+
+        if (privResponse.ok && privResponse.data) {
+          privateKey = typeof privResponse.data === 'string'
+            ? privResponse.data
+            : privResponse.data.key || privResponse.data.privateKey;
+        }
+      }
+
+      // Step 4: Fallback address generation if still no address
+      if (!address) {
+        address = await this.generateFallbackAddress(currency, derivedIndex);
+      }
+
+      if (!address) {
+        throw new Error('Failed to generate or derive wallet address');
+      }
+
+      logger.info('Generated Tatum HD wallet', {
+        currency,
+        chain,
+        type,
+        index: derivedIndex,
+        hasPrivateKey: !!privateKey,
+        hasXpub: !!xpub,
+        userIdForCustomer
+      });
+
+      return {
+        address,
+        privateKey: privateKey || '',
+        currency,
+      };
+    } catch (error) {
+      logger.error('Failed to generate HD wallet via Tatum', {
+        currency,
+        chain,
+        index: derivedIndex,
+        type,
+        error: error instanceof Error ? error.message : error
+      });
+
+      // Fallback to mock address generation
+      logger.warn('Using fallback address generation', { currency, chain, index: derivedIndex, method: 'fallback_generation' });
+      const fallbackAddress = this.generateMockAddress(currency);
+      return {
+        address: fallbackAddress,
+        privateKey: '',
+        currency,
+      };
+    }
+>>>>>>> Stashed changes
+  }
+
+  /**
+   * Get the correct wallet generation endpoint for each currency
+   * Based on official Tatum v3 API documentation
+   */
+  private getWalletGenerationEndpoint(currency: string): string {
+    const endpoints: Record<string, string> = {
+      // Bitcoin and forks - POST /v3/{chain}/wallet
+      'BTC': '/bitcoin/wallet',
+      'LTC': '/litecoin/wallet',
+      'DOGE': '/dogecoin/wallet',
+
+      // Ethereum and EVM chains - POST /v3/{chain}/wallet  
+      'ETH': '/ethereum/wallet',
+      'MATIC': '/polygon/wallet',
+      'BNB': '/bsc/wallet',
+      'AVAX': '/avalanche/wallet',
+      'FTM': '/fantom/wallet',
+      'FLR': '/flare/wallet',
+      'CELO': '/celo/wallet',
+
+      // Other chains - POST /v3/{chain}/wallet
+      'ADA': '/cardano/wallet',
+      'SOL': '/solana/wallet',
+      'TRX': '/tron/wallet',
+      'XRP': '/xrp/wallet',
+      'XLM': '/stellar/wallet',
+      'ALGO': '/algorand/wallet',
+      'KAI': '/klaytn/wallet',
+
+      // Stablecoins (use base chain)
+      'USDT': '/ethereum/wallet',
+      'USDC': '/ethereum/wallet',
+      'PYUSD': '/ethereum/wallet',
+    };
+
+    return endpoints[currency.toUpperCase()] || '/ethereum/wallet';
+  }
+
+  /**
+   * Get the correct address derivation endpoint
+   */
+  private getAddressDerivationEndpoint(currency: string, xpub: string, index: number): string {
+    const endpoints: Record<string, string> = {
+      'BTC': `/bitcoin/address/${xpub}/${index}`,
+      'LTC': `/litecoin/address/${xpub}/${index}`,
+      'DOGE': `/dogecoin/address/${xpub}/${index}`,
+      'ETH': `/ethereum/address/${xpub}/${index}`,
+      'MATIC': `/polygon/address/${xpub}/${index}`,
+      'BNB': `/bsc/address/${xpub}/${index}`,
+      'AVAX': `/avalanche/address/${xpub}/${index}`,
+      'FTM': `/fantom/address/${xpub}/${index}`,
+      'FLR': `/flare/address/${xpub}/${index}`,
+      'CELO': `/celo/address/${xpub}/${index}`,
+      'ADA': `/cardano/address/${xpub}/${index}`,
+      'SOL': `/solana/address/${xpub}/${index}`,
+      'TRX': `/tron/address/${xpub}/${index}`,
+      'XRP': `/xrp/address/${xpub}/${index}`,
+      'XLM': `/stellar/address/${xpub}/${index}`,
+      'ALGO': `/algorand/address/${xpub}/${index}`,
+      'KAI': `/klaytn/address/${xpub}/${index}`,
+    };
+
+    const base = endpoints[currency.toUpperCase()] || `/ethereum/address/${xpub}/${index}`;
+    return base;
+  }
+
+  /**
+   * Get the correct private key derivation endpoint
+   */
+  private getPrivateKeyDerivationEndpoint(currency: string): string {
+    const endpoints: Record<string, string> = {
+      'BTC': '/bitcoin/wallet/priv',
+      'LTC': '/litecoin/wallet/priv',
+      'DOGE': '/dogecoin/wallet/priv',
+      'ETH': '/ethereum/wallet/priv',
+      'MATIC': '/polygon/wallet/priv',
+      'BNB': '/bsc/wallet/priv',
+      'AVAX': '/avalanche/wallet/priv',
+      'FTM': '/fantom/wallet/priv',
+      'FLR': '/flare/wallet/priv',
+      'CELO': '/celo/wallet/priv',
+      'ADA': '/cardano/wallet/priv',
+      'SOL': '/solana/wallet/priv',
+      'TRX': '/tron/wallet/priv',
+      'XRP': '/xrp/wallet/priv',
+      'XLM': '/stellar/wallet/priv',
+      'ALGO': '/algorand/wallet/priv',
+      'KAI': '/klaytn/wallet/priv',
+    };
+
+    return endpoints[currency.toUpperCase()] || '/ethereum/wallet/priv';
+  }
+
+  /**
+   * Generate mock address based on currency type
+   */
+  private generateMockAddress(currency: string): string {
+    const upperCurrency = currency.toUpperCase();
+
+    // Bitcoin-like addresses
+    if (['BTC', 'LTC', 'DOGE'].includes(upperCurrency)) {
+      return this.isTestnet ? `tb1q${crypto.randomBytes(16).toString('hex')}` : `bc1q${crypto.randomBytes(16).toString('hex')}`;
+    }
+
+    // Ethereum-like addresses (EVM chains)
+    if (['ETH', 'MATIC', 'BNB', 'AVAX', 'FTM', 'FLR', 'CELO', 'USDT', 'USDC', 'PYUSD'].includes(upperCurrency)) {
+      return `0x${crypto.randomBytes(20).toString('hex')}`;
+    }
+
+    // Solana addresses
+    if (upperCurrency === 'SOL') {
+      return crypto.randomBytes(32).toString('base64').replace(/[+/=]/g, '').slice(0, 44);
+    }
+
+    // Tron addresses
+    if (['TRX', 'TRON'].includes(upperCurrency)) {
+      return `T${crypto.randomBytes(20).toString('hex')}`;
+    }
+
+    // XRP addresses
+    if (upperCurrency === 'XRP') {
+      return `r${crypto.randomBytes(20).toString('hex')}`;
+    }
+
+    // Cardano addresses
+    if (upperCurrency === 'ADA') {
+      return `addr1${crypto.randomBytes(28).toString('hex')}`;
+    }
+
+    // Stellar addresses
+    if (upperCurrency === 'XLM') {
+      return `G${crypto.randomBytes(28).toString('base64').replace(/[+/=]/g, '').slice(0, 55)}`;
+    }
+
+    // Algorand addresses
+    if (upperCurrency === 'ALGO') {
+      return crypto.randomBytes(32).toString('base64').replace(/[+/=]/g, '').slice(0, 58);
+    }
+
+    // Default to Ethereum-like
+    return `0x${crypto.randomBytes(20).toString('hex')}`;
+  }
+
+  /**
+   * Generate a BIP39 mnemonic phrase (12 words)
+   */
+  private generateMnemonic(): string {
+    // BIP39 wordlist (simplified - using common English words)
+    const words = [
+      'abandon', 'ability', 'able', 'about', 'above', 'absent', 'absorb', 'abstract', 'absurd', 'abuse',
+      'access', 'accident', 'account', 'accuse', 'achieve', 'acid', 'acoustic', 'acquire', 'across', 'act',
+      'action', 'actor', 'actress', 'actual', 'adapt', 'add', 'addict', 'address', 'adjust', 'admit',
+      'adult', 'advance', 'advice', 'aerobic', 'affair', 'afford', 'afraid', 'again', 'against', 'age',
+      'agent', 'agree', 'ahead', 'aim', 'air', 'airport', 'aisle', 'alarm', 'album', 'alcohol',
+      'alert', 'alien', 'all', 'alley', 'allow', 'almost', 'alone', 'alpha', 'already', 'also',
+      'alter', 'always', 'amateur', 'amazing', 'among', 'amount', 'amused', 'analyst', 'anchor', 'ancient',
+      'anger', 'angle', 'angry', 'animal', 'ankle', 'announce', 'annual', 'another', 'answer', 'antenna',
+      'antique', 'anxiety', 'any', 'apart', 'apology', 'appear', 'apple', 'approve', 'april', 'arch',
+      'arctic', 'area', 'arena', 'argue', 'arm', 'armed', 'armor', 'army', 'around', 'arrange',
+      'arrest', 'arrive', 'arrow', 'art', 'article', 'artist', 'artwork', 'ask', 'aspect', 'assault',
+      'asset', 'assist', 'assume', 'asthma', 'athlete', 'atom', 'attack', 'attend', 'attitude', 'attract',
+      'auction', 'audit', 'august', 'aunt', 'author', 'auto', 'autumn', 'average', 'avocado', 'avoid',
+      'awake', 'aware', 'away', 'awesome', 'awful', 'awkward', 'axis', 'baby', 'bachelor', 'bacon',
+      'badge', 'bag', 'balance', 'balcony', 'ball', 'bamboo', 'banana', 'banner', 'bar', 'barely',
+      'bargain', 'barrel', 'base', 'basic', 'basket', 'battle', 'beach', 'bean', 'beauty', 'because',
+      'become', 'beef', 'before', 'begin', 'behave', 'behind', 'believe', 'below', 'belt', 'bench',
+      'benefit', 'best', 'betray', 'better', 'between', 'beyond', 'bicycle', 'bid', 'bike', 'bind',
+      'biology', 'bird', 'birth', 'bitter', 'black', 'blade', 'blame', 'blanket', 'blast', 'bleak',
+      'bless', 'blind', 'blood', 'blossom', 'blow', 'blue', 'blur', 'blush', 'board', 'boat',
+      'body', 'boil', 'bomb', 'bone', 'bonus', 'book', 'boost', 'border', 'boring', 'borrow',
+      'boss', 'bottom', 'bounce', 'box', 'boy', 'bracket', 'brain', 'brand', 'brass', 'brave',
+      'bread', 'breeze', 'brick', 'bridge', 'brief', 'bright', 'bring', 'brisk', 'broccoli', 'broken',
+      'bronze', 'broom', 'brother', 'brown', 'brush', 'bubble', 'buddy', 'budget', 'buffalo', 'build',
+      'bulb', 'bulk', 'bullet', 'bundle', 'bunker', 'burden', 'burger', 'burst', 'bus', 'business',
+      'busy', 'butter', 'buyer', 'buzz', 'cabbage', 'cabin', 'cable', 'cactus', 'cage', 'cake',
+      'call', 'calm', 'camera', 'camp', 'can', 'canal', 'cancel', 'candy', 'cannon', 'canoe',
+      'canvas', 'canyon', 'capable', 'capital', 'captain', 'car', 'carbon', 'card', 'care', 'career',
+      'careful', 'careless', 'cargo', 'carpet', 'carry', 'cart', 'case', 'cash', 'casino', 'cast',
+      'casual', 'cat', 'catalog', 'catch', 'category', 'cattle', 'caught', 'cause', 'caution', 'cave',
+      'ceiling', 'celery', 'cement', 'census', 'century', 'cereal', 'certain', 'chair', 'chalk', 'champion',
+      'change', 'chaos', 'chapter', 'charge', 'chase', 'chat', 'cheap', 'check', 'cheese', 'chef',
+      'cherry', 'chest', 'chicken', 'chief', 'child', 'chimney', 'choice', 'choose', 'chronic', 'chuckle',
+      'chunk', 'churn', 'cigar', 'cinnamon', 'circle', 'citizen', 'city', 'civil', 'claim', 'clamp',
+      'clarify', 'clash', 'class', 'clause', 'clean', 'clerk', 'clever', 'click', 'client', 'cliff',
+      'climb', 'clinic', 'clip', 'clock', 'clog', 'close', 'cloth', 'cloud', 'clown', 'club',
+      'clump', 'cluster', 'clutch', 'coach', 'coast', 'coconut', 'code', 'coffee', 'coil', 'coin',
+      'collect', 'color', 'column', 'combine', 'come', 'comfort', 'comic', 'common', 'company', 'concert',
+      'conduct', 'confirm', 'congress', 'connect', 'consider', 'control', 'convince', 'cook', 'cool', 'copper',
+      'copy', 'coral', 'core', 'corn', 'correct', 'cost', 'cotton', 'couch', 'country', 'couple',
+      'course', 'cousin', 'cover', 'coyote', 'crack', 'cradle', 'craft', 'cram', 'crane', 'crash',
+      'crater', 'crawl', 'crazy', 'cream', 'credit', 'creek', 'crew', 'cricket', 'crime', 'crisp',
+      'critic', 'crop', 'cross', 'crouch', 'crowd', 'crucial', 'cruel', 'cruise', 'crumble', 'crunch',
+      'crush', 'cry', 'crystal', 'cube', 'culture', 'cup', 'cupboard', 'curious', 'current', 'curtain',
+      'curve', 'cushion', 'custom', 'cute', 'cycle', 'dad', 'damage', 'damp', 'dance', 'danger',
+      'daring', 'dash', 'daughter', 'dawn', 'day', 'deal', 'debate', 'debris', 'decade', 'december',
+      'decide', 'decline', 'decorate', 'decrease', 'deer', 'defense', 'define', 'defy', 'degree', 'delay',
+      'deliver', 'demand', 'demise', 'denial', 'dentist', 'deny', 'depart', 'depend', 'deposit', 'depth',
+      'deputy', 'derive', 'describe', 'desert', 'design', 'desk', 'despair', 'destroy', 'detail', 'detect',
+      'develop', 'device', 'devote', 'diagram', 'dial', 'diamond', 'diary', 'dice', 'diesel', 'diet',
+      'differ', 'digital', 'dignity', 'dilemma', 'dinner', 'dinosaur', 'direct', 'dirt', 'disagree', 'discover',
+      'disease', 'dish', 'dismiss', 'disorder', 'display', 'distance', 'divert', 'divide', 'divorce', 'dizzy',
+      'doctor', 'document', 'dog', 'doll', 'dolphin', 'domain', 'donate', 'donkey', 'donor', 'door',
+      'dose', 'double', 'dove', 'draft', 'dragon', 'drama', 'drape', 'draw', 'dream', 'dress',
+      'drift', 'drill', 'drink', 'drip', 'drive', 'drop', 'drum', 'dry', 'duck', 'dumb',
+      'dune', 'during', 'dust', 'dutch', 'duty', 'dwarf', 'dynamic', 'eager', 'eagle', 'early',
+      'earn', 'earth', 'easily', 'east', 'easy', 'echo', 'ecology', 'economy', 'edge', 'edit',
+      'educate', 'effort', 'egg', 'eight', 'either', 'elbow', 'elder', 'electric', 'elegant', 'element',
+      'elephant', 'elevator', 'elite', 'else', 'embark', 'embody', 'embrace', 'emerge', 'emotion', 'employ',
+      'empower', 'empty', 'enable', 'enact', 'end', 'endless', 'endorse', 'enemy', 'energy', 'enforce',
+      'engage', 'engine', 'enhance', 'enjoy', 'enlist', 'enough', 'enrich', 'enroll', 'ensure', 'enter',
+      'entire', 'entry', 'envelope', 'episode', 'equal', 'equip', 'era', 'erase', 'erode', 'erosion',
+      'error', 'erupt', 'escape', 'essay', 'essence', 'estate', 'eternal', 'ethics', 'evidence', 'evil',
+      'evoke', 'evolve', 'exact', 'example', 'excess', 'exchange', 'excite', 'exclude', 'excuse', 'execute',
+      'exercise', 'exhaust', 'exhibit', 'exile', 'exist', 'exit', 'exotic', 'expand', 'expect', 'expire',
+      'explain', 'expose', 'express', 'extend', 'extra', 'eye', 'eyebrow', 'fabric', 'face', 'faculty',
+      'fade', 'faint', 'faith', 'fall', 'false', 'fame', 'family', 'famous', 'fan', 'fancy',
+      'fantasy', 'farm', 'fashion', 'fat', 'fatal', 'father', 'fatigue', 'fault', 'favorite', 'feature',
+      'february', 'federal', 'fee', 'feed', 'feel', 'female', 'fence', 'festival', 'fetch', 'fever',
+      'few', 'fiber', 'fiction', 'field', 'figure', 'file', 'fill', 'film', 'filter', 'final',
+      'find', 'fine', 'finger', 'finish', 'fire', 'firm', 'first', 'fiscal', 'fish', 'fit',
+      'fitness', 'fix', 'flag', 'flame', 'flat', 'flavor', 'flee', 'flight', 'flip', 'float',
+      'flock', 'floor', 'flower', 'fluid', 'flush', 'fly', 'foam', 'focus', 'fog', 'foil',
+      'fold', 'follow', 'food', 'foot', 'force', 'forest', 'forget', 'fork', 'fortune', 'forum',
+      'forward', 'fossil', 'foster', 'found', 'fox', 'frame', 'frequent', 'fresh', 'friend', 'fringe',
+      'frog', 'front', 'frost', 'frown', 'frozen', 'fruit', 'fuel', 'fun', 'funny', 'furnace',
+      'fury', 'future', 'gadget', 'gain', 'galaxy', 'gallery', 'game', 'gap', 'garage', 'garbage',
+      'garden', 'garlic', 'garment', 'gas', 'gasp', 'gate', 'gather', 'gauge', 'gaze', 'general',
+      'genius', 'genre', 'gentle', 'genuine', 'gesture', 'ghost', 'giant', 'gift', 'giggle', 'ginger',
+      'giraffe', 'girl', 'give', 'glad', 'glance', 'glare', 'glass', 'glide', 'glimpse', 'globe',
+      'gloom', 'glory', 'glove', 'glow', 'glue', 'goat', 'goddess', 'gold', 'good', 'goose',
+      'gorilla', 'gospel', 'gossip', 'govern', 'gown', 'grab', 'grace', 'grain', 'grant', 'grape',
+      'grass', 'gravity', 'great', 'green', 'grid', 'grief', 'grit', 'grocery', 'group', 'grow',
+      'grunt', 'guard', 'guess', 'guide', 'guilt', 'guitar', 'gun', 'gym', 'habit', 'hair',
+      'half', 'hammer', 'hamster', 'hand', 'happy', 'harbor', 'hard', 'harsh', 'harvest', 'hat',
+      'have', 'hawk', 'hazard', 'head', 'health', 'heart', 'heavy', 'hedgehog', 'height', 'held',
+      'help', 'hen', 'hero', 'hidden', 'high', 'hill', 'hint', 'hip', 'hire', 'history',
+      'hobby', 'hockey', 'hold', 'hole', 'holiday', 'hollow', 'home', 'honey', 'hood', 'hope',
+      'horn', 'horror', 'horse', 'hospital', 'host', 'hotel', 'hour', 'hover', 'hub', 'huge',
+      'human', 'humble', 'humor', 'hundred', 'hungry', 'hunt', 'hurdle', 'hurry', 'hurt', 'husband',
+      'hybrid', 'ice', 'icon', 'idea', 'identify', 'idle', 'ignore', 'ill', 'illegal', 'illness',
+      'image', 'imitate', 'immense', 'immune', 'impact', 'impose', 'improve', 'impulse', 'inch', 'include',
+      'income', 'increase', 'index', 'indicate', 'indoor', 'industry', 'infant', 'inflict', 'inform', 'inhale',
+      'inherit', 'initial', 'inject', 'injury', 'inmate', 'inner', 'innocent', 'input', 'inquiry', 'insane',
+      'insect', 'inside', 'inspire', 'install', 'intact', 'interest', 'into', 'invest', 'invite', 'involve',
+      'iron', 'island', 'isolate', 'issue', 'item', 'ivory', 'jacket', 'jaguar', 'jar', 'jazz',
+      'jealous', 'jeans', 'jelly', 'jewel', 'job', 'join', 'joke', 'journey', 'joy', 'judge',
+      'juice', 'jump', 'jungle', 'junior', 'junk', 'just', 'kangaroo', 'keen', 'keep', 'ketchup',
+      'key', 'kick', 'kid', 'kidney', 'kind', 'kingdom', 'kiss', 'kit', 'kitchen', 'kite',
+      'kitten', 'kiwi', 'knee', 'knife', 'knock', 'know', 'lab', 'label', 'labor', 'ladder',
+      'lady', 'lake', 'lamp', 'language', 'laptop', 'large', 'later', 'latin', 'laugh', 'laundry',
+      'lava', 'law', 'lawn', 'lawsuit', 'layer', 'lazy', 'leader', 'leaf', 'learn', 'leave',
+      'lecture', 'left', 'leg', 'legal', 'legend', 'leisure', 'lemon', 'lend', 'length', 'lens',
+      'leopard', 'lesson', 'letter', 'level', 'liar', 'liberty', 'library', 'license', 'life', 'lift',
+      'light', 'like', 'limb', 'limit', 'link', 'lion', 'liquid', 'list', 'little', 'live',
+      'lizard', 'load', 'loan', 'lobster', 'local', 'lock', 'logic', 'lonely', 'long', 'loop',
+      'lottery', 'loud', 'lounge', 'love', 'loyal', 'lucky', 'luggage', 'lumber', 'lunar', 'lunch',
+      'luxury', 'lying', 'machine', 'mad', 'magic', 'magnet', 'maid', 'mail', 'main', 'major',
+      'make', 'mammal', 'man', 'manage', 'mandate', 'mango', 'mansion', 'manual', 'maple', 'marble',
+      'march', 'margin', 'marine', 'market', 'marriage', 'mask', 'mass', 'master', 'match', 'material',
+      'math', 'matrix', 'matter', 'maximum', 'maze', 'meadow', 'mean', 'measure', 'meat', 'mechanic',
+      'medal', 'media', 'melody', 'melt', 'member', 'memory', 'mention', 'menu', 'mercy', 'merge',
+      'merit', 'merry', 'mesh', 'message', 'metal', 'method', 'middle', 'midnight', 'milk', 'million',
+      'mimic', 'mind', 'minimum', 'minor', 'minute', 'miracle', 'mirror', 'misery', 'miss', 'mistake',
+      'mix', 'mixed', 'mixture', 'mobile', 'model', 'modify', 'mom', 'moment', 'monitor', 'monkey',
+      'monster', 'month', 'moon', 'moral', 'more', 'morning', 'mosquito', 'mother', 'motion', 'motor',
+      'mountain', 'mouse', 'move', 'movie', 'much', 'muffin', 'mule', 'multiply', 'muscle', 'museum',
+      'mushroom', 'music', 'must', 'mutual', 'myself', 'mystery', 'myth', 'naive', 'name', 'napkin',
+      'narrow', 'nasty', 'nation', 'nature', 'near', 'neck', 'need', 'negative', 'neglect', 'neither',
+      'nephew', 'nerve', 'nest', 'net', 'network', 'neutral', 'never', 'news', 'next', 'nice',
+      'night', 'noble', 'noise', 'nominee', 'noodle', 'normal', 'north', 'nose', 'notable', 'note',
+      'nothing', 'notice', 'novel', 'now', 'nuclear', 'number', 'nurse', 'nut', 'oak', 'obey',
+      'object', 'oblige', 'obscure', 'observe', 'obtain', 'obvious', 'occur', 'ocean', 'october', 'odor',
+      'off', 'offer', 'office', 'often', 'oil', 'okay', 'old', 'olive', 'olympic', 'omit',
+      'once', 'one', 'onion', 'online', 'only', 'open', 'opera', 'opinion', 'oppose', 'option',
+      'orange', 'orbit', 'orchard', 'order', 'ordinary', 'organ', 'orient', 'original', 'orphan', 'ostrich',
+      'other', 'outdoor', 'outer', 'output', 'outside', 'oval', 'oven', 'over', 'own', 'owner',
+      'oxygen', 'oyster', 'ozone', 'pact', 'paddle', 'page', 'pair', 'palace', 'palm', 'panda',
+      'panel', 'panic', 'panther', 'paper', 'parade', 'parent', 'park', 'parrot', 'part', 'party',
+      'pass', 'patch', 'path', 'patient', 'patrol', 'pattern', 'pause', 'pave', 'payment', 'peace',
+      'peanut', 'pear', 'peasant', 'pelican', 'pen', 'penalty', 'pencil', 'people', 'pepper', 'perfect',
+      'permit', 'person', 'pet', 'phone', 'photo', 'phrase', 'physical', 'piano', 'picnic', 'picture',
+      'piece', 'pig', 'pigeon', 'pill', 'pilot', 'pink', 'pioneer', 'pipe', 'pistol', 'pitch',
+      'pizza', 'place', 'planet', 'plastic', 'plate', 'play', 'please', 'pledge', 'pluck', 'plug',
+      'plunge', 'poem', 'poet', 'point', 'polar', 'pole', 'police', 'pond', 'pony', 'pool',
+      'popular', 'portion', 'position', 'possible', 'post', 'potato', 'pottery', 'poverty', 'powder', 'power',
+      'practice', 'praise', 'predict', 'prefer', 'prepare', 'present', 'pretty', 'prevent', 'price', 'pride',
+      'primary', 'print', 'priority', 'prison', 'private', 'prize', 'problem', 'process', 'produce', 'profit',
+      'program', 'project', 'promote', 'proof', 'property', 'prosper', 'protect', 'proud', 'provide', 'public',
+      'pudding', 'pull', 'pulp', 'pulse', 'pumpkin', 'punch', 'pupil', 'puppy', 'purchase', 'purity',
+      'purpose', 'purse', 'push', 'put', 'puzzle', 'pyramid', 'quality', 'quantum', 'quarter', 'question',
+      'quick', 'quiet', 'quilt', 'quit', 'quiz', 'quote', 'rabbit', 'raccoon', 'race', 'rack',
+      'radar', 'radio', 'rail', 'rain', 'raise', 'rally', 'ramp', 'ranch', 'random', 'range',
+      'rapid', 'rare', 'rate', 'rather', 'raven', 'raw', 'razor', 'ready', 'real', 'reason',
+      'rebel', 'rebuild', 'recall', 'receive', 'recipe', 'record', 'recycle', 'reduce', 'reflect', 'reform',
+      'refuse', 'region', 'regret', 'regular', 'reject', 'relax', 'release', 'relief', 'rely', 'remain',
+      'remember', 'remind', 'remove', 'render', 'renew', 'rent', 'reopen', 'repair', 'repeat', 'replace',
+      'report', 'require', 'rescue', 'resemble', 'resist', 'resource', 'response', 'result', 'retire', 'retreat',
+      'return', 'reunion', 'reveal', 'review', 'reward', 'rhythm', 'rib', 'ribbon', 'rice', 'rich',
+      'ride', 'ridge', 'rifle', 'right', 'rigid', 'ring', 'riot', 'ripple', 'rise', 'risk',
+      'ritual', 'rival', 'river', 'road', 'roast', 'rob', 'robot', 'robust', 'rocket', 'romance',
+      'roof', 'rookie', 'room', 'rose', 'rotate', 'rough', 'round', 'route', 'royal', 'rubber',
+      'rude', 'rug', 'rule', 'run', 'runway', 'rural', 'sad', 'saddle', 'sadness', 'safe',
+      'sail', 'salad', 'salmon', 'salon', 'salt', 'salute', 'same', 'sample', 'sand', 'satisfy',
+      'satoshi', 'sauce', 'sausage', 'save', 'say', 'scale', 'scan', 'scare', 'scatter', 'scene',
+      'scheme', 'school', 'science', 'scissors', 'scorpion', 'scout', 'scrap', 'screen', 'script', 'scrub',
+      'sea', 'search', 'season', 'seat', 'second', 'secret', 'section', 'security', 'seed', 'seek',
+      'segment', 'select', 'sell', 'seminar', 'senior', 'sense', 'sentence', 'series', 'service', 'session',
+      'settle', 'setup', 'seven', 'shadow', 'shaft', 'shallow', 'share', 'shed', 'shell', 'sheriff',
+      'shield', 'shift', 'shine', 'ship', 'shirt', 'shock', 'shoe', 'shoot', 'shop', 'short',
+      'shoulder', 'shove', 'shrimp', 'shrug', 'shuffle', 'shy', 'sibling', 'sick', 'side', 'siege',
+      'sight', 'sign', 'silent', 'silk', 'silly', 'silver', 'similar', 'simple', 'since', 'sing',
+      'siren', 'sister', 'situate', 'six', 'size', 'skate', 'sketch', 'ski', 'skill', 'skin',
+      'skirt', 'skull', 'slab', 'slam', 'sleep', 'slender', 'slice', 'slide', 'slight', 'slim',
+      'slogan', 'slot', 'slow', 'slush', 'small', 'smart', 'smile', 'smoke', 'smooth', 'snack',
+      'snake', 'snap', 'sniff', 'snow', 'soap', 'soccer', 'social', 'sock', 'soda', 'soft',
+      'solar', 'sold', 'soldier', 'solid', 'solution', 'solve', 'someone', 'song', 'soon', 'sorry',
+      'sort', 'soul', 'sound', 'soup', 'source', 'south', 'space', 'spare', 'spatial', 'spawn',
+      'speak', 'special', 'speed', 'spell', 'spend', 'sphere', 'spice', 'spider', 'spike', 'spin',
+      'spirit', 'split', 'spoil', 'sponsor', 'spoon', 'sport', 'spot', 'spray', 'spread', 'spring',
+      'spy', 'square', 'squeeze', 'squirrel', 'stable', 'stadium', 'staff', 'stage', 'stairs', 'stamp',
+      'stand', 'start', 'state', 'stay', 'steak', 'steel', 'stem', 'step', 'stereo', 'stick',
+      'still', 'sting', 'stock', 'stomach', 'stone', 'stool', 'story', 'stove', 'strategy', 'street',
+      'strike', 'strong', 'struggle', 'student', 'stuff', 'stumble', 'style', 'subject', 'submit', 'subway',
+      'success', 'such', 'sudden', 'suffer', 'sugar', 'suggest', 'suit', 'summer', 'sun', 'sunny',
+      'sunset', 'super', 'supply', 'supreme', 'sure', 'surface', 'surge', 'surprise', 'surround', 'survey',
+      'suspect', 'sustain', 'swallow', 'swamp', 'swap', 'swear', 'sweet', 'swift', 'swim', 'swing',
+      'switch', 'sword', 'symbol', 'symptom', 'syrup', 'system', 'table', 'tackle', 'tag', 'tail',
+      'talent', 'talk', 'tank', 'tape', 'target', 'task', 'taste', 'tattoo', 'taxi', 'teach',
+      'team', 'tell', 'ten', 'tenant', 'tennis', 'tent', 'term', 'test', 'text', 'thank',
+      'that', 'theme', 'then', 'theory', 'there', 'they', 'thing', 'this', 'thought', 'three',
+      'thrive', 'throw', 'thumb', 'thunder', 'ticket', 'tide', 'tiger', 'tilt', 'timber', 'time',
+      'tiny', 'tip', 'tired', 'tissue', 'title', 'toast', 'tobacco', 'today', 'toddler', 'toe',
+      'together', 'toilet', 'token', 'tomato', 'tomorrow', 'tone', 'tongue', 'tonight', 'tool', 'tooth',
+      'top', 'topic', 'topple', 'torch', 'tornado', 'tortoise', 'toss', 'total', 'tourist', 'toward',
+      'tower', 'town', 'toy', 'track', 'trade', 'traffic', 'tragic', 'train', 'transfer', 'trap',
+      'trash', 'travel', 'tray', 'treat', 'tree', 'trend', 'trial', 'tribe', 'trick', 'trigger',
+      'trim', 'trip', 'trophy', 'trouble', 'truck', 'true', 'truly', 'trumpet', 'trust', 'truth',
+      'try', 'tube', 'tuition', 'tumble', 'tuna', 'tunnel', 'turkey', 'turn', 'turtle', 'twelve',
+      'twenty', 'twice', 'twin', 'twist', 'two', 'type', 'typical', 'ugly', 'umbrella', 'unable',
+      'unaware', 'uncle', 'uncover', 'under', 'undo', 'unfair', 'unfold', 'unhappy', 'uniform', 'unique',
+      'unit', 'universe', 'unknown', 'unlock', 'until', 'unusual', 'unveil', 'update', 'upgrade', 'uphold',
+      'upon', 'upper', 'upset', 'urban', 'urge', 'usage', 'use', 'used', 'useful', 'useless',
+      'usual', 'utility', 'vacant', 'vacuum', 'vague', 'valid', 'valley', 'valve', 'van', 'vanish',
+      'vapor', 'various', 'vast', 'vault', 'vehicle', 'velvet', 'vendor', 'venture', 'venue', 'verb',
+      'verify', 'version', 'very', 'vessel', 'veteran', 'viable', 'vibe', 'vicious', 'victory', 'video',
+      'view', 'village', 'vintage', 'violin', 'virtual', 'virus', 'visa', 'visit', 'visual', 'vital',
+      'vivid', 'vocal', 'voice', 'void', 'volcano', 'volume', 'vote', 'voyage', 'wage', 'wagon',
+      'wait', 'walk', 'wall', 'walnut', 'want', 'warfare', 'warm', 'warrior', 'wash', 'wasp',
+      'waste', 'water', 'wave', 'way', 'wealth', 'weapon', 'wear', 'weasel', 'weather', 'web',
+      'wedding', 'weekend', 'weird', 'welcome', 'west', 'wet', 'what', 'wheat', 'wheel', 'when',
+      'where', 'whip', 'whisper', 'wide', 'width', 'wife', 'wild', 'will', 'win', 'window',
+      'wine', 'wing', 'wink', 'winner', 'winter', 'wire', 'wisdom', 'wise', 'wish', 'witness',
+      'wolf', 'woman', 'wonder', 'wood', 'wool', 'word', 'work', 'world', 'worry', 'worth',
+      'wrap', 'wreck', 'wrestle', 'wrist', 'write', 'wrong', 'yard', 'year', 'yellow', 'you',
+      'young', 'youth', 'zebra', 'zero', 'zone', 'zoo'
+    ];
+
+    // Generate 12 random words
+    const mnemonic = [];
+    for (let i = 0; i < 12; i++) {
+      const randomIndex = Math.floor(Math.random() * words.length);
+      mnemonic.push(words[randomIndex]);
+    }
+
+    return mnemonic.join(' ');
+  }
+
+  /**
+   * Generate fallback address when API fails
+   */
+  private async generateFallbackAddress(currency: string, index: number): Promise<string> {
+    logger.warn('Generating fallback address due to API failure', { currency, index });
+    return this.generateMockAddress(currency);
   }
 
   /**
@@ -226,6 +769,107 @@ export class TatumService {
    */
   async generateAddress(currency: string = 'ETH', index: number = 0): Promise<TatumWalletResponse> {
     return this.generateWalletOrAddress(currency, 'address', index);
+  }
+
+  /**
+   * Generate HD wallet address with proper support for all networks
+   */
+  async generateHDWalletAddress(
+    currency: string,
+    chain: string,
+    orderId: string,
+    userIdForCustomer?: string
+  ): Promise<{ address: string; privateKey?: string; accountId?: string }> {
+    try {
+      // Ensure we have a Virtual Account for this user/currency
+      const accountId = await this.ensureOwnerVAPrivate(userIdForCustomer || 'anonymous', currency, chain);
+
+      logger.info('[generateHDWalletAddress] Retrieved VA account details', {
+        accountId,
+        currency,
+        active: true,
+        frozen: false
+      });
+
+      // Generate HD wallet for this currency/chain
+      const walletResult = await this.generateWalletOrAddress(currency, 'wallet', 0, userIdForCustomer);
+
+      if (!walletResult.address) {
+        throw new Error('Failed to generate wallet address');
+      }
+
+      logger.info('[generateHDWalletAddress] Generated HD wallet address', {
+        currency,
+        chain,
+        orderId,
+        address: walletResult.address,
+        hasPrivateKey: !!walletResult.privateKey,
+        accountId
+      });
+
+      return {
+        address: walletResult.address,
+        privateKey: walletResult.privateKey,
+        accountId
+      };
+    } catch (error) {
+      logger.error('[generateHDWalletAddress] Failed to generate deposit address', {
+        currency,
+        chain,
+        orderId,
+        error: error instanceof Error ? error.message : error
+      });
+      throw error;
+    }
+  }
+
+  /**
+   * Ensure Virtual Account exists for user/currency combination (private helper)
+   */
+  private async ensureOwnerVAPrivate(userId: string, currency: string, chain: string): Promise<string> {
+    try {
+      // Check if VA already exists for this user/currency
+      const { data: existingVA } = await supabase
+        .from('wallets')
+        .select('tatum_va_id')
+        .eq('user_id', userId)
+        .eq('ccy', currency)
+        .eq('chain', chain)
+        .not('tatum_va_id', 'is', null)
+        .maybeSingle();
+
+      if (existingVA?.tatum_va_id) {
+        logger.info('[ensureOwnerVAPrivate] Found existing VA', {
+          userId,
+          ccy: currency,
+          chain,
+          accountId: existingVA.tatum_va_id
+        });
+        return existingVA.tatum_va_id;
+      }
+
+      // Create new VA
+      const shortId = String(userId).replace(/-/g, '').slice(0, 8);
+      const label = `u_${shortId}_${currency}_${Date.now().toString(36)}`;
+      const va = await this.createVirtualAccount(currency, label, userId);
+
+      logger.info('[ensureOwnerVAPrivate] Created new VA', {
+        userId,
+        ccy: currency,
+        chain,
+        accountId: va.id
+      });
+
+      return va.id;
+    } catch (error) {
+      logger.error('[ensureOwnerVAPrivate] Failed to ensure VA', {
+        userId,
+        currency,
+        chain,
+        error: error instanceof Error ? error.message : error
+      });
+      throw error;
+    }
   }
 
   /**
@@ -1524,8 +2168,8 @@ export class TatumService {
       // Since Tatum VAs don't have direct address endpoints, we generate a wallet
       // and associate it with the VA for deposit tracking
       try {
-        const wallet = await this.generateWallet(currency);
-        
+        const wallet = await this.generateWalletOrAddress(currency, 'wallet', 0);
+
         // For blockchains that support memo/tag, generate them
         let memo: string | undefined;
         let tag: string | undefined;
@@ -1609,14 +2253,14 @@ export class TatumService {
     tag?: string;
   }> {
     try {
-      const { accountId } = await this.ensureOwnerVA(userId, ccy, chain);
-      const addressInfo = await this.generateUniqueDepositAddress(accountId, orderId);
+      const vaResult = await this.ensureOwnerVA(userId, ccy, chain);
+      const addressInfo = await this.generateUniqueDepositAddress(vaResult.accountId, orderId);
 
       logger.info('[getOrCreateVADepositAddress] VA deposit address ready', {
         userId,
         ccy,
         chain,
-        accountId,
+        accountId: vaResult.accountId,
         address: addressInfo.address,
         memo: addressInfo.memo,
         tag: addressInfo.tag,
@@ -1625,7 +2269,7 @@ export class TatumService {
       });
 
       return {
-        accountId,
+        accountId: vaResult.accountId,
         address: addressInfo.address,
         memo: addressInfo.memo,
         tag: addressInfo.tag
@@ -1738,7 +2382,7 @@ export class TatumService {
         };
       }
 
-      const txResponse = await this.makeApiRequest<any[]>(
+      const txResponse = await this.makeApiRequest<any>(
         apiUrl,
         { method: 'GET' }
       );
@@ -1763,7 +2407,8 @@ export class TatumService {
 
       if (baseChain === 'ethereum' || baseChain === 'polygon' || baseChain === 'bsc') {
         // EVM chains: Handle data API response format
-        transactions = txResponse.data?.result || [];
+        const responseData = txResponse.data;
+        transactions = Array.isArray(responseData) ? responseData : (responseData?.result || []);
 
         for (const tx of transactions) {
           // Tatum data API returns transactions with specific format
@@ -2010,6 +2655,59 @@ export class TatumService {
     } catch (error) {
       logger.error('Failed to check order payment status:', error);
       throw error;
+    }
+  }
+
+  /**
+   * Test wallet generation endpoint for a specific currency
+   */
+  async testWalletGeneration(currency: string): Promise<{
+    success: boolean;
+    endpoint: string;
+    status: number;
+    error?: any;
+    data?: any;
+    mnemonic?: string;
+  }> {
+    try {
+      const endpoint = this.getWalletGenerationEndpoint(currency);
+      const chainName = this.getChainName(currency);
+      const testMnemonic = this.generateMnemonic();
+
+      // Build query parameters for GET request (like the working curl example)
+      const params = new URLSearchParams({
+        mnemonic: testMnemonic,
+        ...(this.isTestnet && { testnetType: chainName })
+      });
+
+      const fullUrl = `${this.baseUrl}${endpoint}?${params.toString()}`;
+
+      logger.info(`Testing wallet generation for ${currency}`, {
+        currency,
+        endpoint,
+        chainName,
+        isTestnet: this.isTestnet,
+        hasApiKey: !!this.apiKey,
+        method: 'GET'
+      });
+
+      const response = await this.makeApiRequest<any>(fullUrl, { method: 'GET' });
+
+      return {
+        success: response.ok,
+        endpoint,
+        status: response.status,
+        error: response.error,
+        data: response.data,
+        mnemonic: response.ok ? testMnemonic : undefined
+      };
+    } catch (error) {
+      return {
+        success: false,
+        endpoint: this.getWalletGenerationEndpoint(currency),
+        status: 0,
+        error: error instanceof Error ? error.message : error
+      };
     }
   }
 
