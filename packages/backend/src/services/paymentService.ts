@@ -34,6 +34,8 @@ export interface PaymentOrder {
     network: string;
     amount: string;
     qrCode: string;
+    memo?: string;
+    tag?: string;
   };
   expiresAt: string;
   createdAt: string;
@@ -183,11 +185,13 @@ export class PaymentService {
             accountId: vaResult.accountId
           });
 
-          // Generate QR code
+          // Generate QR code with memo/tag support
           const qrCode = this.generateQRCode(
             vaResult.address,
             cryptoCurrency,
-            expectedCryptoAmount ? expectedCryptoAmount.toFixed(8) : undefined
+            expectedCryptoAmount ? expectedCryptoAmount.toFixed(8) : undefined,
+            vaResult.memo,
+            vaResult.tag
           );
 
           cryptoInfo = {
@@ -201,7 +205,9 @@ export class PaymentService {
             conversion_rate: conversionInfo?.rate,
             conversion_source: conversionInfo?.source,
             conversion_at: conversionInfo?.at,
-            va_account_id: vaResult.accountId
+            va_account_id: vaResult.accountId,
+            memo: vaResult.memo,
+            tag: vaResult.tag
           };
 
           // Update order with crypto info (no webhook)
@@ -592,22 +598,51 @@ export class PaymentService {
   }
 
   /**
-   * Generate QR code data for payment
+   * Generate QR code data for payment with memo/tag support
    */
-  private generateQRCode(address: string, currency: string, amount?: string): string {
+  private generateQRCode(address: string, currency: string, amount?: string, memo?: string, tag?: string): string {
     // Generate QR code data based on currency
+    const params = new URLSearchParams();
+    
     switch (currency.toUpperCase()) {
       case 'ETH':
       case 'ETHEREUM':
-        return `ethereum:${address}${amount ? `?value=${amount}` : ''}`;
+        if (amount) params.set('value', amount);
+        if (memo) params.set('memo', memo);
+        if (tag) params.set('tag', tag);
+        return `ethereum:${address}${params.toString() ? `?${params.toString()}` : ''}`;
+        
       case 'BTC':
       case 'BITCOIN':
-        return `bitcoin:${address}${amount ? `?amount=${amount}` : ''}`;
+        if (amount) params.set('amount', amount);
+        if (memo) params.set('memo', memo);
+        if (tag) params.set('tag', tag);
+        return `bitcoin:${address}${params.toString() ? `?${params.toString()}` : ''}`;
+        
       case 'MATIC':
       case 'POLYGON':
-        return `ethereum:${address}${amount ? `?value=${amount}` : ''}`;
+        if (amount) params.set('value', amount);
+        if (memo) params.set('memo', memo);
+        if (tag) params.set('tag', tag);
+        return `ethereum:${address}${params.toString() ? `?${params.toString()}` : ''}`;
+        
+      case 'XRP':
+        if (amount) params.set('amount', amount);
+        if (tag) params.set('dt', tag); // XRP uses 'dt' for destination tag
+        return `xrp:${address}${params.toString() ? `?${params.toString()}` : ''}`;
+        
+      case 'XLM':
+      case 'STELLAR':
+        if (amount) params.set('amount', amount);
+        if (memo) params.set('memo', memo);
+        return `stellar:${address}${params.toString() ? `?${params.toString()}` : ''}`;
+        
       default:
-        return address;
+        // For other currencies, include memo/tag as generic parameters
+        if (amount) params.set('amount', amount);
+        if (memo) params.set('memo', memo);
+        if (tag) params.set('tag', tag);
+        return params.toString() ? `${address}?${params.toString()}` : address;
     }
   }
 

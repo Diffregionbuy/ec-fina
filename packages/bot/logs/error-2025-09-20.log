@@ -207,3 +207,38 @@
   message: 'Error handling interaction:',
   timestamp: '2025-09-20 00:20:05'
 }
+{
+  component: 'api',
+  service: 'discord-bot',
+  url: '/api/fees/estimate',
+  method: 'get',
+  status: undefined,
+  message: 'API request failed: timeout of 3200ms exceeded',
+  level: 'error',
+  timestamp: '2025-09-20 18:03:27'
+}
+{
+  component: 'events',
+  service: 'discord-bot',
+  error: 'The reply to this interaction has not been sent or deferred.',
+  stack: 'Error [InteractionNotReplied]: The reply to this interaction has not been sent or deferred.\n' +
+    '    at StringSelectMenuInteraction.followUp (C:\\Users\\pmp\\Desktop\\EC-finaa\\node_modules\\discord.js\\src\\structures\\interfaces\\InteractionResponses.js:282:48)\n' +
+    '    at InteractionHandler.handlePaymentSelect (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\src\\handlers\\interactionHandler.ts:1139:56)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async InteractionHandler.handleSelectMenu (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\src\\handlers\\interactionHandler.ts:359:17)\n' +
+    '    at async InteractionHandler.handleInteraction (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\src\\handlers\\interactionHandler.ts:180:17)\n' +
+    '    at async Client.<anonymous> (C:\\Users\\pmp\\Desktop\\EC-finaa\\packages\\bot\\src\\index.ts:67:13)',
+  level: 'error',
+  message: 'payment_select failed',
+  timestamp: '2025-09-20 18:04:48'
+}
+{
+  component: 'api',
+  service: 'discord-bot',
+  url: '/api/fees/estimate',
+  method: 'get',
+  status: undefined,
+  message: 'API request failed: timeout of 3200ms exceeded',
+  level: 'error',
+  timestamp: '2025-09-20 18:06:17'
+}
